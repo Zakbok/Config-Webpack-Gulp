@@ -1,0 +1,95 @@
+@import "functions";
+
+/****************************************************************************/
+/* COLOR PALETTE */
+/****************************************************************************/
+
+/**
+* Basic colors
+*/
+
+$color-primary: #9face6;
+$color-primary-darker: #808dd0;
+$color-secondary: #74ebd5;
+$color-tertiary: #484e6b;
+$color-quarternary: #b8bcce;
+$color-text: #484e6b;
+$color-text-darker: #555; //
+$color-text-dark: #000;
+$color-blank: #eee;
+
+
+/**
+* Validation colors
+*/
+
+$color-success: #15b500; //
+$color-success-light: #effff0; //
+$color-error: #ff4c6d;
+$color-error-light: #ffefef; //
+$color-warning: #fa7b6a; //
+$color-info: #ea9900; //
+$color-info-light: #fff4da; //
+
+
+/****************************************************************************/
+/* FONTS */
+/****************************************************************************/
+
+/**
+* Font families
+*/
+
+$font-primary: 'NunitoSans', sans-serif;
+
+
+/****************************************************************************/
+/* BREAKPOINTS */
+/****************************************************************************/
+
+$bp-xs: 320px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1366px;
+$bp-xxl: 1920px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+  xxl: $bp-xxl,
+);
+
+
+/****************************************************************************/
+/* UI */
+/****************************************************************************/
+
+$global-gutter: 25px;
+
+$spacers: (
+	1: 10px,
+	2: 20px,
+	3: 30px,
+	4: 40px,
+	5: 50px
+);
+
+$container-sm-width: $bp-sm - ((30 - $global-gutter) * 2);
+$container-md-width: $bp-md - ((30 - $global-gutter) * 2);
+$container-lg-width: $bp-lg - ((45 - $global-gutter) * 2);
+$container-xl-width: $bp-xl - ((110 - $global-gutter) * 2);
+$container-xxl-width: $bp-xxl - ((120 - $global-gutter) * 2);
+
+$container-max-widths: (
+	sm: $container-sm-width,
+	md: $container-md-width,
+	lg: $container-lg-width,
+	xl: $container-xl-width,
+	xxl: $container-xxl-width,
+);
+
+$grid-gutter-width: 30px;

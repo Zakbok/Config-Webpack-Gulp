@@ -1,0 +1,21 @@
+/****************************************************************************/
+/* BG COLOR */
+/****************************************************************************/
+
+@mixin color-class ($palette) {
+
+	@each $modifier, $color in $palette {
+
+		.u-bg-color-#{$modifier} {
+			background-color: $color;
+		}
+	}
+}
+
+$palette: (
+	('primary', $color-primary),
+	('primary-darker', $color-primary-darker),
+	('secondary', $color-secondary),
+);
+
+@include color-class($palette);

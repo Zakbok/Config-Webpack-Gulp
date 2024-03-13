@@ -1,0 +1,75 @@
+{# Параметры страницы #}
+
+{% set pageType = "innerPage" %}
+{% set pageWidth = "normalWidth" %}
+{% set hasSidebar = true %}
+{% set pageTitle = "Детальная" %}
+{% set hideH1 = true %}
+{% set accessRestricted = true %}
+{% set isAuthorized = true %}
+
+{# Параметры страницы #}
+
+{% extends "layouts/_layout.njk" %}
+{% block content %}
+
+<div class="alert-card alert-card_color_secondary alert-card_footer alert-card_size_lg mx-auto">
+	<div class="alert-card__body">
+		<div class="row align-items-lg-center">
+			<div class="alert-card__main col-12 col-lg-auto">
+				<div class="alert-card__title">Внимание!</div>
+
+				<img class="alert-card__img d-lg-none" src="images/umbrella.png" alt="">
+
+				<div class="alert-card__desc">
+					Произошел страховой случай. <br>
+					Для продолжения подъёма подтвердите действие.<br>
+					<br>
+					До завершения страховки осталось <span class="c-price c-price_current u-color-error">35 дней</span>
+				</div>
+			</div>
+			<div class="alert-card__aside col-12 d-none d-lg-block col-lg-auto">
+				<img class="alert-card__img" src="images/umbrella.png" alt="">
+			</div>
+		</div>
+		<svg class="alert-card__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+	</div>
+	<div class="alert-card__footer">
+		<div class="controls-list text-center">
+			<div class="controls-list__list row align-items-center">
+				<div class="controls-list__item col-12 col-lg-auto">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg w-100 w-lg-auto',
+							text: 'Я готов к подъёму',
+							icon: mixins.icon(
+								{
+									className: 'c-btn__icon svg-ico_no_stroke',
+									id: 'arrow-steps',
+									file: 'images/svg.svg'
+								}
+							),
+							iconPosition: 'after',
+							attrs: {
+								href: '#'
+							}
+						}
+					) }}
+				</div>
+				<div class="controls-list__item col-12 mt-1 col-lg-auto mt-lg-0">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_link c-btn_color_tertiary',
+							text: 'Отложить',
+							attrs: {
+								href: '#'
+							}
+						}
+					) }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

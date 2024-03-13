@@ -1,0 +1,200 @@
+{# Параметры страницы #}
+
+{% set pageType = "innerPage" %}
+{% set pageWidth = "fullWidth" %}
+{% set pageTitle = "Саморазвитие" %}
+{% set noPaddingBottom = true %}
+{% set footerColor = true %}
+
+{# Параметры страницы #}
+
+{% extends "layouts/_layout.njk" %}
+{% block content %}
+
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/lists/social-list/social-list.njk" as socialList %}
+{% import "components/forms/inline-form/inline-form.njk" as inlineForm %}
+{% import "components/lists/acns-list/acns-list.njk" as acnsList %}
+
+<section class="c-section c-section_size_lg pt-0">
+	<div class="container">
+		<div class="row row_gap_lg">
+			<div class="col-12 col-lg-6">
+				<section class="c-section c-section_size_sm pt-0">
+					«Ступени Жизни» - уникальная методика для саморазвития. Принцип ее работы очень простой. Каждый день ты открываешь новые ступени и получаешь новые знания, мудрость и очень простые практические задание, которые закрепляют полученные знания и способствуют формированию новых полезных и нужных привычек.<br>
+					<br>
+					Новые интересные задачи чередуются с важными и даже рутинными. Периодически случается тестирование, определяющее твой уровень прогресса. Из этого складывается увлекательный квест из 288 этапов, среди которых есть и ступени, и привалы, и заветная вершина, на которой тебя ожидает обновленный, сильный, наполненный энергией и мудростью и уверенный в себе Ты!
+				</section>
+			</div>
+			<div class="col-12 col-lg-6">
+				<section class="c-section c-section_size_sm pt-0">
+					<img src="images/img_about_1.jpg" alt="" class="c-img">
+				</section>
+			</div>
+			<div class="col-12 col-lg-6">
+				<section class="c-section c-section_size_sm pb-0">
+					<h2 class="c-title c-title_size_lg">Саморазвитие человека</h2>
+					Причин, чтобы измениться и изменить свою жизнь, может быть много. Кто-то постоянно ощущает внутреннюю неудовлетворенность, не видит смысла жизни, не ощущает счастья и переживает за будущее.<br>
+					<br>
+					Кто-то страдает из-за финансовой нестабильности, нелюбимой работы или сложных отношений в семье. Добавьте к этому отсутствие достижений и самореализации, социальную неудовлетворенность, отсутствие досуга и простых человеческих радостей.<br>
+					<br>
+					Кого-то угнетает лишний вес, плохая физическая форма, нездоровая самокритика, подавленное настроение, постоянная тоска, депрессия, опустошенность, разочарование в себе и в жизни. Список можно продолжать очень долго.<br>
+					<br>
+					Многие из нас пытаются заниматься саморазвитием, - читают правильные книги, блоги, смотрят мотивирующее видео, собирают советы друзей и знакомых, но не предпринимают никаких конкретных действий. Значит, проблема не в незнании.
+				</section>
+			</div>
+			<div class="col-12 col-lg-6">
+				<section class="c-section c-section_size_sm pb-0">
+					<h2 class="c-title c-title_size_lg">Саморазвитие личности</h2>
+					В большинстве случаев проблема в бездействии. Методика «Ступени Жизни» кардинально отличается от других способов саморазвития своей практической направленностью, и содержит конкретные и понятные пошаговые инструкции.<br>
+					<br>
+					Все задания квеста «Ступени Жизни» очень простые и занимают совсем немного времени, но выдающихся результатов добиваются не многие, и до самой вершины добираются далеко не все участники. Только люди действия. А к какой категории относишься ты?<br>
+					<br>
+					Если к людям действия, то сайт «Ступени Жизни» - то, что тебе нужно. 288 мини-квестов на каждый день с уникальной системой мотивации. Всё, что нужно сделать, - решиться на перемены и перейти от намерений к действиям. Вперёд, к первой ступени!
+					<div class="c-section__controls">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_sm_secondary',
+								text: 'Начать подъём',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'arrow-steps',
+										file: 'images/svg.svg'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: '#'
+								}
+							}
+						) }}
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="c-section c-section_size_lg faq-section c-section_decor_default u-bg-color-primary-darker">
+	<svg class="c-section__decor c-section__decor_before" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+	<svg class="c-section__decor c-section__decor_after" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+
+	<div class="container">
+		<h2 class="c-title c-title_size_xl">Популярные вопросы</h2>
+		{{ acnsList.default(
+			faqArr,
+			{
+				className: 'acns-list_size_sm',
+				acnClassName: 'c-acn_style_default c-acn_color_light',
+				showForm: true
+			}
+		) }}
+	</div>
+</section>
+
+<section class="c-section feedback-section c-section_decor_default u-bg-color-primary">
+	<svg class="c-section__decor c-section__decor_before" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+	<svg class="c-section__decor c-section__decor_after" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				<h2 class="c-title c-title_size_xl">Контакты</h2>
+				<div class="c-section__desc">Есть вопросы или предложения? Просто заполните форму, <br>и мы обязательно свяжемся с вами.</div>
+				<div class="contacts-list contacts-list_contacts">
+					<div class="contacts-list__list row">
+						<div class="contacts-list__item col-12 col-xxl-4">
+							<div class="contact-label">EMAIL</div>
+							<a class="contact-item contact-item_default contact-item_events" href="#">your@example.ru</a>
+						</div>
+						<div class="contacts-list__item col-12 col-xxl-4">
+							<div class="contact-label">Телефон</div>
+							<a class="contact-item contact-item_default contact-item_events" href="#">+7 999 999 99 99</a>
+						</div>
+						<div class="contacts-list__item col-12 col-xxl-4">
+							<div class="contact-label">соц. сети</div>
+							{{ socialList.default(
+								socialArr,
+								{
+									className: 'social-list_sm'
+								}
+							) }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="feedback-section__main col-12 col-lg-6 col-xxl-5 offset-xxl-1">
+				{{ inlineForm.custom(
+					{
+						formID: 'feedback-form',
+						action: '/ajax/feedbackFormSuccess.json',
+						fields: [
+							{
+								type: 'text',
+								className: 'c-input c-input_style_default c-input_size_lg',
+								value: '',
+								label: 'Имя',
+								attrs: {
+									id: 'feedback-form__name',
+									name: 'NAME',
+									placeholder: 'Введите ваше имя'
+								}
+							},
+							{
+								type: 'email',
+								className: 'c-input c-input_style_default c-input_size_lg',
+								value: '',
+								label: 'Email',
+								attrs: {
+									id: 'feedback-form__email',
+									name: 'EMAIL',
+									'data-required': true,
+									placeholder: 'На этот e-mail вам придёт ответ'
+								}
+							},
+							{
+								type: 'textarea',
+								className: 'c-input c-input_style_default c-input_size_lg c-input_multiline',
+								value: '',
+								label: 'Сообщение',
+								attrs: {
+									id: 'feedback-form__message',
+									name: 'MESSAGE',
+									'data-required': true,
+									placeholder: 'Опишите ваш вопрос или предложение'
+								}
+							}
+						],
+						buttons: [
+							{
+								className: 'c-form__submit c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg',
+								textClassName: 'c-btn__text',
+								text: 'Отправить',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'arrow-right-secondary'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									type: 'submit'
+								}
+							}
+						]
+					}, {
+						privacyCheck: true,
+						attrs: {
+							'data-ajax-form': true,
+							'data-result-message': 'custom',
+							'data-state': 'default'
+						}
+					}
+				) }}
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

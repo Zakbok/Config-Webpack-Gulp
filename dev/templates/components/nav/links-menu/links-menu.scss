@@ -1,0 +1,28 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.links-menu {
+	list-style: none;
+}
+
+.links-menu__item {
+	padding: 0;
+}
+
+.links-menu__item_active {
+	color: $color-secondary;
+}
+
+.links-menu__link {
+	color: inherit;
+}
+
+.links-menu__link_events {
+	text-decoration: underline;
+
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}

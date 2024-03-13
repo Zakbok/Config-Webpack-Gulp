@@ -1,0 +1,9 @@
+{
+  "attr-lowercase": ["viewBox", "stdDeviation", "preserveAspectRatio"],
+  "attr-no-duplication": true,
+  "alt-require": true,
+  "doctype-first": true,
+  "doctype-html5": true,
+  "id-unique": true,
+  "src-not-empty": true
+}

@@ -1,0 +1,45 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default(array, params) %}
+
+{% set selectID = params.selectID or 'select_' + 6 | rand_string() %}
+
+<div class="c-select-custom {{ params.className }}" role="listbox" aria-owns="{{ array.values | join(' ', 'id') }}" aria-labelledby="{{ selectID }}__text" aria-haspopup="true" {{ params.attrs | implode_attrs | safe }}>
+	<input type="hidden" autocomplete="off" class="c-select-custom__control" value="{{ '' if array.values[0].disabled or params.allowNoSelected else array.values[0].value or array.values[0].title }}" {% if array.name %}name="{{ array.name }}"{% endif %} {{ params.inputAttrs | implode_attrs | safe }}>
+	{% if array.title and not params.labelInside %}
+		<span class="c-input-label">{{ array.title }}</span>
+	{% endif %}
+	<button class="c-select-custom__toggle c-input {{ params.buttonClassName }}" type="button">
+		{% if array.title and params.labelInside %}
+			<span class="c-input-label c-input-label_inside">{{ array.title }}:</span>
+		{% endif %}
+		<span class="c-select-custom__text {{ 'c-select-custom__text_disabled' if array.values[0].disabled }}" id="{{ selectID }}__text">{{ array.values[0].title if not params.allowNoSelected }}</span>
+		{{ mixins.icon({
+			id: 'chevron-down',
+			className: 'c-select-custom__icon svg-ico_no_fill'
+		}) }}
+	</button>
+	<div class="c-select-custom__popup" aria-hidden="true">
+		<ul class="c-select-custom__menu {{ params.dropdownClassName }}">
+			{% for item in array.values %}
+				<li class="c-select-custom__item {{ 'c-select-custom__item_active' if item.active }} {{ 'c-select-custom__item_disabled' if item.disabled }}" role="option" aria-checked="{{ 'true' if item.active else 'false' }}" {{ 'aria-disabled="true"' | safe if item.disabled }} id="{{ item.id }}" {% if item.value %}data-value="{{ item.value }}"{% endif %}>
+					{% if item.isLink %}
+						<a class="c-select-custom__value" href="{{ item.value }}">
+					{% else %}
+						<span class="c-select-custom__value">
+					{% endif %}
+
+					{{ item.title }}
+
+					{% if item.isLink %}
+						</a>
+					{% else %}
+						</span>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+
+{% endmacro %}

@@ -1,0 +1,18 @@
+{% import "components/lists/blogposts-list/blogposts-list.njk" as blogpostsList %}
+
+<div class="c-modal c-modal_width_xl c-modal_active c-modal_style_default">
+	<div class="c-modal__body">
+		<h2 class="c-title c-title_modal">Я благодарю:</h2>
+
+		<div class="c-modal__inner">
+			<div class="scrollbar-container">
+				{{ blogpostsList.small(
+					postsArr,
+					{
+						edit: true
+					}
+				) }}
+			</div>
+		</div>
+	</div>
+</div>

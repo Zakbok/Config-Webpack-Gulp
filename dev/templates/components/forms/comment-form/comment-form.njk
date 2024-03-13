@@ -1,0 +1,38 @@
+{% import "components/controls/input/input.njk" as input %}
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default (array, params) %}
+
+<form class="comment-form comment-form_default comment-form_minimized" action="#" method="POST" data-ajax-form-comment {{ params.attrs | implode_attrs | safe }}>
+	<div class="avatar-card">
+		<span class="avatar-card__img u-img-bg" style="background-image: url('images/dummy/img (5).jpg');"></span>
+	</div>
+	<div class="form-fields">
+		<div class="form-result" data-form-result></div>
+
+		<div class="form-fields">
+			{% for field in array.fields %}
+				<div class="form-field">
+					{{ input.default({
+						className: field.className,
+						type: field.type,
+						value: field.value,
+						attrs: field.attrs
+					}) }}
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="form-controls row align-items-center">
+			{% for control in array.buttons %}
+				<div class="form-controls__item col-12 col-sm-auto">
+					{{ button.default(
+						control
+					) }}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</form>
+
+{% endmacro %}

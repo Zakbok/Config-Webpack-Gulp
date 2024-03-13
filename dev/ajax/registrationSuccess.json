@@ -1,0 +1,8 @@
+{
+  "STATUS": "success",
+  "EVENT_TYPE": "REGISTRATION",
+  "NOTE": "Вы были успешно зарегистрированы",
+  "DATA": {
+    "PHONE": "+79999999999"
+  }
+}

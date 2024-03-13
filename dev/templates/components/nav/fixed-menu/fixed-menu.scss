@@ -1,0 +1,107 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.fixed-menu {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99991;
+	background: rgba(255, 255, 255, 0.9);
+	border-top-left-radius: 40px;
+	padding: 10px 0 20px;
+	box-shadow: 0px 0px 15px rgba(107, 126, 209, 0.05);
+}
+
+.fixed-menu__decor {
+	position: absolute;
+	fill: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	width: 40px;
+	height: 40px;
+}
+
+.fixed-menu__menu {
+	list-style: none;
+}
+
+.fixed-menu__link {
+	display: block;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 10px;
+	color: $color-primary-darker;
+	opacity: 0.75;
+
+	@include g-transition(opacity, color);
+
+	&:hover, &:focus {
+		color: $color-primary;
+	}
+
+	.tab-marker {
+		font-size: 12px;
+		font-weight: 700;
+		margin-left: 5px;
+	}
+}
+
+.fixed-menu__link_events {
+
+	&:hover, &:focus {
+		opacity: 1;
+	}
+}
+
+.fixed-menu__item_active {
+
+	.filter-menu__link {
+		opacity: 1;
+	}
+}
+
+.fixed-menu__item_personal {
+
+	.popup-menu {
+		bottom: 100%;
+		right: 0;
+		margin-bottom: 10px;
+		width: 324px;
+	}
+}
+
+@media (min-width: 375px) {
+
+	.fixed-menu {
+
+		.container {
+			padding-left: 45px;
+			padding-right: 45px;
+		}
+	}
+}
+
+@media (max-width: $bp-sm - 1px) {
+
+	.fixed-menu__menu {
+		margin-left: -10px;
+		margin-right: -10px;
+
+		.fixed-menu__item {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+
+	.fixed-menu__item_personal {
+
+		.popup-menu {
+			width: 300px;
+		}
+	}
+}

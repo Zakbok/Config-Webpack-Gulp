@@ -1,0 +1,157 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+/****************************************************************************/
+/* RANGE */
+/****************************************************************************/
+
+$range-btn-width: 28px;
+
+$range-height: 8px;
+$range-border-radius: 2px;
+$range-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.6);
+
+.c-range-input {
+	width: 100%;
+
+	@include hide;
+}
+
+.c-rangebar {
+	position: relative;
+}
+
+.c-range {
+	height: $range-height;
+	background: #B8BCCE;
+	background-image: linear-gradient(96.53deg, #B8BCCE -3.19%, #74EBD5 105.27%);
+	position: relative;
+	border-radius: $range-border-radius;
+	border: 0;
+}
+
+.c-range__fill {
+	background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	will-change: width;
+
+	@include g-transition(width);
+}
+
+.c-range__handle {
+	width: $range-btn-width;
+	height: $range-btn-width;
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: middle;
+	position: absolute;
+	cursor: pointer;
+	z-index: 1;
+	will-change: left;
+
+	border: 2px solid #fff;
+	background: $color-secondary;
+	background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+
+	@include g-transition(left);
+
+	&:before {
+		position: absolute;
+		content: '';
+		width: 10px;
+		height: 10px;
+		border-radius: inherit;
+		background: #fff;
+		display: inline-block;
+
+		@include center-a;
+		@include g-transition(transform);
+	}
+
+	&:hover, &:focus {
+
+		&:before {
+			transform: scale(1.2);
+		}
+	}
+}
+
+
+/**
+* Orientation
+*/
+
+.c-range_horizontal {
+
+	.c-range__handle {
+		top: math.div(($range-btn-width - $range-height), 2) * -1;
+	}
+}
+
+
+/**
+* Labels
+*/
+
+.c-rangebar_labels {
+
+}
+
+.c-rangebar__label {
+	position: absolute;
+	font-size: 12px;
+	line-height: 1.8;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.c-rangebar__label_1 {
+	left: 0;
+}
+
+.c-rangebar__label_2 {
+	left: 33.33%;
+	transform: translateX(-50%);
+}
+
+.c-rangebar__label_3 {
+	left: 66.66%;
+	transform: translateX(-50%);
+}
+
+.c-rangebar__label_4 {
+	right: 0;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-rangebar__label {
+		font-size: 16px;
+	}
+}
+
+
+/**
+* Labels Top
+*/
+
+.c-rangebar_labels_top {
+	padding-top: 26px;
+
+	.c-rangebar__label {
+		top: 0;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-rangebar_labels_top {
+		padding-top: 38px;
+	}
+}

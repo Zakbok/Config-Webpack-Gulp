@@ -1,0 +1,175 @@
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.c-select-custom {
+	display: inline-block;
+	max-width: 100%;
+	font-size: 12px;
+	position: relative;
+}
+
+.c-select-custom__toggle {
+	width: 100%;
+	vertical-align: top;
+	margin: 0;
+	font-family: $font-primary;
+	white-space: nowrap;
+	user-select: none;
+	display: inline-block;
+	max-width: 100%;
+
+	@include hide-overflow;
+}
+
+.c-select-custom__popup {
+	display: none;
+	position: absolute;
+	top: 100%;
+	z-index: 2;
+}
+
+
+.c-select-custom__item {
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+
+	@include hide-overflow;
+}
+
+
+.c-select-custom_expanded {
+
+	.c-select-custom__popup {
+		display: block;
+	}
+}
+
+
+/**
+* Default
+*/
+
+$ctrl-height: 52px;
+
+$btn-height: $ctrl-height;
+$btn-width: 52px;
+$border-width: 1px;
+$item-default-color: #fff;
+$item-active-color: #FAFBFE;
+
+.c-select-custom_default {
+	display: block;
+
+	.c-select-custom__toggle {
+		padding-right: $btn-width;
+		text-align: left;
+		position: relative;
+		display: flex;
+		align-items: center;
+		font-size: 16px;
+	}
+
+	.c-select-custom__icon {
+		position: absolute;
+		color: #B8BCCE;
+		width: $btn-width;
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		padding: 0 18px;
+		max-height: none;
+
+		@include g-transition(color);
+	}
+
+	.c-select-custom__text_disabled {
+		opacity: .7;
+	}
+
+	.c-input_size_md .c-select-custom__icon {
+		line-height: 46px;
+	}
+
+	.c-input-label {
+		margin: 0 10px 0 0;
+	}
+}
+
+.c-select-custom_default.c-select-custom_expanded {
+
+	.c-select-custom__toggle {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.c-select-custom__icon {
+		transform: rotate(180deg);
+	}
+}
+
+// для обычных селектов и селектов с оторванным от родителя меню
+.c-select-custom_default .c-select-custom__popup,
+.c-select-custom__popup_active {
+	color: $color-text;
+	left: 0;
+	width: 100%;
+	text-align: left;
+	// для скролла
+	overflow: hidden;
+	border-bottom-left-radius: 33px;
+	border-bottom-right-radius: 33px;
+
+	.c-select-custom__menu {
+		background-color: #fff;
+		overflow-y: auto;
+		box-shadow: 0 20px 25px rgba(1, 126, 142, 0.1);
+		position: relative;
+		font-size: 16px;
+		line-height: 1.5;
+		// border-bottom-left-radius: 33px;
+		// border-bottom-right-radius: 33px;
+		max-height: 200px;
+	}
+
+	.c-select-custom__item {
+
+		&:hover, &:focus {
+			background-color: $item-active-color;
+		}
+	}
+
+	.c-select-custom__item_active {
+		background-color: $item-active-color;
+		color: $color-primary;
+	}
+
+	.c-select-custom__value {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		padding: 8px 20px;
+		min-height: 50px;
+		display: flex;
+		align-items: center;
+	}
+
+	// // disabled state
+	.c-select-custom__item_disabled {
+		background-color: $item-default-color !important;
+		color: $color-text !important;
+		cursor: default;
+		opacity: 0.7;
+		text-decoration: none !important;
+	}
+
+	.mb-track-x {
+		display: none;
+	}
+}
+
+.c-select-custom__popup_active {
+	display: block !important;
+	z-index: 99992; // override fancybox
+}

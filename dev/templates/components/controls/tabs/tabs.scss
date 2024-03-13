@@ -1,0 +1,156 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+/****************************************************************************/
+/* TABS */
+/****************************************************************************/
+
+.c-tablist_default {
+	margin-bottom: 40px;
+	position: relative;
+
+	&:after {
+		position: absolute;
+		content: '';
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-top: 2px solid #d9ddef;
+	}
+
+	.c-tablist__list {
+		list-style: none;
+		margin: 0;
+		flex-wrap: nowrap;
+		overflow-x: auto;
+
+		@include hide-scrollbar;
+
+	}
+
+	.c-tablist__item {
+		padding: 0 30px;
+		position: relative;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-tablist_default {
+		margin-bottom: 68px;
+
+		.c-tablist__item {
+			padding-left: 60px;
+			padding-right: 60px;
+		}
+	}
+}
+
+
+/**
+* TAB
+*/
+
+.c-tab_style_default {
+	display: block;
+	line-height: 1.2;
+	font-size: 14px;
+	font-weight: 600;
+	// overflow: hidden; // конфликт с подсказкой
+	padding: 23px 8px;
+	color: #b8bcce;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	position: relative;
+	z-index: 1;
+
+	@include g-transition(color);
+
+	&:after {
+		position: absolute;
+		content: '';
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 5px;
+		background: $color-primary;
+		border-radius: 200px 200px 0px 0px;
+		opacity: 0;
+
+		@include g-transition(opacity);
+	}
+
+	.hint-toggle {
+		position: absolute;
+		top: 15%;
+		right: -4px;
+	}
+}
+
+.c-tab_style_default.c-tab_events {
+
+	&:hover, &:focus {
+		color: $color-primary;
+	}
+}
+
+.c-tab_style_default.c-tab_active {
+	color: $color-tertiary;
+
+	&:after {
+		opacity: 1;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-tab_style_default {
+		font-size: 16px;
+	}
+}
+
+
+/**
+* Tab marker
+*/
+
+.tab-marker {
+	font-size: 14px;
+	margin-left: 10px;
+	color: #ff4c6d;
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+
+	@include g-transition(color);
+}
+
+.tab-marker__icon {
+	width: 18px;
+	height: 18px;
+	margin-left: 5px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.tab-marker {
+		font-size: 16px;
+		margin-left: 15px;
+	}
+}
+
+
+/**
+* Empty
+*/
+
+.tab-marker_empty {
+	color: $color-quarternary;
+
+	.tab-marker__value {
+		display: none;
+	}
+}

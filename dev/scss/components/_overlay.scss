@@ -1,0 +1,15 @@
+.c-overlay {
+	background: rgba($color-tertiary, 0.7);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99992;
+	display: none;
+}
+
+.c-overlay_active,
+.overlay-active .c-overlay {
+	display: block;
+}

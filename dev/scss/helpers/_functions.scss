@@ -1,0 +1,48 @@
+@use "sass:math";
+
+/****************************************************************************/
+/* FUNCTIONS */
+/****************************************************************************/
+
+@function url-friendly-color($color) {
+    @return '%23' + str-slice('#{$color}', 2, -1)
+};
+
+@function rgba-to-rgb($rgba, $background: #fff) {
+	@return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%)
+};
+
+@function decimal-round($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $mode == round {
+        @return math.div(round($number * $n), $n);
+    } @else if $mode == ceil {
+        @return math.div(ceil($number * $n), $n);
+    } @else if $mode == floor {
+        @return math.div(floor($number * $n), $n);
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+// получить округленное значение line-height
+@function get-line-height($line-height, $font-size, $round: 2) {
+	@return decimal-round(math.div($line-height, $font-size), $round);
+}

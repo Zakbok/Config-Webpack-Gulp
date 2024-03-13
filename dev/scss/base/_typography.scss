@@ -1,0 +1,15 @@
+a {
+	color: $color-primary;
+
+	&:hover, &:focus {
+		color: $color-text;
+	}
+}
+
+p {
+	margin-bottom: 30px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

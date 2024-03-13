@@ -1,0 +1,39 @@
+/****************************************************************************/
+/* QUOTES */
+/****************************************************************************/
+
+.c-quote {
+	background-color: rgba(236, 238, 245, 0.4);
+	background-image: url('images/quotes_light.svg'), linear-gradient(90deg, rgba(236, 238, 245, 0.4) 0%, rgba(225, 228, 242, 0.4) 35.42%, rgba(215, 219, 238, 0.4) 67.19%, rgba(202, 206, 227, 0.4) 100%);
+	background-position: 14px -9px, center;
+	background-repeat: no-repeat, no-repeat;
+	border-radius: 33px;
+	padding: 20px 25px;
+	margin-top: 25px;
+	margin-bottom: 20px;
+	font-style: italic;
+
+	blockquote {
+		line-height: 1.5;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.c-quote__author {
+	margin-top: 10px;
+	color: $color-primary;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-quote {
+		padding: 35px 50px;
+
+		blockquote {
+			line-height: 1.8;
+		}
+	}
+}

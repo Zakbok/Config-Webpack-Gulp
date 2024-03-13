@@ -1,0 +1,13 @@
+/****************************************************************************/
+/* FONTS */
+/****************************************************************************/
+
+/**
+ * Include fonts with `@include font($name, $filename, $style: normal, $weight: normal)`
+ */
+
+@include font('NunitoSans', 'NunitoSans-Light', normal, 300);
+@include font('NunitoSans', 'NunitoSans-Regular', normal, 400);
+@include font('NunitoSans', 'NunitoSans-SemiBold', normal, 600);
+@include font('NunitoSans', 'NunitoSans-Bold', normal, 700);
+@include font('NunitoSans', 'NunitoSans-ExtraBold', normal, 800);

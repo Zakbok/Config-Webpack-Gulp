@@ -1,0 +1,117 @@
+{% import "components/nav/main-menu/main-menu.njk" as mainMenu %}
+{% import "components/lists/stats-list/stats-list.njk" as statsList %}
+
+<header class="c-header">
+	<svg class="c-header__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+
+	<div class="container">
+		<div class="c-header__body">
+			<div class="row align-items-center">
+				<div class="c-header__logo col-6 col-lg-2 col-xl-3">
+					<a class="c-logo" href="#">
+						<img class="c-logo__img" src="images/logo_accent.svg" alt="{{ site.title }}">
+					</a>
+				</div>
+				<div class="c-header__nav col-6 text-right col-lg-10 col-xl-9">
+					{% if isAuthorized %}
+						<div class="d-inline-block d-lg-none">
+							{% if isEnlightened %}
+								<div class="enlightment-badge">Просветлённый</div>
+							{% else %}
+								{{ statsList.default(
+									[
+										{
+											"code": "wisdom",
+											"value": 0
+										},
+										{
+											"code": "persistence",
+											"value": 0
+										},
+										{
+											"code": "inactivity",
+											"value": 0
+										}
+									],
+									{
+										className: 'stats-list_size_sm stats-list_header skeleton-loading-after',
+										elClassName: 'stat-item_events',
+										hints: true
+									}
+								) }}
+							{% endif %}
+						</div>
+						<div class="menu-container">
+							{{ mainMenu.auth(
+								mainMenuAuthorizedArr,
+								{
+									profileMenu: profileMenuArr,
+									enlightened: isEnlightened,
+									notifications: notificationsArr
+								}
+							) }}
+						</div>
+					{% else %}
+						<div class="menu-container">
+							{{ button.default(
+								{
+									className: 'c-btn menu-toggle d-lg-none',
+									icon: mixins.icon(
+										{
+											id: 'bars',
+											className: 'c-btn__icon'
+										}
+									),
+									attrs: {
+										href: 'javascript:;',
+										'data-popup-toggle-default': true,
+										'data-popup-toggle': 'fixed_menu_top',
+										'data-use-popper': 'false'
+									}
+								}
+							) }}
+
+							{{ mainMenu.default(
+								mainMenuArr
+							) }}
+						</div>
+					{% endif %}
+
+					<div class="stat-popup" data-popup="stat_wisdom">
+						<div class="stat-popup__head">
+							<img class="stat-popup__icon" src="images/harmony.svg" alt="">
+							<div class="stat-popup__title">Мудрость</div>
+						</div>
+						<div class="stat-popup__body">
+							Начисляется другими участниками за умные мысли в дневнике. В день можно подарить только один балл Мудрости. Страховка позволяет сохранить всю Мудрость после трёхдневного бездействия.
+						</div>
+					</div>
+
+					<div class="stat-popup" data-popup="stat_persistence">
+						<div class="stat-popup__head">
+							<img class="stat-popup__icon" src="images/arrow-steps-up.svg" alt="">
+							<div class="stat-popup__title">Настойчивость</div>
+						</div>
+						<div class="stat-popup__body">
+							Как и в жизни: Настойчивость и терпение увеличиваются по мере развития. За каждую Ступень непрерывного подъёма начисляется 1 балл. Вся Настойчивость безвозвратно сгорает после трёх дней бездействия.
+						</div>
+					</div>
+
+					<div class="stat-popup" data-popup="stat_inactivity">
+						<div class="stat-popup__head">
+							<img class="stat-popup__icon" src="images/clock.svg" alt="">
+							<div class="stat-popup__title">Счётчик пропуска ежедневных действий</div>
+						</div>
+						<div class="stat-popup__body">
+							Если пропустишь выполнение действий больше чем на 3 суток, придётся оплатить мотивационную пошлину или начать подъём заново.<br>
+							<br>
+							Страховка на случай непредвиденных обстоятельств сэкономит бюджет и даст возможность продолжить подъём дальше.<br>
+							<br>
+							После 40 дней бездействия профиль архивируется. Восстановление невозможно.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

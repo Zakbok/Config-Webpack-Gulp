@@ -1,0 +1,60 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.code-input {
+
+}
+
+.code-input__list {
+	margin-left: -4px;
+	margin-right: -4px;
+}
+
+.code-input__field {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.code-input__input {
+	width: 62px;
+	height: 62px;
+	border-radius: 20px;
+	border: 3px solid $color-primary;
+	outline: 0;
+	font-size: 36px;
+	font-weight: 600;
+	text-align: center;
+	color: $color-tertiary;
+
+	&:focus {
+		border-color: $color-secondary;
+	}
+}
+
+.code-input_error {
+
+	.code-input__input {
+		color: $color-error;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.code-input__list {
+		margin-left: -12px;
+		margin-right: -12px;
+	}
+
+	.code-input__field {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.code-input__input {
+		width: 72px;
+		height: 72px;
+		font-size: 48px;
+	}
+}

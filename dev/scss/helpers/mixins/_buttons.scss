@@ -1,0 +1,168 @@
+/****************************************************************************/
+/* BUTTONS */
+/****************************************************************************/
+
+
+/**
+* Default buttons
+*/
+
+@mixin default-buttons ($buttons, $border-width: 1px) {
+
+	.c-btn_style_default {
+		text-decoration: none;
+		border: 0;
+		// border: $border-width solid;
+
+		@include g-transition(background-color, border-color);
+	}
+
+	@each $item, $color in $buttons {
+
+		.c-btn_style_default.c-btn_color_#{$item} {
+			background-color: map-get($color, background-color);
+			border-color: map-get($color, border-color);
+			color: map-get($color, color);
+
+			&:hover, &:focus,
+			&.c-btn_active,
+			.btn-input:checked + & {
+				@if (map-get($color, background-color) != map-get($color, background-color-hover)) {
+					background-color: map-get($color, background-color-hover);
+				}
+
+				@if (map-get($color, border-color) != map-get($color, border-color-hover)) {
+					border-color: map-get($color, border-color-hover);
+				}
+
+				@if (map-get($color, color) != map-get($color, color-hover)) {
+					color: map-get($color, color-hover);
+				}
+			}
+
+			@if (map-get($color, background-color) != map-get($color, background-color-active)) {
+
+				&:active {
+					@if (map-get($color, background-color) != map-get($color, background-color-active)) {
+						background-color: map-get($color, background-color-active);
+					}
+
+					@if (map-get($color, border-color) != map-get($color, border-color-active)) {
+						border-color: map-get($color, border-color-active);
+					}
+
+					@if (map-get($color, color) != map-get($color, color-active)) {
+						color: map-get($color, color-active);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/**
+* Ghost buttons
+*/
+
+@mixin ghost-buttons ($buttons, $border-width: 1px, $percent: 10%) {
+
+	.c-btn_style_ghost {
+		background: none;
+		text-decoration: none;
+		border: $border-width solid currentColor;
+		font-weight: 500;
+
+		@include g-transition(background-color, border-color);
+
+		&.c-btn_disabled {
+			background: none;
+			border-color: currentColor;
+
+			&:hover, &:focus {
+				background: none !important;
+				border-color: currentColor !important;
+			}
+		}
+	}
+
+	@each $item, $color in $buttons {
+
+		.c-btn_style_ghost.c-btn_color_#{$item} {
+			background-color: map-get($color, background-color);
+			border-color: map-get($color, border-color);
+			color: map-get($color, color);
+
+			&:hover, &:focus,
+			&.c-btn_active,
+			.btn-input:checked + & {
+				background-color: map-get($color, background-color-hover);
+				border-color: map-get($color, border-color-hover);
+				color: map-get($color, color-hover);
+			}
+
+			@if (map-get($color, color) != map-get($color, color-active)) {
+
+				&:active {
+					@if (map-get($color, background-color) != map-get($color, background-color-active)) {
+						background-color: map-get($color, background-color-active);
+					}
+
+					@if (map-get($color, border-color) != map-get($color, border-color-active)) {
+						border-color: map-get($color, border-color-active);
+					}
+
+					@if (map-get($color, color) != map-get($color, color-active)) {
+						color: map-get($color, color-active);
+					}
+				}
+			}
+
+			&.c-btn_disabled {
+
+				&:hover, &:focus {
+					color: map-get($color, color);
+				}
+			}
+		}
+	}
+}
+
+
+/**
+* Link buttons
+*/
+
+@mixin link-buttons ($buttons) {
+
+	.c-btn_style_link {
+		border: 0;
+		padding: 0;
+		box-shadow: none;
+		background: none;
+		text-decoration: underline dotted;
+		height: auto;
+		line-height: inherit;
+		min-width: auto;
+		letter-spacing: inherit;
+
+		@include g-transition(color);
+
+		&:hover, &:focus {
+			text-decoration: none;
+		}
+	}
+
+	@each $item, $color in $buttons {
+
+		.c-btn_style_link.c-btn_color_#{$item} {
+			color: map-get($color, color);
+
+			&:hover, &:focus {
+				@if (map-get($color, color) != map-get($color, color-hover)) {
+					color: map-get($color, color-hover);
+				}
+			}
+		}
+	}
+}

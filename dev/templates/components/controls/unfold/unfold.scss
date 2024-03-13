@@ -1,0 +1,27 @@
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.c-unfold_rolling {
+
+	.c-unfold__body {
+
+		&:before {
+			content:'';
+			position: absolute;
+			height: 40px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to top, #fff, rgba(255,255,255,.7));
+			z-index: 1;
+		}
+	}
+}
+
+.c-unfold__body {
+	max-height: 300px;
+	overflow: hidden;
+	position: relative;
+
+	@include g-transition(max-height);
+}

@@ -1,0 +1,21 @@
+{% macro ladder (array, params) %}
+
+<div class="teasers-list teasers-list_size_md">
+	<div class="teasers-list__list row">
+		{% for item in array %}
+			<div class="teasers-list__item col-6">
+				<div class="teaser-item teaser-item_style_ladder">
+					<div class="teaser-item__aside">
+						<div class="teaser-item__intro">{{ item.intro }}</div>
+					</div>
+					<div class="teaser-item__main">
+						<div class="teaser-item__title">{{ item.title }}</div>
+						<div class="teaser-item__desc">{{ item.desc }}</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}

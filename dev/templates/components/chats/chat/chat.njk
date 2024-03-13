@@ -1,0 +1,265 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/input/input.njk" as input %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/chats/dialogues-list/dialogues-list.njk" as dialoguesList %}
+{% import "components/controls/file/file.njk" as file %}
+
+{% macro default (array, params) %}
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+	{# <symbol id="check_chat" viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg"><path d="m1.333 5 3.5 3.5 5.833-7" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round"/></symbol> #}
+
+	<symbol id="check_chat" viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg"><path d="m6.501 4.927.836.836L12.35.75l.838.837-5.85 5.85L3.57 3.668l.837-.837L5.665 4.09l.836.836Zm.001-1.674L9.434.32l.835.835-2.932 2.932-.835-.834ZM4.83 6.6l-.837.836L.225 3.67l.837-.837.836.837 2.93 2.932Z"/></symbol>
+</svg>
+
+<script id="tmpl-message-incoming" type="text/x-mustache-template">
+	<div class="c-chat__message c-chat__message_incoming">
+		<div class="message-author">
+			<img class="message-author__img" src="<% IMG %>" alt="">
+		</div>
+		<div class="c-message c-message_incoming" data-id="<% ID %>">
+			<div class="c-message__text"><% TEXT %></div>
+			<div class="c-message__footer">
+				{{ mixins.icon({
+					id: 'check_chat',
+					className: 'c-message__state-check svg-ico_no_stroke'
+				}) }}
+				<div class="c-message__date"><% DATE %></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="tmpl-message-outcoming" type="text/x-mustache-template">
+	<div class="c-chat__message c-chat__message_outcoming">
+		<div class="c-message c-message_outcoming" data-id="<% ID %>">
+			<div class="c-message__text"><% TEXT %></div>
+			<div class="c-message__footer">
+				{{ mixins.icon({
+					id: 'check_chat',
+					className: 'c-message__state-check svg-ico_no_stroke'
+				}) }}
+				<div class="c-message__date"><% DATE %></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script id="tmpl-message-system" type="text/x-mustache-template">
+	<div class="c-chat__message c-chat__message_system">
+		<div class="c-message c-message_system" data-id="<% ID %>">
+			<div class="c-message__text"><% TEXT %></div>
+			<% #DATE %>
+				<div class="c-message__footer">
+					<div class="c-message__date"><% DATE %></div>
+				</div>
+			<% /DATE %>
+		</div>
+	</div>
+</script>
+
+<script id="tmpl-chat-item" type="text/x-mustache-template">
+	<div class="dialogues-list__item">
+		<a class="dialogue-item dialogue-item_events <% #READ %>dialogue-item_read<% /READ %>" href="javascript:;" data-id="<% CHAT_ID %>" data-user-id="<% ID %>">
+			<div class="avatar-card">
+				<span class="avatar-card__img u-img-bg" style="background-image: url('<% IMG %>');"></span>
+			</div>
+			<div class="dialogue-item__main">
+				<div class="dialogue-item__title"> <% NAME %> </div>
+				<div class="dialogue-item__message d-none"><% LATEST_MESSAGE %></div>
+			</div>
+			<div class="dialogue-item__aside d-none">
+				<div class="dialogue-item__time"> <% LATEST_MESSAGE_DATETIME %> </div>
+				<svg xmlns="http://www.w3.org/2000/svg" class="dialogue-item__state-check svg-ico_no_stroke svg-ico <% #NEW %>d-none<% /NEW %>">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#check_chat"></use>
+				</svg>
+				<div class="dialogue-item__unread <% ^UNREAD_MESSAGES %>d-none<% /UNREAD_MESSAGES %>" data-chat-marker><span data-chat-marker-value><% UNREAD_MESSAGES %></span></div>
+			</div>
+		</a>
+	</div>
+</script>
+
+<div class="c-chat" data-state="dialogues">
+	<div class="c-chat__panel c-chat__aside" data-display-state="dialogues" data-role="dialogues">
+		<div class="c-chat__head row align-items-center">
+			<div class="col-auto">
+				<button class="chat-toggle">
+					{{ mixins.icon(
+						{
+							className: 'chat-toggle__icon svg-ico_no_fill',
+							id: 'times',
+							attrs: {
+								'data-fancybox-close': true
+							}
+						}
+					) }}
+				</button>
+			</div>
+			<div class="col-auto">
+				<h2 class="chat-title">Сообщения</h2>
+			</div>
+			<div class="col-12 mt-2 mt-xl-4">
+				<form class="chat-search" action="" method="POST">
+					<button class="chat-search__btn c-btn" type="submit">
+						{{ mixins.icon({
+							id: 'zoom',
+							className: 'search-form__icon svg-ico_no_stroke',
+							file: 'images/svg.svg'
+						}) }}
+					</button>
+					<input class="chat-search__input c-input c-input_style_default c-input_border" data-chat-search name="Q" type="text" placeholder="Поиск по сообщениям">
+				</form>
+			</div>
+		</div>
+
+		{{ dialoguesList.ajax(
+			array.dialogues
+		) }}
+	</div>
+	<div class="c-chat__panel c-chat__main c-chat__main_empty d-none" data-display-state="chat" data-role="chat">
+		<div class="chat-contact d-none">
+			<button class="chat-toggle chat-toggle_inner">
+				{{ mixins.icon(
+					{
+						className: 'chat-toggle__icon svg-ico_no_fill',
+						id: 'times'
+					}
+				) }}
+			</button>
+			<svg class="c-chat__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+			<div class="avatar-card">
+				<span class="avatar-card__img u-img-bg skeleton-loading-after" style="background-image: url('{{ array.currentDialogue.img }}');"></span>
+			</div>
+			<div class="chat-contact__main">
+				<div class="chat-contact__head">
+					<div class="chat-contact__title skeleton-loading-after">{{ array.currentDialogue.title }}</div>
+					{% if array.currentDialogue.online %}
+						<div class="chat-contact__status">Онлайн</div>
+					{% endif %}
+				</div>
+				<div class="chat-contact__role skeleton-loading-after">{{ array.currentDialogue.role }}</div>
+			</div>
+		</div>
+		<div class="c-chat__messages" data-messages-container>
+			{% if array.messages | length > 0 %}
+				{% for item in array.messages %}
+					<div class="c-chat__message c-chat__message_{{ item.type }}">
+						{% if item.type === 'incoming' %}
+							<div class="message-author">
+								<img class="message-author__img" src="{{ array.currentDialogue.img }}" alt="">
+							</div>
+						{% endif %}
+						<div class="c-message c-message_{{ item.type }}">
+							<div class="c-message__text">{{ item.text }}</div>
+							{% if item.date %}
+								<div class="c-message__footer">
+									{% if item.type !== 'system' and item.type !== 'incoming' %}
+										{{ mixins.icon({
+											id: 'check_chat',
+											className: 'c-message__state-check svg-ico_no_stroke'
+										}) }}
+									{% endif %}
+									<div class="c-message__date">{{ item.date }}</div>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="c-chat__blank text-center">Оставьте сообщение, чтобы начать чат</div>
+			{% endif %}
+		</div>
+		<form class="c-chat__form chat-form d-none" action="" method="POST">
+			<div class="form-field m-0">
+				<div class="chat-field">
+					{{ button.default({
+						className: 'chat-form__file c-btn c-btn_style_default',
+						icon: mixins.icon({
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'paperclip',
+							file: 'images/svg.svg'
+						}),
+						attrs: {
+							href: '#chat-file-popup',
+							'data-modal-chat-inner': true
+						}
+					}) }}
+					{{ input.default({
+						type: 'textarea',
+						className: 'c-input c-input_style_default c-input_size_lg c-input_autosize',
+						value: '',
+						attrs: {
+							name: 'MESSAGE',
+							placeholder: 'Ваше сообщение',
+							required: false,
+							'data-required': true,
+							'data-chat-textarea': true
+						}
+					}) }}
+					{{ button.default({
+						className: 'chat-form__submit c-btn c-btn_style_default c-btn_color_primary c-btn_accent',
+						icon: mixins.icon({
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'paper-plane',
+							file: 'images/svg.svg'
+						}),
+						attrs: {
+							type: 'submit'
+						}
+				}) }}
+				</div>
+			</div>
+			<div data-result></div>
+		</form>
+	</div>
+</div>
+
+<div class="c-modal c-modal_chat" id="chat-file-popup">
+	<form class="c-modal__inner" action="" method="POST" data-ajax-chat-form>
+		<input type="hidden" name="CHAT_ROOM" data-field="chat">
+		<input type="hidden" name="USER_ID" data-field="user">
+
+		<h2 class="c-title c-title_size_md mb-3 text-center">Прикрепить файл</h2>
+		<div class="form-fields">
+			<div class="form-field">
+				{{ file.default(
+					{
+						title: 'Прикрепить файл',
+						attrs: {
+							id: 'chat-file',
+							name: 'FILE[]',
+							multiple: true
+						},
+						elAttrs: {
+							'data-file-default': true
+						}
+					}
+				) }}
+			</div>
+			<div class="form-field">
+				{{ input.default({
+					type: 'text',
+					className: 'c-input c-input_style_default c-input_size_md',
+					value: '',
+					attrs: {
+						name: 'MESSAGE',
+						placeholder: 'Подпись'
+					}
+				}) }}
+			</div>
+		</div>
+		<div class="form-controls text-center">
+			{{ button.default(
+				{
+					className: 'c-btn c-btn_style_link c-btn_color_primary',
+					text: 'Отправить',
+					attrs: {
+						type: 'submit'
+					}
+				}
+			) }}
+		</div>
+	</form>
+</div>
+
+{% endmacro %}

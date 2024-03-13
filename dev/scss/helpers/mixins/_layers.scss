@@ -1,0 +1,41 @@
+/****************************************************************************/
+/* PSEUDO LAYERS */
+/****************************************************************************/
+
+
+@mixin layer-mask($color: rgba(255, 255, 255, 0.4), $index: 1, $click-through: true) {
+	position: relative;
+
+    &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: $color;
+        z-index: $index;
+        top: 0;
+		left: 0;
+		@if $click-through {
+			pointer-events: none;
+		}
+
+
+		@include g-transition(opacity);
+    }
+}
+
+@mixin layer-shadow ($shadow: 0 0 10px 0 rgba(0,0,0, 0.44)) {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		box-shadow: $shadow;
+		z-index: -1;
+		backface-visibility: hidden;
+	}
+}

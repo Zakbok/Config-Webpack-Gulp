@@ -1,0 +1,25 @@
+{% import "components/controls/input/input.njk" as input %}
+
+{% macro default (array, params) %}
+
+{% set maxLength = params.maxLength or 4 %}
+
+<div class="code-input">
+	{{ input.default(
+		{
+			className: 'code-input__value',
+			type: 'hidden',
+			attrs: array.attrs
+		}
+	) }}
+
+	<div class="code-input__list row">
+		{% for i in range(0, maxLength) %}
+			<div class="code-input__field col-auto">
+				<input class="code-input__input" type="text" maxlength="1" pattern="[0-9]" inputmode="numeric">
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}

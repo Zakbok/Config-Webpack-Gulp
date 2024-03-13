@@ -1,0 +1,66 @@
+/****************************************************************************/
+/* TABLES */
+/****************************************************************************/
+
+.table-container {
+	overflow-x: auto;
+
+	table {
+		width: 100%;
+	}
+}
+
+.c-table,
+.table-container table {
+	font-size: 14px;
+	color: $color-text-darker;
+
+	th {
+		background: $color-primary;
+		color: #fff;
+		font-weight: 500;
+		text-align: left;
+	}
+
+	th,
+	td {
+		padding: 10px 20px;
+		height: 46px;
+	}
+}
+
+
+/**
+* Striped
+*/
+
+.c-table_striped {
+
+	tr:nth-child(odd) {
+		background-color: #f7f7ff;
+	}
+}
+
+.c-table_striped.c-table_head {
+
+	th {
+
+		&:first-child {
+			border-top-left-radius: 6px;
+			border-bottom-left-radius: 6px;
+		}
+
+		&:last-child {
+			border-top-right-radius: 6px;
+			border-bottom-right-radius: 6px;
+		}
+	}
+
+	tr:nth-child(odd) {
+		background-color: transparent;
+	}
+
+	tr:nth-child(even) {
+		background-color: #f7f7ff;
+	}
+}

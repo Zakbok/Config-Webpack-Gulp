@@ -1,0 +1,11 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default(array, params) %}
+
+{% if array.type === 'textarea' %}
+	<textarea class="{{ array.className }}" {{ array.attrs | implode_attrs | safe }}>{{ array.value }}</textarea>
+{% else %}
+	<input class="{{ array.className }}" type="{{ array.type }}" value="{{ array.value }}" {{ array.attrs | implode_attrs | safe }}>
+{% endif %}
+
+{% endmacro %}

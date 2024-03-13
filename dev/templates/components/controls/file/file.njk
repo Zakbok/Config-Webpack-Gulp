@@ -1,0 +1,18 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default (array, params) %}
+
+<label class="c-file c-file_style_default" for="{{ array.attrs.id }}" {{ array.elAttrs | implode_attrs | safe }}>
+	{{ mixins.icon({
+		id: 'paperclip',
+		className: 'c-file__icon svg-ico_no_stroke',
+		file: 'images/svg.svg'
+	}) }}
+	<span class="c-file__body">
+		<span class="c-file__caption">{{ array.title or 'Прикрепить фото' }}</span>
+	</span>
+	<input class="c-file__input sr-only" type="file" {{ array.attrs | implode_attrs | safe }}>
+</label>
+
+{% endmacro %}
+

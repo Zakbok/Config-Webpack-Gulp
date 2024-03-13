@@ -1,0 +1,188 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "partials/_content-includes.njk" as includes %}
+{% import "components/controls/input/input.njk" as input %}
+{% import "components/controls/code-input/code-input.njk" as codeInput %}
+{% import "components/controls/ctrl/ctrl.njk" as ctrl %}
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default (array, params) %}
+
+<div class="c-modal {{ params.className }}" id="{{ array.formID }}-popup" {{ params.popupAttrs | implode_attrs | safe }}>
+	<form class="c-form c-modal__body" id="{{ array.formID }}" action="{{ array.action or '#' }}" method="POST" {{ params.attrs | implode_attrs | safe }}>
+		{% if array.formTitle %}
+			<h2 class="c-title c-title_modal">{{ array.formTitle | safe }}</h2>
+		{% endif %}
+
+		{% if array.formIntro %}
+			<div class="form-intro">
+				{{ array.formIntro | safe }}
+			</div>
+		{% endif %}
+
+		<div class="form-fields">
+			<div class="form-result" data-form-result></div>
+
+			{% for field in array.fields %}
+				{% if field.type === 'hidden' %}
+					{{ input.default({
+						className: field.className,
+						type: field.type,
+						value: field.value,
+						attrs: field.attrs
+					}) }}
+				{% else %}
+					<div class="form-field {{ 'mb-0' if loop.index === array.fields | length }}">
+						{% if field.type === 'code' %}
+							{{ codeInput.default(
+								{
+									attrs: field.attrs
+								}
+							) }}
+						{% else %}
+							<label class="c-input-label {{ 'sr-only' if params.showLabels === false and field.type !== 'textarea' }}" for="{{ field.attrs.id }}">
+								{{ field.label }}
+								{% if field.attrs.required %}
+									<span class="c-input-label__required">*</span>
+								{% endif %}
+							</label>
+							{{ input.default({
+								className: field.className,
+								type: field.type,
+								value: field.value,
+								attrs: field.attrs
+							}) }}
+						{% endif %}
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			{% if params.privacyCheck %}
+				<div class="form-field privacy-check form-field_consent">
+					{{ ctrl.default({
+						type: 'checkbox',
+						text: includes.privacy('#'),
+						className: 'c-ctrl_style_secondary c-ctrl_size_md',
+						attrs: {
+							name: "privacy",
+							id: "privacy-check-" + 4 | rand_string,
+							checked: true
+						}
+					}) }}
+				</div>
+			{% endif %}
+
+			<div class="form-controls">
+				{% for control in array.buttons %}
+					{{ button.default(
+						control
+					) }}
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if array.formOutro %}
+			<div class="form-outro">
+				{{ array.formOutro | safe }}
+			</div>
+		{% endif %}
+	</form>
+</div>
+
+{% endmacro %}
+
+{% macro auth (array, params) %}
+
+<div class="c-modal {{ params.className }}" id="{{ array.formID }}-popup" {{ params.popupAttrs | implode_attrs | safe }}>
+	<form class="c-form c-modal__body" id="{{ array.formID }}" action="{{ array.action or '#' }}" method="POST" {{ params.attrs | implode_attrs | safe }}>
+		{% if array.formTitle %}
+			<h2 class="c-title c-title_modal">{{ array.formTitle | safe }}</h2>
+		{% endif %}
+
+		{% if array.formIntro %}
+			<div class="form-intro">
+				{{ array.formIntro | safe }}
+			</div>
+		{% endif %}
+
+		<div class="form-fields">
+			<div class="form-result" data-form-result></div>
+
+			{% for field in array.fields %}
+				{% if field.type === 'hidden' %}
+					{{ input.default({
+						className: field.className,
+						type: field.type,
+						value: field.value,
+						attrs: field.attrs
+					}) }}
+				{% else %}
+					<div class="form-field {{ 'mb-0' if loop.index === array.fields | length }}">
+						{% if field.type === 'code' %}
+							{{ codeInput.default(
+								{
+									attrs: field.attrs
+								}
+							) }}
+						{% else %}
+							<label class="c-input-label {{ 'sr-only' if params.showLabels === false and field.type !== 'textarea' }}" for="{{ field.attrs.id }}">
+								{{ field.label }}
+								{% if field.attrs.required %}
+									<span class="c-input-label__required">*</span>
+								{% endif %}
+							</label>
+							{{ input.default({
+								className: field.className,
+								type: field.type,
+								value: field.value,
+								attrs: field.attrs
+							}) }}
+						{% endif %}
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			{% if params.privacyCheck %}
+				<div class="form-field privacy-check form-field_consent">
+					{{ ctrl.default({
+						type: 'checkbox',
+						text: includes.privacy('#'),
+						className: 'c-ctrl_style_secondary c-ctrl_size_md',
+						attrs: {
+							name: "privacy",
+							id: "privacy-check-" + 4 | rand_string,
+							checked: true
+						}
+					}) }}
+				</div>
+			{% endif %}
+
+			{% if params.forgotPassword %}
+				<div class="form-links text-right">
+					<a class="c-btn c-btn_style_link c-btn_color_secondary c-btn_bare" href="#password-form-popup" data-modal>Забыли пароль?</a>
+				</div>
+			{% endif %}
+
+			<div class="form-controls">
+				{% for control in array.buttons %}
+					{{ button.default(
+						control
+					) }}
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if array.formOutro %}
+			<div class="form-outro">
+				{{ array.formOutro | safe }}
+			</div>
+		{% endif %}
+	</form>
+
+	{# декоративные элементы для главной #}
+	{% if params.decor %}
+		<img class="ladder-reg__decor d-none d-xl-block" src="images/clouds.png" alt="">
+	{% endif %}
+</div>
+
+{% endmacro %}
+

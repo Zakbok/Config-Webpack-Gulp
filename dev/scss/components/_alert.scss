@@ -1,0 +1,15 @@
+.c-alert_style_default {
+	display: block;
+	text-align: left;
+	padding: 15px 10px;
+	margin-bottom: 30px;
+	border-radius: 6px;
+
+	&.c-badge {
+		text-align: left;
+		white-space: normal;
+		display: flex;
+		justify-content: flex-start;
+		line-height: 1.2;
+	}
+}

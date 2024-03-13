@@ -1,0 +1,33 @@
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default (array, params) %}
+
+<div class="c-unfold c-unfold_rolling {{ params.className }}" data-state="folded" {{ params.attrs | implode_attrs | safe }}>
+	<div class="c-unfold__body">
+		<div class="c-unfold__inner">
+			{{ caller() }}
+		</div>
+	</div>
+	<div class="c-unfold__footer d-none">
+		{{ button.default({
+			className: 'c-unfold__btn c-btn c-btn_style_link c-btn_color_primary c-btn_bare',
+			text: params.btnText,
+			attrs: {
+				type: 'button',
+				'data-display-state': 'folded',
+				'data-action': 'unfold'
+			}
+		}) }}
+		{{ button.default({
+			className: 'c-unfold__btn c-btn c-btn_style_link c-btn_color_primary c-btn_bare',
+			text: 'Свернуть',
+			attrs: {
+				type: 'button',
+				'data-display-state': 'unfolded',
+				'data-action': 'fold'
+			}
+		}) }}
+	</div>
+</div>
+
+{% endmacro %}

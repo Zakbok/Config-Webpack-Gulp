@@ -1,0 +1,37 @@
+{# SVG-иконки #}
+{% macro icon(array, params) %}
+
+<svg xmlns="http://www.w3.org/2000/svg" class="{{ array.className }} svg-ico" {{ array.attrs | implode_attrs | safe }}>
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ array.file }}#{{ array.id }}"></use>
+</svg>
+
+{% endmacro %}
+
+
+{# Выпадающий список (нативный) #}
+{% macro select(array, params = {controlSize: 'md'}) %}
+
+<div class="c-select {{ 'c-select_multiple' if params.multiple else 'c-select_single' }} {{ 'c-select_' + params.controlSize  }}">
+	<label for="{{ params.id }}" class="c-select__btn">
+		{{ icon('arw-down', 'c-select__icon', file='') }}
+	</label>
+	<select class="c-select__control c-input c-input_default {{ 'c-input_' + params.controlSize }}" id="{{ params.id }}" {{ 'multiple' if params.multiple }} {{ 'size=' + params.size if params.size }}>
+		{% for item in array %}
+			<option value="{{ loop.index }}">{{ item.title }}</option>
+		{% endfor %}
+	</select>
+</div>
+<!-- /.c-select -->
+
+{% endmacro %}
+
+
+{# Видео #}
+{% macro video(dims='16by9', url) %}
+
+<div class="embed-responsive embed-responsive-{{ dims }}">
+	<iframe class="embed-responsive-item" src="{{ url }}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<!-- /.embed-responsive -->
+
+{% endmacro %}

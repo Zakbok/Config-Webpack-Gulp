@@ -1,0 +1,25 @@
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.ajax-pag {
+	text-align: center;
+	margin-top: 30px;
+
+	.c-btn {
+		background: rgba(255, 255, 255, 0.45);
+		color: $color-primary;
+		border-radius: 5px;
+		height: 66px;
+		font-size: 21px;
+
+		&:hover, &:focus {
+			background-color: rgba(255, 255, 255, 0.7);
+		}
+	}
+
+	.c-btn__icon {
+		width: 14px;
+		height: 14px;
+		margin-left: 20px;
+	}
+}

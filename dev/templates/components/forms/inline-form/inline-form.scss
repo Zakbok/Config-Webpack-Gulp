@@ -1,0 +1,21 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.inline-form__panel_result {
+
+	.form-controls {
+		margin-top: 40px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.inline-form__panel_result {
+
+		.form-controls {
+			margin-top: 65px;
+		}
+	}
+}

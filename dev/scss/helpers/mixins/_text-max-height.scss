@@ -1,0 +1,7 @@
+@mixin text-max-height($font-size, $line-height, $lines) {
+	max-height: #{decimal-round(math.div($line-height, $font-size) * $lines)}em;
+	// прогрессивное улучшение для webkit-браузеров
+	display: -webkit-box;
+	-webkit-line-clamp: $lines;
+	-webkit-box-orient: vertical;
+}

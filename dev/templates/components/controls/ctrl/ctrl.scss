@@ -1,0 +1,461 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+@import "dev/scss/helpers/functions";
+
+.c-ctrl {
+	margin-bottom: 10px;
+	text-align: left;
+	display: inline-block;
+	position: relative;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.hint-toggle {
+		position: absolute;
+		top: -0.2em;
+		right: -1em;
+	}
+}
+
+.c-ctrl__input {
+
+	@include hide;
+}
+
+.c-ctrl__title {
+	font-size: inherit;
+	display: block;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+
+/**
+* Default
+*/
+
+.c-ctrl_style_default {
+	color: $color-tertiary;
+
+	.c-ctrl__title {
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			vertical-align: top;
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: inherit;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			border: 1px solid $color-primary;
+		}
+	}
+}
+
+.c-ctrl_style_default.c-ctrl_size_md {
+	font-size: 14px;
+
+	.c-ctrl__title {
+		padding-left: 22px;
+		line-height: 1.2;
+		min-height: 22px;
+
+		&:before {
+			width: 22px;
+			height: 22px;
+			background-size: 75%;
+			border-radius: 8px;
+			border-width: 2px;
+			z-index: 1;
+		}
+	}
+
+	.c-ctrl__value {
+		margin-left: 8px;
+	}
+}
+
+.c-ctrl_style_default.c-ctrl_size_lg {
+	font-size: 14px;
+
+	.c-ctrl__title {
+		padding-left: 36px;
+		line-height: 1.5;
+		min-height: 36px;
+
+		&:before {
+			width: 36px;
+			height: 36px;
+			background-size: 75%;
+			border-radius: 12px;
+			border-width: 2px;
+			z-index: 1;
+		}
+	}
+
+	.c-ctrl__value {
+		margin-left: 20px;
+	}
+}
+
+// border-image не работает совместо с border-radius, используем альтернативный способ
+@supports (-webkit-mask-composite: xor) {
+
+	.c-ctrl_checkbox.c-ctrl_style_default {
+
+		.c-ctrl__input {
+
+			&:checked + .c-ctrl__title {
+
+				&:before {
+					background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.182 5.235 8 13 1' stroke='#{url-friendly-color(#fff)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+				}
+			}
+		}
+	}
+
+	.c-ctrl_radio.c-ctrl_style_default {
+
+		.c-ctrl__input {
+
+			&:checked + .c-ctrl__title:before {
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='#{url-friendly-color(#fff)}'%3E%3Ccircle cx='50%25' cy='50%25' r='5'/%3E%3C/svg%3E%0A");
+			}
+		}
+	}
+
+	.c-ctrl_style_default {
+
+		.c-ctrl__input {
+
+			&:checked + .c-ctrl__title  {
+
+				&:after {
+					padding: 0 0 22px;
+				}
+			}
+		}
+
+		.c-ctrl__title {
+
+			&:before {
+				border-color: transparent;
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				background-repeat: no-repeat;
+				background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+			}
+		}
+	}
+
+	.c-ctrl_style_default.c-ctrl_size_md {
+
+		.c-ctrl__title {
+
+			&:after {
+				width: 22px;
+				height: 22px;
+				border-radius: 8px;
+				padding: 2px;
+			}
+		}
+	}
+
+	.c-ctrl_radio.c-ctrl_style_default {
+
+		.c-ctrl__title {
+
+			&:after {
+				border-radius: 50%;
+			}
+		}
+	}
+
+	@media (min-width: $bp-xl) {
+
+		.c-ctrl_style_default.c-ctrl_size_md {
+
+			.c-ctrl__input {
+
+				&:checked + .c-ctrl__title {
+
+					&:after {
+						padding-bottom: 28px;
+					}
+				}
+			}
+
+			.c-ctrl__title {
+
+				&:after {
+					width: 28px;
+					height: 28px;
+					border-radius: 8px;
+					padding: 2px;
+				}
+			}
+		}
+
+		.c-ctrl_radio.c-ctrl_style_default {
+
+			.c-ctrl__title {
+
+				&:after {
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+
+	.c-ctrl_style_default.c-ctrl_size_lg {
+
+		.c-ctrl__input {
+
+			&:checked + .c-ctrl__title {
+
+				&:after {
+					padding-bottom: 36px;
+				}
+			}
+		}
+
+		.c-ctrl__title {
+
+			&:after {
+				width: 36px;
+				height: 36px;
+				border-radius: 12px;
+				padding: 2px;
+			}
+		}
+	}
+}
+
+.c-ctrl_radio.c-ctrl_style_default {
+
+	.c-ctrl__title {
+
+		&:before {
+			border-radius: 50%;
+			background-size: 10px;
+		}
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-ctrl_style_default.c-ctrl_size_md {
+
+		.c-ctrl__title {
+			padding-left: 28px;
+			min-height: 28px;
+
+			&:before {
+				width: 28px;
+				height: 28px;
+			}
+		}
+
+		.c-ctrl__value {
+			margin-left: 16px;
+		}
+	}
+
+	.c-ctrl_style_default.c-ctrl_size_lg {
+		font-size: 16px;
+
+		.c-ctrl__title {
+			line-height: 1.6;
+		}
+	}
+}
+
+
+/**
+* Secondary
+*/
+
+.c-ctrl_style_secondary {
+	color: $color-tertiary;
+
+	.c-ctrl__title {
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			vertical-align: top;
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: inherit;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			background-color: $color-secondary;
+			border: 1px solid transparent;
+		}
+	}
+}
+
+.c-ctrl_style_secondary.c-ctrl_size_md {
+	font-size: 14px;
+
+	.c-ctrl__title {
+		padding-left: 26px;
+		line-height: 1.2;
+		min-height: 26px;
+
+		&:before {
+			width: 26px;
+			height: 26px;
+			background-size: 12px;
+			border-radius: 50%;
+		}
+	}
+
+	.c-ctrl__value {
+		margin-left: 15px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-ctrl_style_secondary.c-ctrl_size_md {
+		font-size: 16px;
+	}
+}
+
+
+/**
+* Checkbox button
+*/
+
+.c-ctrl_checkbox {
+
+    .c-ctrl__input {
+
+        &:checked + .c-ctrl__title:before {
+			background-image: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.182 5.235 8 13 1' stroke='#{url-friendly-color($color-tertiary)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+    }
+}
+
+
+/**
+* Radio
+*/
+
+.c-ctrl_radio {
+
+    .c-ctrl__input {
+
+        &:checked + .c-ctrl__title:before {
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='#{url-friendly-color($color-primary)}'%3E%3Ccircle cx='50%25' cy='50%25' r='5'/%3E%3C/svg%3E%0A");
+        }
+	}
+}
+
+
+/****************************************************************************/
+/* CTRL TABLE */
+/****************************************************************************/
+
+.ctrl-table {
+	font-size: 14px;
+	table-layout: fixed;
+
+	th {
+		font-size: 12px;
+		font-weight: 400;
+		text-align: left;
+		padding-bottom: 5px;
+	}
+
+	th,
+	td {
+		padding: 0 10px 15px;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}
+
+.ctrl-table__value {
+	line-height: 1.5;
+}
+
+@media (min-width: $bp-xl) {
+
+	.ctrl-table {
+		font-size: 16px;
+
+		th,
+		td {
+			// padding: 0 19px 30px;
+			padding-bottom: 30px;
+			min-width: 54px;
+		}
+
+		td:last-child {
+			width: auto;
+		}
+
+		th {
+			font-size: 14px;
+			padding-bottom: 20px;
+		}
+	}
+
+	.cart-table__value {
+		line-height: 1.6;
+	}
+}
+
+
+/**
+* Checked
+*/
+
+.c-ctrl_checked {
+
+	.c-ctrl__input:checked + .c-ctrl__title {
+		text-decoration: line-through;
+		text-decoration-color: $color-secondary;
+	}
+}
+
+
+/**
+* Disabled
+*/
+
+.c-ctrl_disabled {
+
+	.c-ctrl__title {
+		cursor: default;
+		opacity: 0.7;
+	}
+}

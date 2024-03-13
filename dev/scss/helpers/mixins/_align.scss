@@ -1,0 +1,31 @@
+/****************************************************************************/
+/* Центрирование */
+/****************************************************************************/
+
+@mixin center-a() {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+	margin: auto;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+@mixin center-t($align){
+	position: absolute;
+
+	@if ($align == 'hor'){
+		left: 50%;
+		transform: translateX(-50%);
+	} @else if ($align == 'ver') {
+		top: 50%;
+		transform: translateY(-50%);
+	} @else if ($align == 'both'){
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

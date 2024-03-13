@@ -1,0 +1,40 @@
+/****************************************************************************/
+/* HOVER EFFECTS FOR LAYERS */
+/****************************************************************************/
+
+
+@mixin hover-mask ($color: rgba(255, 255, 255, 0.4), $opacityStart: 0, $opacityEnd: 1) {
+
+    @include layer-mask($color);
+
+    &:after {
+		opacity: $opacityStart;
+
+		@include g-transition(opacity);
+	}
+
+	&:hover, &:focus {
+
+		&:after {
+			opacity: $opacityEnd;
+		}
+	}
+}
+
+@mixin hover-shadow ($shadow: 0 0 10px 0 rgba(0,0,0, 0.44), $opacityStart: 0, $opacityEnd: 1) {
+
+	@include layer-shadow($shadow);
+
+	&:before {
+		opacity: $opacityStart;
+
+		@include g-transition(opacity)
+	}
+
+	&:hover, &:focus {
+
+		&:before {
+			opacity: $opacityEnd;
+		}
+	}
+}

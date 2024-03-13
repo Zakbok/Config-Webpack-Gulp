@@ -1,0 +1,199 @@
+/****************************************************************************/
+/* VENDOR */
+/****************************************************************************/
+
+/**
+* For overriding vendor styles only
+*/
+
+/**
+* Fancybox 3
+*/
+
+/**
+* 1. Ломает элементы с position: fixed
+*/
+
+.fancybox-active {
+
+	.c-page {
+		transform: translateZ(0);
+		filter: blur(5px);  /* [1] */
+	}
+}
+
+.fancybox-bg {
+	background-color: rgb(126, 139, 197);
+}
+
+.fancybox-is-open {
+
+	.fancybox-bg {
+		opacity: 0.5;
+	}
+}
+
+.fancybox-bg_gradient {
+	background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+}
+
+.fancybox-is-open {
+
+	.fancybox-bg_gradient {
+		opacity: 0.65;
+	}
+}
+
+
+// Кастомная подложка canvas
+.fancybox-underlay {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99993;
+}
+
+
+/**
+* Highcharts
+*/
+
+.chart-container {
+	overflow: auto;
+}
+
+.chart-container__inner {
+	min-width: 600px;
+}
+
+.highcharts-container {
+	font-family: inherit;
+}
+
+.highcharts-axis-title {
+	font-size: 12px;
+	text-transform: uppercase;
+	fill: $color-tertiary;
+	font-weight: 700;
+}
+
+.highcharts-axis-labels {
+	fill: $color-tertiary;
+	font-size: 11px;
+}
+
+.highcharts-axis-line {
+	stroke: $color-quarternary;
+}
+
+.highcharts-yaxis .highcharts-axis-line {
+	stroke-width: 1px;
+}
+
+.highcharts-color-0 {
+	fill: $color-primary;
+}
+
+@media (min-width: $bp-xl) {
+
+	.highcharts-axis-title {
+		font-size: 14px;
+	}
+
+	.highcharts-axis-labels {
+		font-size: 14px;
+	}
+}
+
+
+/**
+* Minibar
+*/
+
+.scrollbar-container {
+	// padding-right: 10px;
+
+	.mb-content {
+		// почему-то плагин не делает этого сам
+		@include hide-scrollbar;
+	}
+
+	.blogpost-item {
+		overflow: hidden;
+	}
+}
+
+.mb-track-y {
+	width: 8px;
+	height: 100%;
+	background: #eceef5;
+	border: 1px solid transparent;
+	border-radius: 100px;
+	top: 0;
+	bottom: 0;
+}
+
+.mb-bar {
+	background: $color-primary;
+	border-radius: 100px;
+}
+
+
+/**
+* Air datepicker
+*/
+
+.datepicker {
+	font-family: inherit;
+	color: inherit;
+
+	.datepicker--day-name {
+		color: #777;
+		font-size: 12px;
+		text-transform: none;
+	}
+
+	.-disabled-.-focus-.datepicker--cell-day.-other-month-,
+	.-disabled-.-focus-.datepicker--cell-year.-other-decade-,
+	.datepicker--cell-day.-other-month-,
+	.datepicker--cell-year.-other-decade- {
+		color: #ccc;
+	}
+
+	.datepicker--cell-day.-selected- {
+		color: $color-primary;
+	}
+
+	.datepicker--nav-title i {
+		color: $color-text;
+	}
+
+	.datepicker--nav-action path {
+		stroke: #ccc;
+	}
+
+	.datepicker--cells-days {
+
+		.datepicker--cell {
+			margin-top: 3px;
+			margin-bottom: 3px;
+
+			&.-focus-,
+			&.-selected- {
+				background: $color-blank;
+			}
+
+			&.-focus-:before,
+			&.-selected-:before {
+				background-color: $color-primary;
+			}
+		}
+	}
+
+	.datepicker--cell.-current-, .datepicker--cell.-current-.-in-range- {
+		color: $color-primary;
+	}
+}

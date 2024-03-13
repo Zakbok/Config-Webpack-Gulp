@@ -1,0 +1,9 @@
+@mixin aspect-ratio($width, $height) {
+
+	&:before {
+		content: '';
+		display: block;
+		width: 100%;
+		padding-bottom: decimal-round(math.div($height, $width) * 100%);
+	}
+}

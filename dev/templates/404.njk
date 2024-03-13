@@ -1,0 +1,32 @@
+{# Параметры страницы #}
+
+{% set pageType = "404" %}
+{% set pageWidth = "normalWidth" %}
+{% set hasSidebar = true %}
+{% set pageTitle = "Детальная" %}
+{% set hideH1 = true %}
+
+{# Параметры страницы #}
+
+{% extends "layouts/_layout.njk" %}
+{% block content %}
+
+{% import "components/controls/button/button.njk" as button %}
+
+<div class="c-404">
+	<img class="c-404__img" src="images/404.svg" alt="404">
+	<div class="c-404__title">Страница не найдена</div>
+	<div class="c-404__controls">
+		{{ button.default(
+			{
+				className: 'c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg c-btn_width_md',
+				text: 'На главную',
+				attrs: {
+					href: '#'
+				}
+			}
+		) }}
+	</div>
+</div>
+
+{% endblock %}

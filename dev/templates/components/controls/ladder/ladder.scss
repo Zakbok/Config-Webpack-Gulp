@@ -1,0 +1,7723 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+@function get-left-xl($left) {
+	$container-margin: 0;
+	$container-gap: 25;
+
+	@return $left - $container-margin + $container-gap;
+}
+
+@function get-left-xxl($left) {
+	$container-margin: 120;
+	$container-gap: 25;
+
+	@return $left - $container-margin + $container-gap;
+}
+
+/**
+* Index
+*/
+
+.ladder_index {
+	// height: 3205px;
+	// background: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+	position: relative;
+
+	.ladder__bg {
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: bottom center;
+		background-image: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.ladder__images {
+		position: relative;
+		z-index: 1;
+	}
+
+	.ladder__img {
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	// не используем здесь overflow: hidden, чтобы сохранить тени
+	.ladder__inner {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.ladder__step {
+		position: absolute;
+	}
+
+	.ladder__step_1 {
+		width: 104px;
+		left: get-left-xl(-19px);
+		bottom: 699px;
+	}
+
+	.ladder__step_2 {
+		width: 83px;
+		left: get-left-xl(-6px);
+		bottom: 718px;
+	}
+
+	.ladder__step_3 {
+		width: 108px;
+		left: get-left-xl(49px);
+		bottom: 770px;
+	}
+
+	.ladder__step_4 {
+		width: 98px;
+		left: get-left-xl(110px);
+		bottom: 804px;
+	}
+
+	.ladder__step_5 {
+		width: 108px;
+		left: get-left-xl(145px);
+		bottom: 842px;
+	}
+
+	.ladder__step_6 {
+		width: 132px;
+		left: get-left-xl(183px);
+		bottom: 875px;
+	}
+
+	.ladder__step_7 {
+		width: 104px;
+		left: get-left-xl(207px);
+		bottom: 925px;
+	}
+
+	.ladder__step_8 {
+		width: 102px;
+		left: get-left-xl(147px);
+		bottom: 968px;
+	}
+
+	.ladder__step_9 {
+		width: 109px;
+		left: get-left-xl(56px);
+		bottom: 999px;
+	}
+
+	.ladder__step_10 {
+		width: 108px;
+		left: get-left-xl(-19px);
+		bottom: 1053px;
+	}
+
+	.ladder__step_11 {
+		width: 134px;
+		left: get-left-xl(161px);
+		bottom: 1188px;
+	}
+
+	.ladder__step_12 {
+		width: 108px;
+		left: get-left-xl(2px);
+		bottom: 1993px;
+	}
+
+	.ladder__step_13 {
+		width: 96px;
+		left: get-left-xl(141px);
+		bottom: 2232px;
+	}
+
+	.ladder__step_14 {
+		width: 102px;
+		left: get-left-xl(133px);
+		bottom: 2571px;
+	}
+
+	.ladder__step_15 {
+		width: 102px;
+		left: get-left-xl(183px);
+		bottom: 2711px;
+	}
+
+	.ladder__step_16 {
+		width: 98px;
+		left: get-left-xl(211px);
+		bottom: 3137px;
+	}
+
+	.ladder__step_17 {
+		width: 108px;
+		left: get-left-xl(25px);
+		bottom: 3306px;
+	}
+
+	.ladder__step_18 {
+		width: 96px;
+		left: get-left-xl(149px);
+		bottom: 3446px;
+	}
+
+	.ladder__step_19 {
+		width: 92px;
+		left: get-left-xl(176px);
+		bottom: 3464px;
+	}
+
+	.ladder__step_20 {
+		width: 96px;
+		left: get-left-xl(187px);
+		bottom: 3516px;
+	}
+
+	.ladder__step_21 {
+		width: 98px;
+		left: get-left-xl(177px);
+		bottom: 3571px;
+	}
+
+	.ladder-label {
+		font-size: 10px;
+		font-weight: 800;
+		line-height: 1;
+		// white-space: nowrap;
+		// text-overflow: ellipsis;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		color: #fff;
+		text-align: center;
+		justify-content: center;
+		height: 20px;
+	}
+
+	.ladder-label_test {
+		color: $color-tertiary;
+	}
+
+	.ladder__hint {
+		position: absolute;
+	}
+
+	.ladder__hint_1 {
+		left: get-left-xl(-20px);
+		bottom: 854px;
+		width: 198px;
+	}
+
+	.ladder__hint_2 {
+		left: get-left-xl(95px);
+		bottom: 1022px;
+		width: 195px;
+	}
+
+	.ladder__hint_3 {
+		left: get-left-xl(-20px);
+		bottom: 1152px;
+		width: 200px;
+	}
+
+	.ladder__hint_4 {
+		left: get-left-xl(0px);
+		bottom: 2025px;
+		width: 224px;
+	}
+
+	.ladder__hint_5 {
+		left: get-left-xl(0px);
+		bottom: 2125px;
+		width: 276px;
+	}
+
+	.ladder__hint_6 {
+		left: get-left-xl(52px);
+		bottom: 2625px;
+		width: 232px;
+	}
+
+	.ladder__hint_7 {
+		left: get-left-xl(-20px);
+		bottom: 3205px;
+		width: 240px;
+	}
+
+	.ladder__hint_8 {
+		left: get-left-xl(50px);
+		bottom: 3363px;
+		width: 240px;
+	}
+
+	.ladder__hint_9 {
+		left: 50%;
+		margin-left: math.div(270px, 2) * -1;
+		bottom: 3627px;
+		width: 270px;
+	}
+
+	.ladder-hint {
+		background: rgba(84, 91, 125, 0.35);
+		color: #fff;
+		border-radius: 33px;
+		padding: 20px;
+	}
+
+	.ladder-hint__title {
+		font-size: 18px;
+		line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.ladder-hint__controls {
+		margin-top: 10px;
+	}
+
+	.ladder-modal {
+		position: absolute;
+		box-shadow: 0px 20px 50px 0px rgba(96, 103, 134, 0.20);
+
+		.c-ul {
+			margin-top: 10px;
+			margin-bottom: 25px;
+
+			li + li {
+				margin-top: 4px;
+			}
+		}
+	}
+
+	.ladder-modal_top {
+		left: 50%;
+		margin-left: math.div(326px, 2) * -1;
+		bottom: 3799px;
+		width: 326px;
+	}
+
+	.ladder-modal_2 {
+		left: 50%;
+		margin-left: math.div(326px, 2) * -1;
+		bottom: 3799px;
+		width: 326px;
+		bottom: 1266px;
+	}
+
+	.ladder-modal_3 {
+		left: 50%;
+		margin-left: math.div(326px, 2) * -1;
+		bottom: 3799px;
+		width: 326px;
+		bottom: 2289px;
+	}
+
+	.ladder-modal_4 {
+		left: 50%;
+		margin-left: math.div(326px, 2) * -1;
+		bottom: 3799px;
+		width: 326px;
+		bottom: 2770px;
+	}
+
+	.ladder-modal_bottom {
+		left: 50%;
+		margin-left: math.div(326px, 2) * -1;
+		bottom: 78px;
+		width: 326px;
+	}
+
+	.ladder-modal__inner {
+
+		strong {
+			font-weight: 600;
+			line-height: 1.5;
+		}
+	}
+}
+
+@media (max-width: 359px) {
+
+	.ladder_index {
+
+		.ladder__step_6 {
+			width: 112px;
+		}
+
+		.ladder__step_7 {
+			width: 80px;
+		}
+
+		.ladder__step_16 {
+			width: 80px;
+		}
+	}
+}
+
+@media (max-width: 375px) {
+
+	.ladder_index {
+
+		.ladder-modal {
+			width: 300px;
+			margin-left: -150px;
+		}
+	}
+}
+
+@media (max-width: $bp-md - 1px) {
+
+	.ladder_index {
+		font-size: 14px;
+
+		.ladder__inner {
+			width: $bp-xs;
+		}
+
+		.ladder-label {
+			font-size: 8px;
+			font-weight: 600;
+		}
+
+		.ladder-hint {
+
+			.c-btn {
+				min-height: 46px;
+			}
+		}
+
+		// .ladder-hint_about {
+		// 	color: $color-text;
+		// 	background-image: linear-gradient(180deg, #F6F8FF -6.97%, #EAECF6 99.67%);
+		// 	box-shadow: 0px 20px 50px 0px rgba(96, 103, 134, 0.20);
+		// }
+	}
+}
+
+@media (max-width: $bp-lg - 1px) {
+
+	.ladder_index {
+// 		// font-size: 14px;
+
+// 		// .ladder-label {
+// 		// 	font-size: 8px;
+// 		// 	font-weight: 600;
+// 		// }
+
+		.ladder-hint_about {
+			color: $color-text;
+			background-image: linear-gradient(180deg, #F6F8FF -6.97%, #EAECF6 99.67%);
+			box-shadow: 0px 20px 50px 0px rgba(96, 103, 134, 0.20);
+		}
+	}
+}
+
+@media (min-width: $bp-md) and (max-width: #{$bp-lg - 1px}) {
+
+	.ladder_index {
+		// font-size: 16px;
+
+		.ladder__bg {
+			background-image: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+			background-size: auto 100%;
+		}
+
+		.ladder__img {
+			height: 2000px !important;
+			background-size: auto 100%;
+
+			&:last-child {
+				height: 1485px !important;
+			}
+		}
+
+		.container {
+			max-width: $bp-md;
+		}
+
+		.ladder__step_1 {
+			width: 286px;
+			left: get-left-xl(451px);
+			bottom: 522px;
+		}
+
+		.ladder__step_2 {
+			width: 218px;
+			left: get-left-xl(466px);
+			bottom: 680px;
+		}
+
+		.ladder__step_3 {
+			width: 232px;
+			left: get-left-xl(389px);
+			bottom: 719px;
+		}
+
+		.ladder__step_4 {
+			width: 232px;
+			left: get-left-xl(270px);
+			bottom: 748px;
+		}
+
+		.ladder__step_5 {
+			width: 284px;
+			left: get-left-xl(180px);
+			bottom: 821px;
+		}
+
+		.ladder__step_6 {
+			width: 232px;
+			left: get-left-xl(108px);
+			bottom: 863px;
+		}
+
+		.ladder__step_7 {
+			width: 292px;
+			left: get-left-xl(235px);
+			bottom: 968px;
+		}
+
+		.ladder__step_8 {
+			width: 224px;
+			left: get-left-xl(0px);
+			bottom: 1426px;
+		}
+
+		.ladder__step_9 {
+			width: 208px;
+			left: get-left-xl(61px);
+			bottom: 1503px;
+		}
+
+		.ladder__step_10 {
+			width: 208px;
+			left: get-left-xl(395px);
+			bottom: 1768px;
+		}
+
+		.ladder__step_11 {
+			width: 284px;
+			left: get-left-xl(435px);
+			bottom: 1805px;
+		}
+
+		.ladder__step_12 {
+			width: 224px;
+			left: get-left-xl(475px);
+			bottom: 1844px;
+		}
+
+		.ladder__step_13 {
+			width: 214px;
+			left: get-left-xl(493px);
+			bottom: 1913px;
+		}
+
+		.ladder__step_14 {
+			width: 284px;
+			left: get-left-xl(72px);
+			bottom: 2146px;
+		}
+
+		.ladder__step_15 {
+			width: 232px;
+			left: get-left-xl(0px);
+			bottom: 2189px;
+		}
+
+		.ladder__step_16 {
+			width: 226px;
+			left: get-left-xl(432px);
+			bottom: 2518px;
+		}
+
+		.ladder__step_17 {
+			width: 208px;
+			left: get-left-xl(470px);
+			bottom: 2592px;
+		}
+
+		.ladder__step_18 {
+			width: 232px;
+			left: get-left-xl(330px);
+			bottom: 2673px;
+		}
+
+		.ladder__step_19 {
+			width: 254px;
+			left: get-left-xl(155px);
+			bottom: 2738px;
+		}
+
+		.ladder__step_20 {
+			width: 212px;
+			left: get-left-xl(88px);
+			bottom: 2855px;
+		}
+
+		.ladder__step_21 {
+			width: 220px;
+			left: get-left-xl(285px);
+			bottom: 2939px;
+		}
+
+		.ladder-label {
+			font-size: 14px;
+			height: 36px;
+		}
+
+		.ladder__hint_1 {
+			width: 280px;
+			left: get-left-xl(50px);
+			bottom: 640px;
+		}
+
+		.ladder__hint_2 {
+			width: 220px;
+			left: get-left-xl(485px);
+			bottom: 820px;
+		}
+
+		.ladder__hint_3 {
+			width: 280px;
+			left: get-left-xl(-10px);
+			bottom: 1060px;
+		}
+
+		.ladder__hint_4 {
+			width: 260px;
+			left: get-left-xl(-15px);
+			bottom: 1623px;
+		}
+
+		.ladder__hint_5 {
+			width: 280px;
+			left: get-left-xl(0px);
+			bottom: 1738px;
+		}
+
+		.ladder__hint_6 {
+			width: 300px;
+			left: get-left-xl(430px);
+			bottom: 2085px;
+		}
+
+		.ladder__hint_7 {
+			width: 320px;
+			left: get-left-xl(75px);
+			bottom: 2527px;
+		}
+
+		.ladder__hint_8 {
+			width: 220px;
+			left: get-left-xl(-10px);
+			bottom: 2643px;
+		}
+
+		.ladder__hint_9 {
+			width: 300px;
+			left: get-left-xl(550px);
+			bottom: 2743px;
+		}
+
+		.ladder-hint {
+			padding: 20px;
+		}
+
+		.ladder-hint__title {
+			font-size: 18px;
+		}
+
+		.ladder-hint__controls {
+			margin-top: 15px;
+		}
+
+		.ladder-hint_about {
+			text-align: right;
+			padding: 20px 25px;
+		}
+
+		.ladder-modal {
+			width: 460px;
+		}
+
+		.ladder-modal__inner {
+
+			strong {
+				font-size: 18px;
+			}
+		}
+
+		.ladder-modal_bottom {
+			width: 400px;
+			margin: 0;
+			left: get-left-xl(0px);
+		}
+
+		.ladder-modal_2 {
+			width: 450px;
+			margin: 0;
+			left: get-left-xl(280px);
+			bottom: 1130px;
+		}
+
+		.ladder-modal_3 {
+			width: 320px;
+			margin: 0;
+			left: get-left-xl(-5px);
+			bottom: 1839px;
+		}
+
+		.ladder-modal_4 {
+			margin: 0;
+			left: get-left-xl(275px);
+			bottom: 2230px;
+		}
+
+		.ladder-modal_top {
+			width: 500px;
+			margin-left: -250px;
+			bottom: 3019px;
+		}
+	}
+}
+
+@media (min-width: $bp-lg) {
+
+	.ladder_index {
+
+		.ladder__bg {
+			background-image: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+			background-size: auto 100%;
+		}
+
+		.ladder__step_1 {
+			width: 270px;
+			left: get-left-xl(455px);
+			bottom: 516px;
+		}
+
+		.ladder__step_2 {
+			width: 352px;
+			left: get-left-xl(605px);
+			bottom: 654px;
+		}
+
+		.ladder__step_3 {
+			width: 278px;
+			left: get-left-xl(654px);
+			bottom: 704px;
+		}
+
+		.ladder__step_4 {
+			width: 274px;
+			left: get-left-xl(620px);
+			bottom: 848px;
+		}
+
+		.ladder__step_5 {
+			width: 350px;
+			left: get-left-xl(309px);
+			bottom: 980px;
+		}
+
+		.ladder__step_6 {
+			width: 288px;
+			left: get-left-xl(175px);
+			bottom: 1078px;
+		}
+
+		.ladder__step_7 {
+			width: 292px;
+			left: get-left-xl(305px);
+			bottom: 1212px;
+		}
+
+		.ladder__step_8 {
+			width: 360px;
+			left: get-left-xl(580px);
+			bottom: 1266px;
+		}
+
+		.ladder__step_9 {
+			width: 284px;
+			left: get-left-xl(151px);
+			bottom: 1692px;
+		}
+
+		.ladder__step_10 {
+			width: 274px;
+			left: get-left-xl(155px);
+			bottom: 1927px;
+		}
+
+		.ladder__step_11 {
+			width: 274px;
+			left: get-left-xl(435px);
+			bottom: 2117px;
+		}
+
+		.ladder__step_12 {
+			width: 354px;
+			left: get-left-xl(583px);
+			bottom: 2256px;
+		}
+
+		.ladder__step_13 {
+			width: 252px;
+			left: get-left-xl(650px);
+			bottom: 2395px;
+		}
+
+		.ladder__step_14 {
+			width: 354px;
+			left: get-left-xl(128px);
+			bottom: 2682px;
+		}
+
+		.ladder__step_15 {
+			width: 290px;
+			left: get-left-xl(38px);
+			bottom: 2737px;
+		}
+
+		.ladder__step_16 {
+			width: 358px;
+			left: get-left-xl(528px);
+			bottom: 3098px;
+		}
+
+		.ladder__step_17 {
+			width: 282px;
+			left: get-left-xl(577px);
+			bottom: 3148px;
+		}
+
+		.ladder__step_18 {
+			width: 274px;
+			left: get-left-xl(545px);
+			bottom: 3294px;
+		}
+
+		.ladder__step_19 {
+			width: 354px;
+			left: get-left-xl(189px);
+			bottom: 3473px;
+		}
+
+		.ladder__step_20 {
+			width: 252px;
+			left: get-left-xl(148px);
+			bottom: 3565px;
+		}
+
+		.ladder__step_21 {
+			width: 276px;
+			left: get-left-xl(393px);
+			bottom: 3675px;
+		}
+
+		.ladder-label {
+			font-size: 18px;
+			height: 44px;
+		}
+
+		.ladder__hint_1 {
+			width: 280px;
+			left: get-left-xl(50px);
+			bottom: 710px;
+		}
+
+		.ladder__hint_2 {
+			width: 280px;
+			left: get-left-xl(650px);
+			bottom: 990px;
+		}
+
+		.ladder__hint_3 {
+			width: 300px;
+			left: get-left-xl(60px);
+			bottom: 1313px;
+		}
+
+		.ladder__hint_4 {
+			width: 300px;
+			left: get-left-xl(0px);
+			bottom: 2038px;
+		}
+
+		.ladder__hint_5 {
+			width: 432px;
+			left: get-left-xl(100px);
+			bottom: 2225px;
+		}
+
+		.ladder__hint_6 {
+			width: 340px;
+			left: get-left-xl(615px);
+			bottom: 2627px;
+		}
+
+		.ladder__hint_7 {
+			width: 400px;
+			left: get-left-xl(120px);
+			bottom: 3113px;
+		}
+
+		.ladder__hint_8 {
+			width: 300px;
+			left: get-left-xl(0px);
+			bottom: 3303px;
+		}
+
+		.ladder__hint_9 {
+			width: 280px;
+			left: get-left-xl(839px);
+			bottom: 3398px;
+		}
+
+		.ladder-hint {
+			padding: 25px;
+		}
+
+		.ladder-hint__title {
+			font-size: 22px;
+		}
+
+		.ladder-hint__controls {
+			margin-top: 15px;
+		}
+
+		.ladder-hint_about {
+			text-align: right;
+			background: none;
+			box-shadow: none;
+			padding: 0;
+			color: $color-tertiary;
+		}
+
+		.ladder-modal {
+			width: 580px;
+		}
+
+		.ladder-modal__inner {
+
+			strong {
+				font-size: 24px;
+			}
+		}
+
+		.ladder-modal_bottom {
+			width: 450px;
+			margin: 0;
+			left: get-left-xl(0px);
+		}
+
+		.ladder-modal_2 {
+			width: 450px;
+			margin: 0;
+			left: get-left-xl(540px);
+			bottom: 1400px;
+		}
+
+		.ladder-modal_3 {
+			width: 450px;
+			margin: 0;
+			left: get-left-xl(-5px);
+			bottom: 2359px;
+		}
+
+		.ladder-modal_4 {
+			margin: 0;
+			left: get-left-xl(405px);
+			bottom: 2780px;
+		}
+
+		.ladder-modal_top {
+			margin-left: -290px;
+		}
+	}
+}
+
+@media (min-width: $bp-lg) and (max-width: $bp-xl - 1px) {
+
+	.ladder_index {
+
+		.ladder__img {
+			height: 2500px !important;
+			background-size: auto 100%;
+
+			&:last-child {
+				height: 1856px !important;
+			}
+		}
+
+		.container {
+			max-width: $bp-lg;
+		}
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.ladder_index {
+
+		.ladder__bg {
+			background-image: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+		}
+
+		.ladder__step_1 {
+			width: 414px;
+			left: get-left-xl(525px);
+			bottom: 746px;
+		}
+
+		.ladder__step_2 {
+			width: 406px;
+			left: get-left-xl(767px);
+			bottom: 972px;
+		}
+
+		.ladder__step_3 {
+			width: 354px;
+			left: get-left-xl(973px);
+			bottom: 1205px;
+		}
+
+		.ladder__step_4 {
+			width: 438px;
+			left: get-left-xl(874px);
+			bottom: 1358px;
+		}
+
+		.ladder__step_5 {
+			width: 566px;
+			left: get-left-xl(371px);
+			bottom: 1568px;
+		}
+
+		.ladder__step_6 {
+			width: 458px;
+			left: get-left-xl(159px);
+			bottom: 1729px;
+		}
+
+		.ladder__step_7 {
+			width: 292px;
+			left: get-left-xl(475px);
+			bottom: 1950px;
+		}
+
+		.ladder__step_8 {
+			width: 446px;
+			left: get-left-xl(891px);
+			bottom: 2106px;
+		}
+
+		.ladder__step_9 {
+			width: 436px;
+			left: get-left-xl(840px);
+			bottom: 2350px;
+		}
+
+		.ladder__step_10 {
+			width: 462px;
+			left: get-left-xl(391px);
+			bottom: 2570px;
+		}
+
+		.ladder__step_11 {
+			width: 462px;
+			left: get-left-xl(-5px);
+			bottom: 2786px;
+		}
+
+		.ladder__step_12 {
+			width: 462px;
+			left: get-left-xl(647px);
+			bottom: 3469px;
+		}
+
+		.ladder__step_13 {
+			width: 292px;
+			left: get-left-xl(1001px);
+			bottom: 3841px;
+		}
+
+		.ladder__step_14 {
+			width: 566px;
+			left: get-left-xl(86px);
+			bottom: 4295px;
+		}
+
+		.ladder__step_15 {
+			width: 396px;
+			left: get-left-xl(160px);
+			bottom: 4517px;
+		}
+
+		.ladder__step_16 {
+			width: 414px;
+			left: get-left-xl(648px);
+			bottom: 4884px;
+		}
+
+		.ladder__step_17 {
+			width: 444px;
+			left: get-left-xl(807px);
+			bottom: 5037px;
+		}
+
+		.ladder__step_18 {
+			width: 460px;
+			left: get-left-xl(602px);
+			bottom: 5357px;
+		}
+
+		.ladder__step_19 {
+			width: 562px;
+			left: get-left-xl(184px);
+			bottom: 5557px;
+		}
+
+		.ladder__step_20 {
+			width: 292px;
+			left: get-left-xl(198px);
+			bottom: 5721px;
+		}
+
+		.ladder__step_21 {
+			width: 462px;
+			left: get-left-xl(88px);
+			bottom: 6704px;
+		}
+
+		.ladder-label {
+			font-size: 26px;
+			height: 70px;
+		}
+
+		.ladder__hint_1 {
+			width: 460px;
+			left: get-left-xl(50px);
+			bottom: 1309px;
+		}
+
+		.ladder__hint_2 {
+			width: 546px;
+			left: get-left-xl(755px);
+			bottom: 1690px;
+		}
+
+		.ladder__hint_3 {
+			width: 536px;
+			left: get-left-xl(60px);
+			bottom: 2143px;
+		}
+
+		.ladder__hint_4 {
+			width: 506px;
+			left: get-left-xl(0px);
+			bottom: 3148px;
+		}
+
+		.ladder__hint_5 {
+			width: 612px;
+			left: get-left-xl(15px);
+			bottom: 3485px;
+		}
+
+		.ladder__hint_6 {
+			width: 524px;
+			left: get-left-xl(765px);
+			bottom: 4147px;
+		}
+
+		.ladder__hint_7 {
+			width: 520px;
+			left: get-left-xl(20px);
+			bottom: 4903px;
+		}
+
+		.ladder__hint_8 {
+			width: 520px;
+			left: get-left-xl(0px);
+			bottom: 5193px;
+		}
+
+		.ladder__hint_9 {
+			width: 282px;
+			left: get-left-xl(1169px);
+			bottom: 5418px;
+		}
+
+		.ladder-hint {
+			border-radius: 60px;
+			padding: 40px 50px;
+		}
+
+		.ladder-hint__title {
+			font-size: 30px;
+		}
+
+		.ladder-hint__controls {
+			margin-top: 30px;
+		}
+
+		.ladder-hint_about {
+			text-align: right;
+			background: none;
+			box-shadow: none;
+			padding: 0;
+			color: $color-tertiary;
+
+			.ladder-hint__title {
+				font-size: 36px;
+			}
+		}
+
+		.ladder-modal_top {
+			width: 726px;
+			margin-left: -#{math.div(726, 2)}px;
+			bottom: 6022px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal_2 {
+			width: 726px;
+			left: get-left-xl(600px);
+			margin: 0;
+			bottom: 2725px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal_3 {
+			width: 596px;
+			left: get-left-xl(0px);
+			margin: 0;
+			bottom: 3781px;
+		}
+
+		.ladder-modal_4 {
+			width: 860px;
+			left: get-left-xl(450px);
+			margin: 0;
+			bottom: 4442px;
+
+			.ladder-modal__body {
+				width: 700px;
+			}
+		}
+
+		.ladder-modal_bottom {
+			width: 726px;
+			left: get-left-xl(0px);
+			margin: 0;
+			bottom: 150px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal__body {
+			width: 566px;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+
+		.ladder-modal__title {
+			font-size: 48px;
+			margin-bottom: 25px;
+		}
+
+		.ladder-modal__desc {
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.ladder-modal__controls {
+			margin-top: 25px;
+		}
+	}
+}
+
+// промежуточное значение, потому что картинка со ступенью вылезает за вьюпорт
+@media (min-width: 1576px) {
+
+	.ladder_index {
+
+		// .ladder__step_3 {
+		// 	width: 560px;
+		// }
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.ladder_index {
+
+		.ladder__bg {
+			background-image: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+		}
+
+		.ladder__step_1 {
+			width: 414px;
+			left: get-left-xxl(825px);
+			bottom: 746px;
+		}
+
+		.ladder__step_2 {
+			width: 406px;
+			left: get-left-xxl(1067px);
+			bottom: 972px;
+		}
+
+		.ladder__step_3 {
+			width: 568px;
+			left: get-left-xxl(1144px);
+			bottom: 1044px;
+		}
+
+		.ladder__step_4 {
+			width: 438px;
+			left: get-left-xxl(1174px);
+			bottom: 1358px;
+		}
+
+		.ladder__step_5 {
+			width: 566px;
+			left: get-left-xxl(671px);
+			bottom: 1568px;
+		}
+
+		.ladder__step_6 {
+			width: 458px;
+			left: get-left-xxl(459px);
+			bottom: 1729px;
+		}
+
+		.ladder__step_7 {
+			width: 292px;
+			left: get-left-xxl(775px);
+			bottom: 1950px;
+		}
+
+		.ladder__step_8 {
+			width: 570px;
+			left: get-left-xxl(1110px);
+			bottom: 2024px;
+		}
+
+		.ladder__step_9 {
+			width: 436px;
+			left: get-left-xxl(1140px);
+			bottom: 2350px;
+		}
+
+		.ladder__step_10 {
+			width: 462px;
+			left: get-left-xxl(691px);
+			bottom: 2570px;
+		}
+
+		.ladder__step_11 {
+			width: 462px;
+			left: get-left-xxl(295px);
+			bottom: 2786px;
+		}
+
+		.ladder__step_12 {
+			width: 462px;
+			left: get-left-xxl(947px);
+			bottom: 3469px;
+		}
+
+		.ladder__step_13 {
+			width: 292px;
+			left: get-left-xxl(1301px);
+			bottom: 3841px;
+		}
+
+		.ladder__step_14 {
+			width: 566px;
+			left: get-left-xxl(386px);
+			bottom: 4295px;
+		}
+
+		.ladder__step_15 {
+			width: 396px;
+			left: get-left-xxl(460px);
+			bottom: 4517px;
+		}
+
+		.ladder__step_16 {
+			width: 414px;
+			left: get-left-xxl(948px);
+			bottom: 4884px;
+		}
+
+		.ladder__step_17 {
+			width: 444px;
+			left: get-left-xxl(1107px);
+			bottom: 5037px;
+		}
+
+		.ladder__step_18 {
+			width: 460px;
+			left: get-left-xxl(902px);
+			bottom: 5357px;
+		}
+
+		.ladder__step_19 {
+			width: 562px;
+			left: get-left-xxl(484px);
+			bottom: 5557px;
+		}
+
+		.ladder__step_20 {
+			width: 292px;
+			left: get-left-xxl(498px);
+			bottom: 5721px;
+		}
+
+		.ladder__step_21 {
+			width: 462px;
+			left: get-left-xxl(388px);
+			bottom: 6704px;
+		}
+
+		.ladder-label {
+			font-size: 26px;
+			height: 70px;
+		}
+
+		.ladder__hint_1 {
+			width: 460px;
+			left: get-left-xxl(120px);
+			bottom: 1409px;
+		}
+
+		.ladder__hint_2 {
+			width: 546px;
+			left: get-left-xxl(1255px);
+			bottom: 1710px;
+		}
+
+		.ladder__hint_3 {
+			width: 536px;
+			left: get-left-xxl(301px);
+			bottom: 2083px;
+		}
+
+		.ladder__hint_4 {
+			width: 506px;
+			left: get-left-xxl(120px);
+			bottom: 3108px;
+		}
+
+		.ladder__hint_5 {
+			width: 612px;
+			left: get-left-xxl(225px);
+			bottom: 3385px;
+		}
+
+		.ladder__hint_6 {
+			width: 524px;
+			left: get-left-xxl(1277px);
+			bottom: 4177px;
+		}
+
+		.ladder__hint_7 {
+			width: 520px;
+			left: get-left-xxl(306px);
+			bottom: 4903px;
+		}
+
+		.ladder__hint_8 {
+			width: 520px;
+			left: get-left-xxl(120px);
+			bottom: 5193px;
+		}
+
+		.ladder__hint_9 {
+			width: 422px;
+			left: get-left-xxl(1479px);
+			bottom: 5478px;
+		}
+
+		.ladder-hint {
+			border-radius: 60px;
+			padding: 50px 60px;
+		}
+
+		.ladder-hint__title {
+			font-size: 32px;
+		}
+
+		.ladder-hint__controls {
+			margin-top: 30px;
+		}
+
+		.ladder-hint_about {
+			text-align: right;
+			background: none;
+			box-shadow: none;
+			padding: 0;
+			color: $color-tertiary;
+		}
+
+		.ladder-modal_top {
+			width: 726px;
+			margin-left: -#{math.div(726, 2)}px;
+			bottom: 6022px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal_2 {
+			width: 726px;
+			left: get-left-xxl(1075px);
+			margin: 0;
+			bottom: 2605px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal_3 {
+			width: 726px;
+			left: get-left-xxl(165px);
+			margin: 0;
+			bottom: 3781px;
+		}
+
+		.ladder-modal_4 {
+			width: 860px;
+			left: get-left-xxl(941px);
+			margin: 0;
+			bottom: 4442px;
+
+			.ladder-modal__body {
+				width: 700px;
+			}
+		}
+
+		.ladder-modal_bottom {
+			width: 726px;
+			left: get-left-xxl(120px);
+			margin: 0;
+			bottom: 185px;
+			border-radius: 60px;
+		}
+
+		.ladder-modal__body {
+			width: 566px;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+
+		.ladder-modal__title {
+			font-size: 48px;
+			margin-bottom: 25px;
+		}
+
+		.ladder-modal__desc {
+			font-size: 18px;
+			line-height: 1.5;
+		}
+
+		.ladder-modal__controls {
+			margin-top: 25px;
+		}
+	}
+}
+
+@media (min-width: $bp-xl) and (max-width: $bp-xxl - 1px) {
+
+	.ladder_index {
+
+		.container {
+			max-width: 1366px;
+		}
+	}
+}
+
+.ladder-anchor {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100px;
+	pointer-events: none;
+	user-select: none;
+}
+
+.ladder-hint__decor {
+	position: absolute;
+	user-select: none;
+	z-index: 1;
+	max-width: none;
+	max-height: none;
+}
+
+
+/**
+* Modal
+*/
+
+.ladder-modal {
+	background: rgba(247, 248, 255, 0.95);
+	background-image: linear-gradient(179.62deg, rgba(247, 248, 255, 0.95) -6.97%, rgba(234, 236, 247, 0.95) 99.67%);
+	backdrop-filter: blur(3px);
+	border-radius: 33px;
+	padding: 30px 20px;
+}
+
+.ladder-modal__title {
+	font-size: 28px;
+	font-weight: 33;
+	line-height: 1;
+	margin-bottom: 20px;
+}
+
+.ladder-modal__desc {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.ladder-modal__controls {
+	margin-top: 20px;
+}
+
+.ladder-modal__ctrl {
+
+	& + & {
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: $bp-xl - 1px) {
+
+	.ladder-modal__ctrl {
+
+		.c-btn {
+			width: 100%;
+		}
+	}
+}
+
+.ladder-modal__decor {
+	position: absolute;
+	width: 106px;
+	left: 71px;
+	top: -71px;
+	z-index: 1;
+	user-select: none;
+	max-width: none;
+	max-height: none;
+}
+
+@media (min-width: $bp-xl) {
+
+	.ladder-modal {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.ladder-modal {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+}
+
+
+/****************************************************************************/
+/* INNER */
+/****************************************************************************/
+
+.ladder_inner {
+	// height: 5379px;
+	position: relative;
+
+	.ladder__bg {
+		// height: 3205px;
+		height: 100%;
+		background: linear-gradient(180.03deg, #A3D6F4 0.03%, #FFFFFF 50.52%, #AAAFC6 99.97%);
+		// position: relative;
+		background-repeat: no-repeat;
+		background-position: bottom center;
+		// background-image: url('../images/steps_sm.png');
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	.ladder__images {
+		position: relative;
+		z-index: 1;
+	}
+
+	.ladder__img {
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.ladder__inner {
+		position: absolute;
+		// width: $bp-xs;
+		// max-width: 100%;
+		// margin: 0 auto;
+		// height: 100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+	}
+
+	.ladder__step {
+		position: absolute;
+	}
+
+	.ladder__step_1 {
+		width: 140px;
+		left: 64px;
+		bottom: 24px;
+	}
+
+	.ladder__step_2 {
+		width: 132px;
+		left: 35px;
+		bottom: 50px;
+	}
+
+	.ladder__step_3 {
+		width: 132px;
+		left: 25px;
+		bottom: 70px;
+	}
+
+	.ladder__step_4 {
+		width: 116px;
+		left: 20px;
+		bottom: 90px;
+	}
+
+	.ladder__step_5 {
+		width: 96px;
+		left: 30px;
+		bottom: 105px;
+	}
+
+	.ladder__step_6 {
+		width: 122px;
+		left: 44px;
+		bottom: 123px;
+	}
+
+	.ladder__step_7 {
+		width: 104px;
+		left: 96px;
+		bottom: 142px;
+	}
+
+	.ladder__step_8 {
+		width: 82px;
+		left: 130px;
+		bottom: 162px;
+	}
+
+	.ladder__step_9 {
+		width: 96px;
+		left: 155px;
+		bottom: 178px;
+	}
+
+	.ladder__step_10 {
+		width: 102px;
+		left: 175px;
+		bottom: 196px;
+	}
+
+	.ladder__step_11 {
+		left: 192px;
+		bottom: 215px;
+	}
+
+	.ladder__step_12 {
+		left: 212px;
+		bottom: 232px;
+	}
+
+	.ladder__step_13 {
+		left: 230px;
+		bottom: 248px;
+	}
+
+	.ladder__step_14 {
+		left: 248px;
+		bottom: 266px;
+	}
+
+	.ladder__step_15 {
+		left: 260px;
+		bottom: 286px;
+	}
+
+	.ladder__step_16 {
+		left: 254px;
+		bottom: 302px;
+	}
+
+	.ladder__step_17 {
+		left: 236px;
+		bottom: 320px;
+	}
+
+	.ladder__step_18 {
+		left: 200px;
+		bottom: 340px;
+	}
+
+	.ladder__step_19 {
+		left: 146px;
+		bottom: 354px;
+	}
+
+	.ladder__step_20 {
+		left: 120px;
+		bottom: 370px;
+	}
+
+	.ladder__step_21 {
+		left: 104px;
+		bottom: 388px;
+	}
+
+	.ladder__step_22 {
+		left: 70px;
+		bottom: 408px;
+	}
+
+	.ladder__step_23 {
+		left: 122px;
+		bottom: 424px;
+	}
+
+	.ladder__step_24 {
+		left: 128px;
+		bottom: 454px;
+	}
+
+	.ladder__step_25 {
+		left: 222px;
+		bottom: 476px;
+	}
+
+	.ladder__step_26 {
+		left: 240px;
+		bottom: 494px;
+	}
+
+	.ladder__step_27 {
+		left: 252px;
+		bottom: 514px;
+	}
+
+	.ladder__step_28 {
+		left: 246px;
+		bottom: 531px;
+	}
+
+	.ladder__step_29 {
+		left: 228px;
+		bottom: 551px;
+	}
+
+	.ladder__step_30 {
+		left: 186px;
+		bottom: 570px;
+	}
+
+	.ladder__step_31 {
+		left: 162px;
+		bottom: 585px;
+	}
+
+	.ladder__step_32 {
+		left: 124px;
+		bottom: 602px;
+	}
+
+	.ladder__step_33 {
+		left: 94px;
+		bottom: 616px;
+	}
+
+	.ladder__step_34 {
+		left: 62px;
+		bottom: 634px;
+	}
+
+	.ladder__step_35 {
+		left: 32px;
+		bottom: 652px;
+	}
+
+	.ladder__step_36 {
+		left: 20px;
+		bottom: 668px;
+	}
+
+	.ladder__step_37 {
+		left: 34px;
+		bottom: 688px;
+	}
+
+	.ladder__step_38 {
+		left: 48px;
+		bottom: 702px;
+	}
+
+	.ladder__step_39 {
+		left: 64px;
+		bottom: 720px;
+	}
+
+	.ladder__step_40 {
+		left: 88px;
+		bottom: 740px;
+	}
+
+	.ladder__step_41 {
+		left: 129px;
+		bottom: 756px;
+	}
+
+	.ladder__step_42 {
+		left: 150px;
+		bottom: 772px;
+	}
+
+	.ladder__step_43 {
+		left: 168px;
+		bottom: 792px;
+	}
+
+	.ladder__step_44 {
+		left: 184px;
+		bottom: 811px;
+	}
+
+	.ladder__step_45 {
+		left: 204px;
+		bottom: 826px;
+	}
+
+	.ladder__step_46 {
+		left: 222px;
+		bottom: 844px;
+	}
+
+	.ladder__step_47 {
+		left: 240px;
+		bottom: 862px;
+	}
+
+	.ladder__step_48 {
+		left: 254px;
+		bottom: 894px;
+	}
+
+	.ladder__step_49 {
+		left: 204px;
+		bottom: 916px;
+	}
+
+	.ladder__step_50 {
+		left: 186px;
+		bottom: 936px;
+	}
+
+	.ladder__step_51 {
+		left: 150px;
+		bottom: 954px;
+	}
+
+	.ladder__step_52 {
+		left: 96px;
+		bottom: 969px;
+	}
+
+	.ladder__step_53 {
+		left: 70px;
+		bottom: 984px;
+	}
+
+	.ladder__step_54 {
+		left: 54px;
+		bottom: 1002px;
+	}
+
+	.ladder__step_55 {
+		left: 20px;
+		bottom: 1022px;
+	}
+
+	.ladder__step_56 {
+		left: 53px;
+		bottom: 1038px;
+	}
+
+	.ladder__step_57 {
+		left: 70px;
+		bottom: 1054px;
+	}
+
+	.ladder__step_58 {
+		left: 92px;
+		bottom: 1071px;
+	}
+
+	.ladder__step_59 {
+		left: 113px;
+		bottom: 1086px;
+	}
+
+	.ladder__step_60 {
+		left: 133px;
+		bottom: 1104px;
+	}
+
+	.ladder__step_61 {
+		left: 164px;
+		bottom: 1124px;
+	}
+
+	.ladder__step_62 {
+		left: 184px;
+		bottom: 1139px;
+	}
+
+	.ladder__step_63 {
+		left: 202px;
+		bottom: 1156px;
+	}
+
+	.ladder__step_64 {
+		left: 220px;
+		bottom: 1174px;
+	}
+
+	.ladder__step_65 {
+		left: 232px;
+		bottom: 1193px;
+	}
+
+	.ladder__step_66 {
+		left: 227px;
+		bottom: 1210px;
+	}
+
+	.ladder__step_67 {
+		left: 208px;
+		bottom: 1228px;
+	}
+
+	.ladder__step_68 {
+		left: 173px;
+		bottom: 1248px;
+	}
+
+	.ladder__step_69 {
+		left: 118px;
+		bottom: 1262px;
+	}
+
+	.ladder__step_70 {
+		left: 92px;
+		bottom: 1278px;
+	}
+
+	.ladder__step_71 {
+		left: 76px;
+		bottom: 1296px;
+	}
+
+	.ladder__step_72 {
+		left: 66px;
+		bottom: 1327px;
+	}
+
+	.ladder__step_73 {
+		left: 132px;
+		bottom: 1352px;
+	}
+
+	.ladder__step_74 {
+		left: 152px;
+		bottom: 1369px;
+	}
+
+	.ladder__step_75 {
+		left: 170px;
+		bottom: 1389px;
+	}
+
+	.ladder__step_76 {
+		left: 196px;
+		bottom: 1404px;
+	}
+
+	.ladder__step_77 {
+		left: 221px;
+		bottom: 1421px;
+	}
+
+	.ladder__step_78 {
+		left: 244px;
+		bottom: 1440px;
+	}
+
+	.ladder__step_79 {
+		left: 250px;
+		bottom: 1460px;
+	}
+
+	.ladder__step_80 {
+		left: 215px;
+		bottom: 1478px;
+	}
+
+	.ladder__step_81 {
+		left: 161px;
+		bottom: 1496px;
+	}
+
+	.ladder__step_82 {
+		left: 120px;
+		bottom: 1510px;
+	}
+
+	.ladder__step_83 {
+		left: 103px;
+		bottom: 1525px;
+	}
+
+	.ladder__step_84 {
+		left: 87px;
+		bottom: 1543px;
+	}
+
+	.ladder__step_85 {
+		left: 54px;
+		bottom: 1562px;
+	}
+
+	.ladder__step_86 {
+		left: 105px;
+		bottom: 1578px;
+	}
+
+	.ladder__step_87 {
+		left: 123px;
+		bottom: 1596px;
+	}
+
+	.ladder__step_88 {
+		left: 156px;
+		bottom: 1612px;
+	}
+
+	.ladder__step_89 {
+		left: 174px;
+		bottom: 1628px;
+	}
+
+	.ladder__step_90 {
+		left: 195px;
+		bottom: 1645px;
+	}
+
+	.ladder__step_91 {
+		left: 217px;
+		bottom: 1661px;
+	}
+
+	.ladder__step_92 {
+		left: 236px;
+		bottom: 1679px;
+	}
+
+	.ladder__step_93 {
+		left: 253px;
+		bottom: 1697px;
+	}
+
+	.ladder__step_94 {
+		left: 236px;
+		bottom: 1712px;
+	}
+
+	.ladder__step_95 {
+		left: 233px;
+		bottom: 1731px;
+	}
+
+	.ladder__step_96 {
+		left: 220px;
+		bottom: 1765px;
+	}
+
+	.ladder__step_97 {
+		left: 116px;
+		bottom: 1783px;
+	}
+
+	.ladder__step_98 {
+		left: 135px;
+		bottom: 1801px;
+	}
+
+	.ladder__step_99 {
+		left: 147px;
+		bottom: 1822px;
+	}
+
+	.ladder__step_100 {
+		left: 141px;
+		bottom: 1840px;
+	}
+
+	.ladder__step_101 {
+		left: 123px;
+		bottom: 1859px;
+	}
+
+	.ladder__step_102 {
+		left: 80px;
+		bottom: 1877px;
+	}
+
+	.ladder__step_103 {
+		left: 57px;
+		bottom: 1893px;
+	}
+
+	.ladder__step_104 {
+		left: 27px;
+		bottom: 1910px;
+	}
+
+	.ladder__step_105 {
+		left: 49px;
+		bottom: 1926px;
+	}
+
+	.ladder__step_106 {
+		left: 29px;
+		bottom: 1944px;
+	}
+
+	.ladder__step_107 {
+		left: 42px;
+		bottom: 1962px;
+	}
+
+	.ladder__step_108 {
+		left: 50px;
+		bottom: 1977px;
+	}
+
+	.ladder__step_109 {
+		left: 56px;
+		bottom: 1996px;
+	}
+
+	.ladder__step_110 {
+		left: 66px;
+		bottom: 2012px;
+	}
+
+	.ladder__step_111 {
+		left: 81px;
+		bottom: 2030px;
+	}
+
+	.ladder__step_112 {
+		left: 99px;
+		bottom: 2049px;
+	}
+
+	.ladder__step_113 {
+		left: 115px;
+		bottom: 2065px;
+	}
+
+	.ladder__step_114 {
+		left: 129px;
+		bottom: 2082px;
+	}
+
+	.ladder__step_115 {
+		left: 155px;
+		bottom: 2101px;
+	}
+
+	.ladder__step_116 {
+		left: 177px;
+		bottom: 2118px;
+	}
+
+	.ladder__step_117 {
+		left: 198px;
+		bottom: 2134px;
+	}
+
+	.ladder__step_118 {
+		left: 218px;
+		bottom: 2152px;
+	}
+
+	.ladder__step_119 {
+		left: 234px;
+		bottom: 2170px;
+	}
+
+	.ladder__step_120 {
+		left: 214px;
+		bottom: 2194px;
+	}
+
+	.ladder__step_121 {
+		left: 222px;
+		bottom: 2220px;
+	}
+
+	.ladder__step_122 {
+		left: 241px;
+		bottom: 2239px;
+	}
+
+	.ladder__step_123 {
+		left: 252px;
+		bottom: 2258px;
+	}
+
+	.ladder__step_124 {
+		left: 247px;
+		bottom: 2274px;
+	}
+
+	.ladder__step_125 {
+		left: 229px;
+		bottom: 2293px;
+	}
+
+	.ladder__step_126 {
+		left: 193px;
+		bottom: 2313px;
+	}
+
+	.ladder__step_127 {
+		left: 138px;
+		bottom: 2326px;
+	}
+
+	.ladder__step_128 {
+		left: 112px;
+		bottom: 2341px;
+	}
+
+	.ladder__step_129 {
+		left: 96px;
+		bottom: 2359px;
+	}
+
+	.ladder__step_130 {
+		left: 62px;
+		bottom: 2379px;
+	}
+
+	.ladder__step_131 {
+		left: 84px;
+		bottom: 2395px;
+	}
+	.ladder__step_132 {
+		left: 103px;
+		bottom: 2413px;
+	}
+
+	.ladder__step_133 {
+		left: 74px;
+		bottom: 2430px;
+	}
+	.ladder__step_134 {
+		left: 96px;
+		bottom: 2448px;
+	}
+
+	.ladder__step_135 {
+		left: 110px;
+		bottom: 2467px;
+	}
+
+	.ladder__step_136 {
+		left: 134px;
+		bottom: 2486px;
+	}
+
+	.ladder__step_137 {
+		left: 153px;
+		bottom: 2505px;
+	}
+
+	.ladder__step_138 {
+		left: 152px;
+		bottom: 2521px;
+	}
+
+	.ladder__step_139 {
+		left: 172px;
+		bottom: 2539px;
+	}
+
+	.ladder__step_140 {
+		left: 188px;
+		bottom: 2558px;
+	}
+
+	.ladder__step_141 {
+		left: 206px;
+		bottom: 2574px;
+	}
+
+	.ladder__step_142 {
+		left: 176px;
+		bottom: 2591px;
+	}
+
+	.ladder__step_143 {
+		left: 195px;
+		bottom: 2609px;
+	}
+
+	.ladder__step_144 {
+		left: 162px;
+		bottom: 2640px;
+	}
+
+	.ladder__step_145 {
+		left: 206px;
+		bottom: 2660px;
+	}
+
+	.ladder__step_146 {
+		left: 221px;
+		bottom: 2679px;
+	}
+
+	.ladder__step_147 {
+		left: 219px;
+		bottom: 2697px;
+	}
+
+	.ladder__step_148 {
+		left: 226px;
+		bottom: 2713px;
+	}
+
+	.ladder__step_149 {
+		left: 245px;
+		bottom: 2732px;
+	}
+
+	.ladder__step_150 {
+		left: 262px;
+		bottom: 2750px;
+	}
+
+	.ladder__step_151 {
+		left: 245px;
+		bottom: 2765px;
+	}
+
+	.ladder__step_152 {
+		left: 242px;
+		bottom: 2783px;
+	}
+
+	.ladder__step_153 {
+		left: 213px;
+		bottom: 2801px;
+	}
+
+	.ladder__step_154 {
+		left: 172px;
+		bottom: 2817px;
+	}
+
+	.ladder__step_155 {
+		left: 136px;
+		bottom: 2832px;
+	}
+
+	.ladder__step_156 {
+		left: 99px;
+		bottom: 2848px;
+	}
+
+	.ladder__step_157 {
+		left: 77px;
+		bottom: 2864px;
+	}
+
+	.ladder__step_158 {
+		left: 84px;
+		bottom: 2883px;
+	}
+
+	.ladder__step_159 {
+		left: 94px;
+		bottom: 2898px;
+	}
+
+	.ladder__step_160 {
+		left: 109px;
+		bottom: 2916px;
+	}
+
+	.ladder__step_161 {
+		left: 127px;
+		bottom: 2935px;
+	}
+
+	.ladder__step_162 {
+		left: 143px;
+		bottom: 2951px;
+	}
+
+	.ladder__step_163 {
+		left: 156px;
+		bottom: 2968px;
+	}
+
+	.ladder__step_164 {
+		left: 182px;
+		bottom: 2987px;
+	}
+
+	.ladder__step_165 {
+		left: 204px;
+		bottom: 3004px;
+	}
+
+	.ladder__step_166 {
+		left: 225px;
+		bottom: 3020px;
+	}
+
+	.ladder__step_167 {
+		left: 245px;
+		bottom: 3038px;
+	}
+
+	.ladder__step_168 {
+		left: 215px;
+		bottom: 3069px;
+	}
+
+	.ladder__step_169 {
+		left: 252px;
+		bottom: 3086px;
+	}
+
+	.ladder__step_170 {
+		left: 250px;
+		bottom: 3105px;
+	}
+
+	.ladder__step_171 {
+		left: 246px;
+		bottom: 3125px;
+	}
+
+	.ladder__step_172 {
+		left: 238px;
+		bottom: 3142px;
+	}
+
+	.ladder__step_173 {
+		left: 206px;
+		bottom: 3160px;
+	}
+
+	.ladder__step_174 {
+		left: 150px;
+		bottom: 3178px;
+	}
+
+	.ladder__step_175 {
+		left: 121px;
+		bottom: 3193px;
+	}
+
+	.ladder__step_176 {
+		left: 82px;
+		bottom: 3211px;
+	}
+
+	.ladder__step_177 {
+		left: 54px;
+		bottom: 3226px;
+	}
+
+	.ladder__step_178 {
+		left: 19px;
+		bottom: 3243px;
+	}
+
+	.ladder__step_179 {
+		left: 37px;
+		bottom: 3259px;
+	}
+
+	.ladder__step_180 {
+		left: 63px;
+		bottom: 3274px;
+	}
+
+	.ladder__step_181 {
+		left: 86px;
+		bottom: 3290px;
+	}
+
+	.ladder__step_182 {
+		left: 110px;
+		bottom: 3309px;
+	}
+
+	.ladder__step_183 {
+		left: 136px;
+		bottom: 3327px;
+	}
+
+	.ladder__step_184 {
+		left: 131px;
+		bottom: 3344px;
+	}
+
+	.ladder__step_185 {
+		left: 145px;
+		bottom: 3362px;
+	}
+
+	.ladder__step_186 {
+		left: 162px;
+		bottom: 3380px;
+	}
+
+	.ladder__step_187 {
+		left: 177px;
+		bottom: 3396px;
+	}
+
+	.ladder__step_188 {
+		left: 189px;
+		bottom: 3409px;
+	}
+
+	.ladder__step_189 {
+		left: 209px;
+		bottom: 3424px;
+	}
+
+	.ladder__step_190 {
+		left: 219px;
+		bottom: 3440px;
+	}
+
+	.ladder__step_191 {
+		left: 236px;
+		bottom: 3454px;
+	}
+
+	.ladder__step_192 {
+		left: 227px;
+		bottom: 3476px;
+	}
+
+	.ladder__step_193 {
+		left: 248px;
+		bottom: 3505px;
+	}
+
+	.ladder__step_194 {
+		left: 239px;
+		bottom: 3523px;
+	}
+
+	.ladder__step_195 {
+		left: 216px;
+		bottom: 3539px;
+	}
+
+	.ladder__step_196 {
+		left: 178px;
+		bottom: 3556px;
+	}
+
+	.ladder__step_197 {
+		left: 148px;
+		bottom: 3571px;
+	}
+
+	.ladder__step_198 {
+		left: 116px;
+		bottom: 3588px;
+	}
+
+	.ladder__step_199 {
+		left: 86px;
+		bottom: 3606px;
+	}
+
+	.ladder__step_200 {
+		left: 74px;
+		bottom: 3622px;
+	}
+
+	.ladder__step_201 {
+		left: 87px;
+		bottom: 3641px;
+	}
+
+	.ladder__step_202 {
+		left: 102px;
+		bottom: 3657px;
+	}
+
+	.ladder__step_203 {
+		left: 117px;
+		bottom: 3675px;
+	}
+
+	.ladder__step_204 {
+		left: 142px;
+		bottom: 3693px;
+	}
+
+	.ladder__step_205 {
+		left: 183px;
+		bottom: 3710px;
+	}
+
+	.ladder__step_206 {
+		left: 204px;
+		bottom: 3727px;
+	}
+
+	.ladder__step_207 {
+		left: 184px;
+		bottom: 3744px;
+	}
+
+	.ladder__step_208 {
+		left: 202px;
+		bottom: 3761px;
+	}
+
+	.ladder__step_209 {
+		left: 221px;
+		bottom: 3780px;
+	}
+
+	.ladder__step_210 {
+		left: 232px;
+		bottom: 3798px;
+	}
+
+	.ladder__step_211 {
+		left: 227px;
+		bottom: 3815px;
+	}
+
+	.ladder__step_212 {
+		left: 209px;
+		bottom: 3834px;
+	}
+
+	.ladder__step_213 {
+		left: 173px;
+		bottom: 3853px;
+	}
+
+	.ladder__step_214 {
+		left: 118px;
+		bottom: 3867px;
+	}
+
+	.ladder__step_215 {
+		left: 92px;
+		bottom: 3883px;
+	}
+
+	.ladder__step_216 {
+		left: 120px;
+		bottom: 3911px;
+	}
+
+	.ladder__step_217 {
+		left: 129px;
+		bottom: 3929px;
+	}
+
+	.ladder__step_218 {
+		left: 158px;
+		bottom: 3949px;
+	}
+
+	.ladder__step_219 {
+		left: 184px;
+		bottom: 3968px;
+	}
+
+	.ladder__step_220 {
+		left: 206px;
+		bottom: 3985px;
+	}
+
+	.ladder__step_221 {
+		left: 227px;
+		bottom: 4001px;
+	}
+
+	.ladder__step_222 {
+		left: 242px;
+		bottom: 4019px;
+	}
+
+	.ladder__step_223 {
+		left: 261px;
+		bottom: 4037px;
+	}
+
+	.ladder__step_224 {
+		left: 199px;
+		bottom: 4053px;
+	}
+
+	.ladder__step_225 {
+		left: 218px;
+		bottom: 4072px;
+	}
+
+	.ladder__step_226 {
+		left: 229px;
+		bottom: 4091px;
+	}
+
+	.ladder__step_227 {
+		left: 224px;
+		bottom: 4107px;
+	}
+
+	.ladder__step_228 {
+		left: 206px;
+		bottom: 4126px;
+	}
+
+	.ladder__step_229 {
+		left: 170px;
+		bottom: 4146px;
+	}
+
+	.ladder__step_230 {
+		left: 146px;
+		bottom: 4161px;
+	}
+
+	.ladder__step_231 {
+		left: 121px;
+		bottom: 4177px;
+	}
+
+	.ladder__step_232 {
+		left: 104px;
+		bottom: 4195px;
+	}
+
+	.ladder__step_233 {
+		left: 71px;
+		bottom: 4215px;
+	}
+
+	.ladder__step_234 {
+		left: 93px;
+		bottom: 4230px;
+	}
+
+	.ladder__step_235 {
+		left: 111px;
+		bottom: 4249px;
+	}
+
+	.ladder__step_236 {
+		left: 82px;
+		bottom: 4268px;
+	}
+
+	.ladder__step_237 {
+		left: 105px;
+		bottom: 4284px;
+	}
+
+	.ladder__step_238 {
+		left: 141px;
+		bottom: 4303px;
+	}
+
+	.ladder__step_239 {
+		left: 184px;
+		bottom: 4322px;
+	}
+
+	.ladder__step_240 {
+		left: 188px;
+		bottom: 4352px;
+	}
+
+	.ladder__step_241 {
+		left: 197px;
+		bottom: 4372px;
+	}
+
+	.ladder__step_242 {
+		left: 217px;
+		bottom: 4392px;
+	}
+
+	.ladder__step_243 {
+		left: 233px;
+		bottom: 4411px;
+	}
+
+	.ladder__step_244 {
+		left: 251px;
+		bottom: 4427px;
+	}
+
+	.ladder__step_245 {
+		left: 221px;
+		bottom: 4444px;
+	}
+
+	.ladder__step_246 {
+		left: 240px;
+		bottom: 4463px;
+	}
+
+	.ladder__step_247 {
+		left: 219px;
+		bottom: 4481px;
+	}
+
+	.ladder__step_248 {
+		left: 194px;
+		bottom: 4497px;
+	}
+
+	.ladder__step_249 {
+		left: 177px;
+		bottom: 4515px;
+	}
+
+	.ladder__step_250 {
+		left: 162px;
+		bottom: 4535px;
+	}
+
+	.ladder__step_251 {
+		left: 148px;
+		bottom: 4550px;
+	}
+
+	.ladder__step_252 {
+		left: 172px;
+		bottom: 4569px;
+	}
+
+	.ladder__step_253 {
+		left: 187px;
+		bottom: 4588px;
+	}
+
+	.ladder__step_254 {
+		left: 205px;
+		bottom: 4604px;
+	}
+
+	.ladder__step_255 {
+		left: 235px;
+		bottom: 4623px;
+	}
+
+	.ladder__step_256 {
+		left: 258px;
+		bottom: 4642px;
+	}
+
+	.ladder__step_257 {
+		left: 251px;
+		bottom: 4659px;
+	}
+
+	.ladder__step_258 {
+		left: 206px;
+		bottom: 4677px;
+	}
+
+	.ladder__step_259 {
+		left: 223px;
+		bottom: 4696px;
+	}
+
+	.ladder__step_260 {
+		left: 203px;
+		bottom: 4712px;
+	}
+
+	.ladder__step_261 {
+		left: 145px;
+		bottom: 4729px;
+	}
+
+	.ladder__step_262 {
+		left: 121px;
+		bottom: 4748px;
+	}
+
+	.ladder__step_263 {
+		left: 110px;
+		bottom: 4768px;
+	}
+
+	.ladder__step_264 {
+		left: 72px;
+		bottom: 4802px;
+	}
+
+	.ladder__step_265 {
+		left: 47px;
+		bottom: 4825px;
+	}
+
+	.ladder__step_266 {
+		left: 20px;
+		bottom: 4840px;
+	}
+
+	.ladder__step_267 {
+		left: 55px;
+		bottom: 4859px;
+	}
+
+	.ladder__step_268 {
+		left: 73px;
+		bottom: 4878px;
+	}
+
+	.ladder__step_269 {
+		left: 96px;
+		bottom: 4894px;
+	}
+
+	.ladder__step_270 {
+		left: 118px;
+		bottom: 4913px;
+	}
+
+	.ladder__step_271 {
+		left: 142px;
+		bottom: 4932px;
+	}
+
+	.ladder__step_272 {
+		left: 133px;
+		bottom: 4949px;
+	}
+
+	.ladder__step_273 {
+		left: 149px;
+		bottom: 4969px;
+	}
+
+	.ladder__step_274 {
+		left: 177px;
+		bottom: 4984px;
+	}
+
+	.ladder__step_275 {
+		left: 197px;
+		bottom: 5003px;
+	}
+
+	.ladder__step_276 {
+		left: 223px;
+		bottom: 5022px;
+	}
+
+	.ladder__step_277 {
+		left: 239px;
+		bottom: 5039px;
+	}
+
+	.ladder__step_278 {
+		left: 210px;
+		bottom: 5055px;
+	}
+
+	.ladder__step_279 {
+		left: 228px;
+		bottom: 5073px;
+	}
+
+	.ladder__step_280 {
+		left: 187px;
+		bottom: 5092px;
+	}
+
+	.ladder__step_281 {
+		left: 155px;
+		bottom: 5108px;
+	}
+
+	.ladder__step_282 {
+		left: 149px;
+		bottom: 5127px;
+	}
+
+	.ladder__step_283 {
+		left: 137px;
+		bottom: 5147px;
+	}
+
+	.ladder__step_284 {
+		left: 126px;
+		bottom: 5164px;
+	}
+
+	.ladder__step_285 {
+		left: 131px;
+		bottom: 5183px;
+	}
+
+	.ladder__step_286 {
+		left: 135px;
+		bottom: 5198px;
+	}
+
+	.ladder__step_287 {
+		left: 142px;
+		bottom: 5218px;
+	}
+
+	.ladder__step_288 {
+		left: 141px;
+		bottom: 5254px;
+	}
+
+	.ladder-label {
+		display: flex;
+		align-items: center;
+		font-size: 13px;
+		font-weight: 900;
+		padding: 0 0 0 6px;
+		text-decoration: none;
+		color: #fff;
+	}
+
+	.ladder-label__index {
+		margin-right: 5px;
+	}
+
+	.ladder-label__icon {
+		width: 12px;
+		height: 12px;
+	}
+
+	.ladder-label__status {
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+
+	.ladder-label__marker {
+		width: 14px;
+		height: 14px;
+		margin-left: 5px;
+	}
+
+	.ladder-label_locked {
+
+		.ladder-label__icon {
+			fill: $color-tertiary;
+		}
+	}
+
+	.ladder-label_checkpoint {
+		color: $color-tertiary;
+	}
+
+	.c-popup {
+		padding: 5px 10px;
+	}
+
+	.ladder-label_hint {
+		display: inline-flex;
+		align-items: center;
+		color: $color-tertiary;
+	}
+}
+
+.ladder-spacer {
+	padding-bottom: 70px;
+	background: #1ec150;
+}
+
+@media (max-width: $bp-lg - 1px) {
+
+	.ladder_inner {
+
+		.ladder__inner {
+			width: $bp-xs;
+		}
+	}
+}
+
+@media (min-width: $bp-lg) and (max-width: $bp-xl - 1px) {
+
+	.ladder_inner {
+
+		.ladder__img {
+			height: 2500px !important;
+			background-size: auto 100%;
+
+			&:last-child {
+				height: 2000px !important;
+			}
+		}
+
+		.ladder__inner {
+			max-width: $bp-lg;
+			overflow: hidden;
+		}
+
+		.ladder__step_1 {
+			left: 180px;
+			bottom: 82px;
+		}
+
+		.ladder__step_2 {
+			left: 110px;
+			bottom: 150px;
+		}
+
+		.ladder__step_3 {
+			left: 80px;
+			bottom: 204px;
+		}
+
+		.ladder__step_4 {
+			left: 62px;
+			bottom: 254px;
+		}
+
+		.ladder__step_5 {
+			left: 90px;
+			bottom: 297px;
+		}
+
+		.ladder__step_6 {
+			left: 126px;
+			bottom: 346px;
+		}
+
+		.ladder__step_7 {
+			left: 270px;
+			bottom: 400px;
+		}
+
+		.ladder__step_8 {
+			left: 358px;
+			bottom: 452px;
+		}
+
+		.ladder__step_9 {
+			left: 430px;
+			bottom: 496px;
+		}
+
+		.ladder__step_10 {
+			left: 482px;
+			bottom: 544px;
+		}
+
+		.ladder__step_11 {
+			left: 526px;
+			bottom: 595px;
+		}
+
+		.ladder__step_12 {
+			left: 582px;
+			bottom: 638px;
+		}
+
+		.ladder__step_13 {
+			left: 630px;
+			bottom: 682px;
+		}
+
+		.ladder__step_14 {
+			left: 678px;
+			bottom: 738px;
+		}
+
+		.ladder__step_15 {
+			left: 710px;
+			bottom: 782px;
+		}
+
+		.ladder__step_16 {
+			left: 694px;
+			bottom: 828px;
+		}
+
+		.ladder__step_17 {
+			left: 646px;
+			bottom: 882px;
+		}
+
+		.ladder__step_18 {
+			left: 551px;
+			bottom: 932px;
+		}
+
+		.ladder__step_19 {
+			left: 402px;
+			bottom: 967px;
+		}
+
+		.ladder__step_20 {
+			left: 337px;
+			bottom: 1010px;
+		}
+
+		.ladder__step_21 {
+			left: 290px;
+			bottom: 1060px;
+		}
+
+		.ladder__step_22 {
+			left: 200px;
+			bottom: 1110px;
+		}
+
+		.ladder__step_23 {
+			left: 340px;
+			bottom: 1156px;
+		}
+
+		.ladder__step_24 {
+			left: 310px;
+			bottom: 1240px;
+		}
+
+		.ladder__step_25 {
+			left: 610px;
+			bottom: 1296px;
+		}
+
+		.ladder__step_26 {
+			left: 656px;
+			bottom: 1346px;
+		}
+
+		.ladder__step_27 {
+			left: 690px;
+			bottom: 1402px;
+		}
+
+		.ladder__step_28 {
+			left: 670px;
+			bottom: 1450px;
+		}
+
+		.ladder__step_29 {
+			left: 624px;
+			bottom: 1500px;
+		}
+
+		.ladder__step_30 {
+			left: 510px;
+			bottom: 1550px;
+		}
+
+		.ladder__step_31 {
+			left: 446px;
+			bottom: 1590px;
+		}
+
+		.ladder__step_32 {
+			left: 345px;
+			bottom: 1636px;
+		}
+
+		.ladder__step_33 {
+			left: 262px;
+			bottom: 1678px;
+		}
+
+		.ladder__step_34 {
+			left: 176px;
+			bottom: 1724px;
+		}
+
+		.ladder__step_35 {
+			left: 96px;
+			bottom: 1772px;
+		}
+
+		.ladder__step_36 {
+			left: 64px;
+			bottom: 1814px;
+		}
+
+		.ladder__step_37 {
+			left: 100px;
+			bottom: 1864px;
+		}
+
+		.ladder__step_38 {
+			left: 138px;
+			bottom: 1910px;
+		}
+
+		.ladder__step_39 {
+			left: 180px;
+			bottom: 1958px;
+		}
+
+		.ladder__step_40 {
+			left: 244px;
+			bottom: 2006px;
+		}
+
+		.ladder__step_41 {
+			left: 358px;
+			bottom: 2052px;
+		}
+
+		.ladder__step_42 {
+			left: 413px;
+			bottom: 2100px;
+		}
+
+		.ladder__step_43 {
+			left: 460px;
+			bottom: 2148px;
+		}
+
+		.ladder__step_44 {
+			left: 505px;
+			bottom: 2198px;
+		}
+
+		.ladder__step_45 {
+			left: 558px;
+			bottom: 2243px;
+		}
+
+		.ladder__step_46 {
+			left: 606px;
+			bottom: 2288px;
+		}
+
+		.ladder__step_47 {
+			left: 658px;
+			bottom: 2339px;
+		}
+
+		.ladder__step_48 {
+			left: 680px;
+			bottom: 2427px;
+		}
+
+		.ladder__step_49 {
+			left: 558px;
+			bottom: 2484px;
+		}
+
+		.ladder__step_50 {
+			left: 510px;
+			bottom: 2536px;
+		}
+
+		.ladder__step_51 {
+			left: 414px;
+			bottom: 2587px;
+		}
+
+		.ladder__step_52 {
+			left: 267px;
+			bottom: 2624px;
+		}
+
+		.ladder__step_53 {
+			left: 196px;
+			bottom: 2669px;
+		}
+
+		.ladder__step_54 {
+			left: 154px;
+			bottom: 2716px;
+		}
+
+		.ladder__step_55 {
+			left: 61px;
+			bottom: 2768px;
+		}
+
+		.ladder__step_56 {
+			left: 152px;
+			bottom: 2812px;
+		}
+
+		.ladder__step_57 {
+			left: 200px;
+			bottom: 2855px;
+		}
+
+		.ladder__step_58 {
+			left: 258px;
+			bottom: 2898px;
+		}
+
+		.ladder__step_59 {
+			left: 316px;
+			bottom: 2946px;
+		}
+
+		.ladder__step_60 {
+			left: 370px;
+			bottom: 2992px;
+		}
+
+		.ladder__step_61 {
+			left: 452px;
+			bottom: 3039px;
+		}
+
+		.ladder__step_62 {
+			left: 508px;
+			bottom: 3086px;
+		}
+
+		.ladder__step_63 {
+			left: 554px;
+			bottom: 3132px;
+		}
+
+		.ladder__step_64 {
+			left: 607px;
+			bottom: 3180px;
+		}
+
+		.ladder__step_65 {
+			left: 635px;
+			bottom: 3229px;
+		}
+
+		.ladder__step_66 {
+			left: 622px;
+			bottom: 3275px;
+		}
+
+		.ladder__step_67 {
+			left: 570px;
+			bottom: 3323px;
+		}
+
+		.ladder__step_68 {
+			left: 476px;
+			bottom: 3375px;
+		}
+
+		.ladder__step_69 {
+			left: 328px;
+			bottom: 3416px;
+		}
+
+		.ladder__step_70 {
+			left: 258px;
+			bottom: 3460px;
+		}
+
+		.ladder__step_71 {
+			left: 214px;
+			bottom: 3505px;
+		}
+
+		.ladder__step_72 {
+			left: 164px;
+			bottom: 3607px;
+		}
+
+		.ladder__step_73 {
+			left: 366px;
+			bottom: 3662px;
+		}
+
+		.ladder__step_74 {
+			left: 422px;
+			bottom: 3705px;
+		}
+
+		.ladder__step_75 {
+			left: 471px;
+			bottom: 3758px;
+		}
+
+		.ladder__step_76 {
+			left: 537px;
+			bottom: 3802px;
+		}
+
+		.ladder__step_77 {
+			left: 608px;
+			bottom: 3846px;
+		}
+
+		.ladder__step_78 {
+			left: 667px;
+			bottom: 3897px;
+		}
+
+		.ladder__step_79 {
+			left: 682px;
+			bottom: 3949px;
+		}
+
+		.ladder__step_80 {
+			left: 591px;
+			bottom: 3997px;
+		}
+
+		.ladder__step_81 {
+			left: 443px;
+			bottom: 4049px;
+		}
+
+		.ladder__step_82 {
+			left: 331px;
+			bottom: 4086px;
+		}
+
+		.ladder__step_83 {
+			left: 286px;
+			bottom: 4128px;
+		}
+
+		.ladder__step_84 {
+			left: 244px;
+			bottom: 4175px;
+		}
+
+		.ladder__step_85 {
+			left: 155px;
+			bottom: 4221px;
+		}
+
+		.ladder__step_86 {
+			left: 292px;
+			bottom: 4269px;
+		}
+
+		.ladder__step_87 {
+			left: 340px;
+			bottom: 4316px;
+		}
+
+		.ladder__step_88 {
+			left: 427px;
+			bottom: 4358px;
+		}
+
+		.ladder__step_89 {
+			left: 475px;
+			bottom: 4402px;
+		}
+
+		.ladder__step_90 {
+			left: 534px;
+			bottom: 4445px;
+		}
+
+		.ladder__step_91 {
+			left: 592px;
+			bottom: 4488px;
+		}
+
+		.ladder__step_92 {
+			left: 646px;
+			bottom: 4537px;
+		}
+
+		.ladder__step_93 {
+			left: 689px;
+			bottom: 4587px;
+		}
+
+		.ladder__step_94 {
+			left: 645px;
+			bottom: 4629px;
+		}
+
+		.ladder__step_95 {
+			left: 637px;
+			bottom: 4677px;
+		}
+
+		.ladder__step_96 {
+			left: 619px;
+			bottom: 4782px;
+		}
+
+		.ladder__step_97 {
+			left: 321px;
+			bottom: 4818px;
+		}
+
+		.ladder__step_98 {
+			left: 371px;
+			bottom: 4869px;
+		}
+
+		.ladder__step_99 {
+			left: 403px;
+			bottom: 4923px;
+		}
+
+		.ladder__step_100 {
+			left: 386px;
+			bottom: 4971px;
+		}
+
+		.ladder__step_101 {
+			left: 339px;
+			bottom: 5024px;
+		}
+
+		.ladder__step_102 {
+			left: 224px;
+			bottom: 5073px;
+		}
+
+		.ladder__step_103 {
+			left: 160px;
+			bottom: 5119px;
+		}
+
+		.ladder__step_104 {
+			left: 83px;
+			bottom: 5161px;
+		}
+
+		.ladder__step_105 {
+			left: 140px;
+			bottom: 5206px;
+		}
+
+		.ladder__step_106 {
+			left: 88px;
+			bottom: 5252px;
+		}
+
+		.ladder__step_107 {
+			left: 122px;
+			bottom: 5300px;
+		}
+
+		.ladder__step_108 {
+			left: 144px;
+			bottom: 5344px;
+		}
+
+		.ladder__step_109 {
+			left: 160px;
+			bottom: 5393px;
+		}
+
+		.ladder__step_110 {
+			left: 186px;
+			bottom: 5438px;
+		}
+
+		.ladder__step_111 {
+			left: 228px;
+			bottom: 5486px;
+		}
+
+		.ladder__step_112 {
+			left: 276px;
+			bottom: 5534px;
+		}
+
+		.ladder__step_113 {
+			left: 320px;
+			bottom: 5579px;
+		}
+
+		.ladder__step_114 {
+			left: 355px;
+			bottom: 5625px;
+		}
+
+		.ladder__step_115 {
+			left: 425px;
+			bottom: 5673px;
+		}
+
+		.ladder__step_116 {
+			left: 486px;
+			bottom: 5719px;
+		}
+
+		.ladder__step_117 {
+			left: 540px;
+			bottom: 5761px;
+		}
+
+		.ladder__step_118 {
+			left: 594px;
+			bottom: 5811px;
+		}
+
+		.ladder__step_119 {
+			left: 639px;
+			bottom: 5860px;
+		}
+
+		.ladder__step_120 {
+			left: 462px;
+			bottom: 5938px;
+		}
+
+		.ladder__step_121 {
+			left: 605px;
+			bottom: 5994px;
+		}
+
+		.ladder__step_122 {
+			left: 656px;
+			bottom: 6047px;
+		}
+
+		.ladder__step_123 {
+			left: 688px;
+			bottom: 6095px;
+		}
+
+		.ladder__step_124 {
+			left: 672px;
+			bottom: 6143px;
+		}
+
+		.ladder__step_125 {
+			left: 624px;
+			bottom: 6196px;
+		}
+
+		.ladder__step_126 {
+			left: 527px;
+			bottom: 6243px;
+		}
+
+		.ladder__step_127 {
+			left: 380px;
+			bottom: 6282px;
+		}
+
+		.ladder__step_128 {
+			left: 310px;
+			bottom: 6325px;
+		}
+
+		.ladder__step_129 {
+			left: 268px;
+			bottom: 6373px;
+		}
+
+		.ladder__step_130 {
+			left: 178px;
+			bottom: 6422px;
+		}
+
+		.ladder__step_131 {
+			left: 238px;
+			bottom: 6467px;
+		}
+
+		.ladder__step_132 {
+			left: 288px;
+			bottom: 6518px;
+		}
+
+		.ladder__step_133 {
+			left: 208px;
+			bottom: 6568px;
+		}
+
+		.ladder__step_134 {
+			left: 268px;
+			bottom: 6610px;
+		}
+
+		.ladder__step_135 {
+			left: 305px;
+			bottom: 6661px;
+		}
+
+		.ladder__step_136 {
+			left: 370px;
+			bottom: 6714px;
+		}
+
+		.ladder__step_137 {
+			left: 420px;
+			bottom: 6763px;
+		}
+
+		.ladder__step_138 {
+			left: 418px;
+			bottom: 6810px;
+		}
+
+		.ladder__step_139 {
+			left: 474px;
+			bottom: 6856px;
+		}
+
+		.ladder__step_140 {
+			left: 518px;
+			bottom: 6904px;
+		}
+
+		.ladder__step_141 {
+			left: 564px;
+			bottom: 6950px;
+		}
+
+		.ladder__step_142 {
+			left: 482px;
+			bottom: 6996px;
+		}
+
+		.ladder__step_143 {
+			left: 534px;
+			bottom: 7046px;
+		}
+
+		.ladder__step_144 {
+			left: 347px;
+			bottom: 7134px;
+		}
+
+		.ladder__step_145 {
+			left: 566px;
+			bottom: 7182px;
+		}
+
+		.ladder__step_146 {
+			left: 608px;
+			bottom: 7232px;
+		}
+
+		.ladder__step_147 {
+			left: 602px;
+			bottom: 7282px;
+		}
+
+		.ladder__step_148 {
+			left: 618px;
+			bottom: 7326px;
+		}
+
+		.ladder__step_149 {
+			left: 670px;
+			bottom: 7375px;
+		}
+
+		.ladder__step_150 {
+			left: 715px;
+			bottom: 7424px;
+		}
+
+		.ladder__step_151 {
+			left: 670px;
+			bottom: 7462px;
+		}
+
+		.ladder__step_152 {
+			left: 662px;
+			bottom: 7512px;
+		}
+
+		.ladder__step_153 {
+			left: 583px;
+			bottom: 7563px;
+		}
+
+		.ladder__step_154 {
+			left: 474px;
+			bottom: 7606px;
+		}
+
+		.ladder__step_155 {
+			left: 376px;
+			bottom: 7648px;
+		}
+
+		.ladder__step_156 {
+			left: 277px;
+			bottom: 7689px;
+		}
+
+		.ladder__step_157 {
+			left: 219px;
+			bottom: 7730px;
+		}
+
+		.ladder__step_158 {
+			left: 236px;
+			bottom: 7780px;
+		}
+
+		.ladder__step_159 {
+			left: 260px;
+			bottom: 7824px;
+		}
+
+		.ladder__step_160 {
+			left: 304px;
+			bottom: 7872px;
+		}
+
+		.ladder__step_161 {
+			left: 350px;
+			bottom: 7922px;
+		}
+
+		.ladder__step_162 {
+			left: 395px;
+			bottom: 7966px;
+		}
+
+		.ladder__step_163 {
+			left: 427px;
+			bottom: 8014px;
+		}
+
+		.ladder__step_164 {
+			left: 502px;
+			bottom: 8062px;
+		}
+
+		.ladder__step_165 {
+			left: 559px;
+			bottom: 8108px;
+		}
+
+		.ladder__step_166 {
+			left: 617px;
+			bottom: 8150px;
+		}
+
+		.ladder__step_167 {
+			left: 670px;
+			bottom: 8200px;
+		}
+
+		.ladder__step_168 {
+			left: 576px;
+			bottom: 8288px;
+		}
+
+		.ladder__step_169 {
+			left: 687px;
+			bottom: 8329px;
+		}
+
+		.ladder__step_170 {
+			left: 684px;
+			bottom: 8380px;
+		}
+
+		.ladder__step_171 {
+			left: 674px;
+			bottom: 8436px;
+		}
+
+		.ladder__step_172 {
+			left: 649px;
+			bottom: 8477px;
+		}
+
+		.ladder__step_173 {
+			left: 564px;
+			bottom: 8528px;
+		}
+
+		.ladder__step_174 {
+			left: 414px;
+			bottom: 8576px;
+		}
+
+		.ladder__step_175 {
+			left: 336px;
+			bottom: 8619px;
+		}
+
+		.ladder__step_176 {
+			left: 232px;
+			bottom: 8664px;
+		}
+
+		.ladder__step_177 {
+			left: 154px;
+			bottom: 8708px;
+		}
+
+		.ladder__step_178 {
+			left: 64px;
+			bottom: 8752px;
+		}
+
+		.ladder__step_179 {
+			left: 108px;
+			bottom: 8793px;
+		}
+
+		.ladder__step_180 {
+			left: 182px;
+			bottom: 8834px;
+		}
+
+		.ladder__step_181 {
+			left: 242px;
+			bottom: 8878px;
+		}
+
+		.ladder__step_182 {
+			left: 308px;
+			bottom: 8927px;
+		}
+
+		.ladder__step_183 {
+			left: 376px;
+			bottom: 8977px;
+		}
+
+		.ladder__step_184 {
+			left: 362px;
+			bottom: 9023px;
+		}
+
+		.ladder__step_185 {
+			left: 401px;
+			bottom: 9070px;
+		}
+
+		.ladder__step_186 {
+			left: 448px;
+			bottom: 9120px;
+		}
+
+		.ladder__step_187 {
+			left: 486px;
+			bottom: 9162px;
+		}
+
+		.ladder__step_188 {
+			left: 516px;
+			bottom: 9206px;
+		}
+
+		.ladder__step_189 {
+			left: 573px;
+			bottom: 9244px;
+		}
+
+		.ladder__step_190 {
+			left: 595px;
+			bottom: 9283px;
+		}
+
+		.ladder__step_191 {
+			left: 646px;
+			bottom: 9324px;
+		}
+
+		.ladder__step_192 {
+			left: 605px;
+			bottom: 9380px;
+		}
+
+		.ladder__step_193 {
+			left: 680px;
+			bottom: 9457px;
+		}
+
+		.ladder__step_194 {
+			left: 654px;
+			bottom: 9506px;
+		}
+
+		.ladder__step_195 {
+			left: 592px;
+			bottom: 9550px;
+		}
+
+		.ladder__step_196 {
+			left: 490px;
+			bottom: 9595px;
+		}
+
+		.ladder__step_197 {
+			left: 408px;
+			bottom: 9636px;
+		}
+
+		.ladder__step_198 {
+			left: 323px;
+			bottom: 9680px;
+		}
+
+		.ladder__step_199 {
+			left: 243px;
+			bottom: 9728px;
+		}
+
+		.ladder__step_200 {
+			left: 207px;
+			bottom: 9770px;
+		}
+
+		.ladder__step_201 {
+			left: 244px;
+			bottom: 9820px;
+		}
+
+		.ladder__step_202 {
+			left: 285px;
+			bottom: 9864px;
+		}
+
+		.ladder__step_203 {
+			left: 327px;
+			bottom: 9915px;
+		}
+
+		.ladder__step_204 {
+			left: 393px;
+			bottom: 9962px;
+		}
+
+		.ladder__step_205 {
+			left: 504px;
+			bottom: 10008px;
+		}
+
+		.ladder__step_206 {
+			left: 560px;
+			bottom: 10055px;
+		}
+
+		.ladder__step_207 {
+			left: 505px;
+			bottom: 10100px;
+		}
+
+		.ladder__step_208 {
+			left: 555px;
+			bottom: 10146px;
+		}
+
+		.ladder__step_209 {
+			left: 605px;
+			bottom: 10199px;
+		}
+
+		.ladder__step_210 {
+			left: 634px;
+			bottom: 10248px;
+		}
+
+		.ladder__step_211 {
+			left: 621px;
+			bottom: 10293px;
+		}
+
+		.ladder__step_212 {
+			left: 572px;
+			bottom: 10346px;
+		}
+
+		.ladder__step_213 {
+			left: 475px;
+			bottom: 10392px;
+		}
+
+		.ladder__step_214 {
+			left: 330px;
+			bottom: 10430px;
+		}
+
+		.ladder__step_215 {
+			left: 259px;
+			bottom: 10478px;
+		}
+
+		.ladder__step_216 {
+			left: 307px;
+			bottom: 10560px;
+		}
+
+		.ladder__step_217 {
+			left: 357px;
+			bottom: 10600px;
+		}
+
+		.ladder__step_218 {
+			left: 435px;
+			bottom: 10655px;
+		}
+
+		.ladder__step_219 {
+			left: 507px;
+			bottom: 10705px;
+		}
+
+		.ladder__step_220 {
+			left: 567px;
+			bottom: 10750px;
+		}
+
+		.ladder__step_221 {
+			left: 622px;
+			bottom: 10794px;
+		}
+
+		.ladder__step_222 {
+			left: 663px;
+			bottom: 10844px;
+		}
+
+		.ladder__step_223 {
+			left: 714px;
+			bottom: 10893px;
+		}
+
+		.ladder__step_224 {
+			left: 548px;
+			bottom: 10935px;
+		}
+
+		.ladder__step_225 {
+			left: 598px;
+			bottom: 10988px;
+		}
+
+		.ladder__step_226 {
+			left: 630px;
+			bottom: 11032px;
+		}
+
+		.ladder__step_227 {
+			left: 611px;
+			bottom: 11080px;
+		}
+
+		.ladder__step_228 {
+			left: 564px;
+			bottom: 11130px;
+		}
+
+		.ladder__step_229 {
+			left: 470px;
+			bottom: 11180px;
+		}
+
+		.ladder__step_230 {
+			left: 403px;
+			bottom: 11222px;
+		}
+
+		.ladder__step_231 {
+			left: 336px;
+			bottom: 11266px;
+		}
+
+		.ladder__step_232 {
+			left: 292px;
+			bottom: 11316px;
+		}
+
+		.ladder__step_233 {
+			left: 200px;
+			bottom: 11366px;
+		}
+
+		.ladder__step_234 {
+			left: 260px;
+			bottom: 11410px;
+		}
+
+		.ladder__step_235 {
+			left: 310px;
+			bottom: 11460px;
+		}
+
+		.ladder__step_236 {
+			left: 234px;
+			bottom: 11510px;
+		}
+
+		.ladder__step_237 {
+			left: 293px;
+			bottom: 11552px;
+		}
+
+		.ladder__step_238 {
+			left: 390px;
+			bottom: 11606px;
+		}
+
+		.ladder__step_239 {
+			left: 510px;
+			bottom: 11658px;
+		}
+
+		.ladder__step_240 {
+			left: 490px;
+			bottom: 11744px;
+		}
+
+		.ladder__step_241 {
+			left: 542px;
+			bottom: 11794px;
+		}
+
+		.ladder__step_242 {
+			left: 597px;
+			bottom: 11848px;
+		}
+
+		.ladder__step_243 {
+			left: 640px;
+			bottom: 11895px;
+		}
+
+		.ladder__step_244 {
+			left: 688px;
+			bottom: 11940px;
+		}
+
+		.ladder__step_245 {
+			left: 606px;
+			bottom: 11986px;
+		}
+
+		.ladder__step_246 {
+			left: 656px;
+			bottom: 12038px;
+		}
+
+		.ladder__step_247 {
+			left: 601px;
+			bottom: 12088px;
+		}
+
+		.ladder__step_248 {
+			left: 531px;
+			bottom: 12129px;
+		}
+
+		.ladder__step_249 {
+			left: 488px;
+			bottom: 12178px;
+		}
+
+		.ladder__step_250 {
+			left: 447px;
+			bottom: 12230px;
+		}
+
+		.ladder__step_251 {
+			left: 409px;
+			bottom: 12274px;
+		}
+
+		.ladder__step_252 {
+			left: 473px;
+			bottom: 12324px;
+		}
+
+		.ladder__step_253 {
+			left: 516px;
+			bottom: 12370px;
+		}
+
+		.ladder__step_254 {
+			left: 564px;
+			bottom: 12418px;
+		}
+
+		.ladder__step_255 {
+			left: 646px;
+			bottom: 12470px;
+		}
+
+		.ladder__step_256 {
+			left: 706px;
+			bottom: 12520px;
+		}
+
+		.ladder__step_257 {
+			left: 686px;
+			bottom: 12568px;
+		}
+
+		.ladder__step_258 {
+			left: 568px;
+			bottom: 12618px;
+		}
+
+		.ladder__step_259 {
+			left: 610px;
+			bottom: 12667px;
+		}
+
+		.ladder__step_260 {
+			left: 558px;
+			bottom: 12712px;
+		}
+
+		.ladder__step_261 {
+			left: 400px;
+			bottom: 12756px;
+		}
+
+		.ladder__step_262 {
+			left: 337px;
+			bottom: 12807px;
+		}
+
+		.ladder__step_263 {
+			left: 306px;
+			bottom: 12862px;
+		}
+
+		.ladder__step_264 {
+			left: 190px;
+			bottom: 12954px;
+		}
+
+		.ladder__step_265 {
+			left: 138px;
+			bottom: 13012px;
+		}
+
+		.ladder__step_266 {
+			left: 65px;
+			bottom: 13054px;
+		}
+
+		.ladder__step_267 {
+			left: 160px;
+			bottom: 13106px;
+		}
+
+		.ladder__step_268 {
+			left: 208px;
+			bottom: 13155px;
+		}
+
+		.ladder__step_269 {
+			left: 269px;
+			bottom: 13200px;
+		}
+
+		.ladder__step_270 {
+			left: 330px;
+			bottom: 13251px;
+		}
+
+		.ladder__step_271 {
+			left: 392px;
+			bottom: 13302px;
+		}
+
+		.ladder__step_272 {
+			left: 370px;
+			bottom: 13348px;
+		}
+
+		.ladder__step_273 {
+			left: 414px;
+			bottom: 13400px;
+		}
+
+		.ladder__step_274 {
+			left: 487px;
+			bottom: 13446px;
+		}
+
+		.ladder__step_275 {
+			left: 541px;
+			bottom: 13497px;
+		}
+
+		.ladder__step_276 {
+			left: 612px;
+			bottom: 13546px;
+		}
+
+		.ladder__step_277 {
+			left: 653px;
+			bottom: 13590px;
+		}
+
+		.ladder__step_278 {
+			left: 576px;
+			bottom: 13635px;
+		}
+
+		.ladder__step_279 {
+			left: 624px;
+			bottom: 13685px;
+		}
+
+		.ladder__step_280 {
+			left: 516px;
+			bottom: 13735px;
+		}
+
+		.ladder__step_281 {
+			left: 426px;
+			bottom: 13778px;
+		}
+
+		.ladder__step_282 {
+			left: 412px;
+			bottom: 13830px;
+		}
+
+		.ladder__step_283 {
+			left: 380px;
+			bottom: 13880px;
+		}
+
+		.ladder__step_284 {
+			left: 350px;
+			bottom: 13930px;
+		}
+
+		.ladder__step_285 {
+			left: 366px;
+			bottom: 13975px;
+		}
+
+		.ladder__step_286 {
+			left: 373px;
+			bottom: 14020px;
+		}
+
+		.ladder__step_287 {
+			left: 394px;
+			bottom: 14070px;
+		}
+
+		.ladder__step_288 {
+			left: 370px;
+			bottom: 14174px;
+		}
+
+		.ladder__step {
+			width: auto;
+		}
+
+		.ladder-label {
+			font-size: 16px;
+			padding-left: 12px;
+			height: 40px;
+		}
+
+		.ladder-label__index {
+			font-size: 18px;
+			margin-right: 10px;
+		}
+
+		.ladder-label__icon {
+			width: 18px;
+			height: 18px;
+			// margin-right: 8px;
+			fill: currentColor;
+		}
+
+		.ladder-label__status {
+			font-size: 16px;
+			margin-left: 8px;
+		}
+
+		.ladder-label__marker {
+			width: 24px;
+			height: 24px;
+			margin-left: 15px;
+		}
+
+		.ladder-label_locked {
+
+			.ladder-label__icon {
+				fill: currentColor;
+			}
+		}
+
+		.ladder-label_checkpoint {
+
+			.ladder-label__icon {
+				margin-left: 15px;
+			}
+
+			.ladder-label__status {
+				margin-left: 8px;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.ladder_inner {
+
+		.ladder__inner {
+			overflow: hidden;
+		}
+
+		.ladder__step_1 {
+			left: 430px - 110px - 180px + 25px;
+			bottom: 122px;
+		}
+
+		.ladder__step_2 {
+			left: 309px - 110px - 180px + 25px;
+			bottom: 242px;
+		}
+
+		.ladder__step_3 {
+			left: 264px - 110px - 180px + 25px;
+			bottom: 324px;
+		}
+
+		.ladder__step_4 {
+			left: 240px - 110px - 180px + 25px + 25px;
+			bottom: 410px;
+		}
+
+		.ladder__step_5 {
+			left: 288px - 110px - 180px + 25px;
+			bottom: 477px;
+		}
+
+		.ladder__step_6 {
+			left: 346px - 110px - 180px + 25px;
+			bottom: 554px;
+		}
+
+		.ladder__step_7 {
+			left: 570px - 110px - 180px + 25px;
+			bottom: 637px;
+		}
+
+		.ladder__step_8 {
+			left: 712px - 110px - 180px + 25px;
+			bottom: 720px;
+		}
+
+		.ladder__step_9 {
+			left: 825px - 110px - 180px + 25px;
+			bottom: 794px;
+		}
+
+		.ladder__step_10 {
+			left: 911px - 110px - 180px + 25px;
+			bottom: 869px;
+		}
+
+		.ladder__step_11 {
+			left: 981px - 110px - 180px + 25px;
+			bottom: 955px;
+		}
+
+		.ladder__step_12 {
+			left: 1067px - 110px - 180px + 25px;
+			bottom: 1020px;
+		}
+
+		.ladder__step_13 {
+			left: 1144px - 110px - 180px + 25px;
+			bottom: 1092px;
+		}
+
+		.ladder__step_14 {
+			left: 1226px - 110px - 180px + 25px;
+			bottom: 1173px;
+		}
+
+		.ladder__step_15 {
+			left: 1275px - 110px - 180px + 25px;
+			bottom: 1257px;
+		}
+
+		.ladder__step_16 {
+			left: 1251px - 110px - 180px + 25px;
+			bottom: 1323px;
+		}
+
+		.ladder__step_17 {
+			left: 1174px - 110px - 180px + 25px;
+			bottom: 1406px;
+		}
+
+		.ladder__step_18 {
+			left: 1021px - 110px - 180px + 25px;
+			bottom: 1493px;
+		}
+
+		.ladder__step_19 {
+			left: 784px - 110px - 180px + 25px;
+			bottom: 1552px;
+		}
+
+		.ladder__step_20 {
+			left: 671px - 110px - 180px + 25px;
+			bottom: 1616px;
+		}
+
+		.ladder__step_21 {
+			left: 603px - 110px - 180px + 25px;
+			bottom: 1693px;
+		}
+
+		.ladder__step_22 {
+			left: 459px - 110px - 180px + 25px;
+			bottom: 1781px;
+		}
+
+		.ladder__step_23 {
+			left: 681px - 110px - 180px + 25px;
+			bottom: 1850px;
+		}
+
+		.ladder__step_24 {
+			left: 701px - 110px - 180px + 25px;
+			bottom: 1990px;
+		}
+
+		.ladder__step_25 {
+			left: 1110px - 110px - 180px + 25px;
+			bottom: 2072px;
+		}
+
+		.ladder__step_26 {
+			left: 1192px - 110px - 180px + 25px;
+			bottom: 2153px;
+		}
+
+		.ladder__step_27 {
+			left: 1244px - 110px - 180px + 25px;
+			bottom: 2245px;
+		}
+
+		.ladder__step_28 {
+			left: 1216px - 110px - 180px + 25px;
+			bottom: 2315px;
+		}
+
+		.ladder__step_29 {
+			left: 1140px - 110px - 180px + 25px;
+			bottom: 2398px;
+		}
+
+		.ladder__step_30 {
+			left: 956px - 110px - 180px + 25px;
+			bottom: 2481px;
+		}
+
+		.ladder__step_31 {
+			left: 854px - 110px - 180px + 25px;
+			bottom: 2546px;
+		}
+
+		.ladder__step_32 {
+			left: 691px - 110px - 180px + 25px;
+			bottom: 2623px;
+		}
+
+		.ladder__step_33 {
+			left: 559px - 110px - 180px + 25px;
+			bottom: 2681px;
+		}
+
+		.ladder__step_34 {
+			left: 422px - 110px - 180px + 25px;
+			bottom: 2757px;
+		}
+
+		.ladder__step_35 {
+			left: 295px - 110px - 180px + 25px;
+			bottom: 2837px;
+		}
+
+		.ladder__step_36 {
+			left: 242px - 110px - 180px + 25px + 25px;
+			bottom: 2902px;
+		}
+
+		.ladder__step_37 {
+			left: 300px - 110px - 180px + 25px;
+			bottom: 2986px;
+		}
+
+		.ladder__step_38 {
+			left: 363px - 110px - 180px + 25px;
+			bottom: 3052px;
+		}
+
+		.ladder__step_39 {
+			left: 430px - 110px - 180px + 25px;
+			bottom: 3130px;
+		}
+
+		.ladder__step_40 {
+			left: 534px - 110px - 180px + 25px;
+			bottom: 3214px;
+		}
+
+		.ladder__step_41 {
+			left: 712px - 110px - 180px + 25px;
+			bottom: 3283px;
+		}
+
+		.ladder__step_42 {
+			left: 803px - 110px - 180px + 25px;
+			bottom: 3353px;
+		}
+
+		.ladder__step_43 {
+			left: 877px - 110px - 180px + 25px;
+			bottom: 3435px;
+		}
+
+		.ladder__step_44 {
+			left: 947px - 110px - 180px + 25px;
+			bottom: 3521px;
+		}
+
+		.ladder__step_45 {
+			left: 1033px - 110px - 180px + 25px;
+			bottom: 3586px;
+		}
+
+		.ladder__step_46 {
+			left: 1110px - 110px - 180px + 25px;
+			bottom: 3658px;
+		}
+
+		.ladder__step_47 {
+			left: 1192px - 110px - 180px + 25px;
+			bottom: 3739px;
+		}
+
+		.ladder__step_48 {
+			left: 1241px - 110px - 180px + 25px - 36px;
+			bottom: 3887px;
+		}
+
+		.ladder__step_49 {
+			left: 1034px - 110px - 180px + 25px;
+			bottom: 3973px;
+		}
+
+		.ladder__step_50 {
+			left: 957px - 110px - 180px + 25px;
+			bottom: 4056px;
+		}
+
+		.ladder__step_51 {
+			left: 804px - 110px - 180px + 25px;
+			bottom: 4137px;
+		}
+
+		.ladder__step_52 {
+			left: 567px - 110px - 180px + 25px;
+			bottom: 4202px;
+		}
+
+		.ladder__step_53 {
+			left: 454px - 110px - 180px + 25px;
+			bottom: 4266px;
+		}
+
+		.ladder__step_54 {
+			left: 386px - 110px - 180px + 25px;
+			bottom: 4343px;
+		}
+
+		.ladder__step_55 {
+			left: 242px - 110px - 180px + 25px + 25px;
+			bottom: 4431px;
+		}
+
+		.ladder__step_56 {
+			left: 384px - 110px - 180px + 25px;
+			bottom: 4499px;
+		}
+
+		.ladder__step_57 {
+			left: 460px - 110px - 180px + 25px;
+			bottom: 4565px;
+		}
+
+		.ladder__step_58 {
+			left: 553px - 110px - 180px + 25px;
+			bottom: 4641px;
+		}
+
+		.ladder__step_59 {
+			left: 644px - 110px - 180px + 25px;
+			bottom: 4706px;
+		}
+
+		.ladder__step_60 {
+			left: 731px - 110px - 180px + 25px;
+			bottom: 4785px;
+		}
+
+		.ladder__step_61 {
+			left: 862px - 110px - 180px + 25px;
+			bottom: 4867px;
+		}
+
+		.ladder__step_62 {
+			left: 948px - 110px - 180px + 25px;
+			bottom: 4932px;
+		}
+
+		.ladder__step_63 {
+			left: 1025px - 110px - 180px + 25px;
+			bottom: 5004px;
+		}
+
+		.ladder__step_64 {
+			left: 1107px - 110px - 180px + 25px;
+			bottom: 5085px;
+		}
+
+		.ladder__step_65 {
+			left: 1156px - 110px - 180px + 25px;
+			bottom: 5169px;
+		}
+
+		.ladder__step_66 {
+			left: 1132px - 110px - 180px + 25px;
+			bottom: 5235px;
+		}
+
+		.ladder__step_67 {
+			left: 1055px - 110px - 180px + 25px;
+			bottom: 5318px;
+		}
+
+		.ladder__step_68 {
+			left: 902px - 110px - 180px + 25px;
+			bottom: 5405px;
+		}
+
+		.ladder__step_69 {
+			left: 665px - 110px - 180px + 25px;
+			bottom: 5464px;
+		}
+
+		.ladder__step_70 {
+			left: 552px - 110px - 180px + 25px;
+			bottom: 5528px;
+		}
+
+		.ladder__step_71 {
+			left: 484px - 110px - 180px + 25px;
+			bottom: 5605px;
+		}
+
+		.ladder__step_72 {
+			left: 434px - 110px - 180px + 25px;
+			bottom: 5757px;
+		}
+
+		.ladder__step_73 {
+			left: 726px - 110px - 180px + 25px;
+			bottom: 5852px;
+		}
+
+		.ladder__step_74 {
+			left: 812px - 110px - 180px + 25px;
+			bottom: 5927px;
+		}
+
+		.ladder__step_75 {
+			left: 891px - 110px - 180px + 25px;
+			bottom: 6013px;
+		}
+
+		.ladder__step_76 {
+			left: 999px - 110px - 180px + 25px;
+			bottom: 6078px;
+		}
+
+		.ladder__step_77 {
+			left: 1111px - 110px - 180px + 25px;
+			bottom: 6150px;
+		}
+
+		.ladder__step_78 {
+			left: 1207px - 110px - 180px + 25px;
+			bottom: 6232px;
+		}
+
+		.ladder__step_79 {
+			left: 1231px - 110px - 180px + 25px;
+			bottom: 6316px;
+		}
+
+		.ladder__step_80 {
+			left: 1085px - 110px - 180px + 25px;
+			bottom: 6394px;
+		}
+
+		.ladder__step_81 {
+			left: 850px - 110px - 180px + 25px;
+			bottom: 6481px;
+		}
+
+		.ladder__step_82 {
+			left: 671px - 110px - 180px + 25px;
+			bottom: 6539px;
+		}
+
+		.ladder__step_83 {
+			left: 600px - 110px - 180px + 25px;
+			bottom: 6598px;
+		}
+
+		.ladder__step_84 {
+			left: 532px - 110px - 180px + 25px;
+			bottom: 6675px;
+		}
+
+		.ladder__step_85 {
+			left: 388px - 110px - 180px + 25px;
+			bottom: 6757px;
+		}
+
+		.ladder__step_86 {
+			left: 610px - 110px - 180px + 25px;
+			bottom: 6826px;
+		}
+
+		.ladder__step_87 {
+			left: 685px - 110px - 180px + 25px;
+			bottom: 6906px;
+		}
+
+		.ladder__step_88 {
+			left: 827px - 110px - 180px + 25px;
+			bottom: 6973px;
+		}
+
+		.ladder__step_89 {
+			left: 903px - 110px - 180px + 25px;
+			bottom: 7040px;
+		}
+
+		.ladder__step_90 {
+			left: 996px - 110px - 180px + 25px;
+			bottom: 7115px;
+		}
+
+		.ladder__step_91 {
+			left: 1087px - 110px - 180px + 25px;
+			bottom: 7180px;
+		}
+
+		.ladder__step_92 {
+			left: 1174px - 110px - 180px + 25px;
+			bottom: 7259px;
+		}
+
+		.ladder__step_93 {
+			left: 1243px - 110px - 180px + 25px;
+			bottom: 7342px;
+		}
+
+		.ladder__step_94 {
+			left: 1172px - 110px - 180px + 25px;
+			bottom: 7401px;
+		}
+
+		.ladder__step_95 {
+			left: 1159px - 110px - 180px + 25px;
+			bottom: 7481px;
+		}
+
+		.ladder__step_96 {
+			left: 1099px - 110px - 180px + 25px;
+			bottom: 7646px;
+		}
+
+		.ladder__step_97 {
+			left: 654px - 110px - 180px + 25px;
+			bottom: 7708px;
+		}
+
+		.ladder__step_98 {
+			left: 736px - 110px - 180px + 25px;
+			bottom: 7789px;
+		}
+
+		.ladder__step_99 {
+			left: 788px - 110px - 180px + 25px;
+			bottom: 7881px;
+		}
+
+		.ladder__step_100 {
+			left: 760px - 110px - 180px + 25px;
+			bottom: 7951px;
+		}
+
+		.ladder__step_101 {
+			left: 684px - 110px - 180px + 25px;
+			bottom: 8034px;
+		}
+
+		.ladder__step_102 {
+			left: 500px - 110px - 180px + 25px;
+			bottom: 8118px;
+		}
+
+		.ladder__step_103 {
+			left: 398px - 110px - 180px + 25px;
+			bottom: 8182px;
+		}
+
+		.ladder__step_104 {
+			left: 273px - 110px - 180px + 25px;
+			bottom: 8259px;
+		}
+
+		.ladder__step_105 {
+			left: 364px - 110px - 180px + 25px;
+			bottom: 8324px;
+		}
+
+		.ladder__step_106 {
+			left: 280px - 110px - 180px + 25px;
+			bottom: 8400px;
+		}
+
+		.ladder__step_107 {
+			left: 335px - 110px - 180px + 25px;
+			bottom: 8480px;
+		}
+
+		.ladder__step_108 {
+			left: 371px - 110px - 180px + 25px;
+			bottom: 8545px;
+		}
+
+		.ladder__step_109 {
+			left: 398px - 110px - 180px + 25px;
+			bottom: 8629px;
+		}
+
+		.ladder__step_110 {
+			left: 439px - 110px - 180px + 25px;
+			bottom: 8695px;
+		}
+
+		.ladder__step_111 {
+			left: 506px - 110px - 180px + 25px;
+			bottom: 8773px;
+		}
+
+		.ladder__step_112 {
+			left: 582px - 110px - 180px + 25px;
+			bottom: 8857px;
+		}
+
+		.ladder__step_113 {
+			left: 652px - 110px - 180px + 25px;
+			bottom: 8923px;
+		}
+
+		.ladder__step_114 {
+			left: 707px - 110px - 180px + 25px;
+			bottom: 8996px;
+		}
+
+		.ladder__step_115 {
+			left: 823px - 110px - 180px + 25px;
+			bottom: 9077px;
+		}
+
+		.ladder__step_116 {
+			left: 916px - 110px - 180px + 25px;
+			bottom: 9153px;
+		}
+
+		.ladder__step_117 {
+			left: 1007px - 110px - 180px + 25px;
+			bottom: 9218px;
+		}
+
+		.ladder__step_118 {
+			left: 1094px - 110px - 180px + 25px;
+			bottom: 9297px;
+		}
+
+		.ladder__step_119 {
+			left: 1163px - 110px - 180px + 25px;
+			bottom: 9379px;
+		}
+
+		.ladder__step_120 {
+			left: 1072px - 110px - 180px + 25px;
+			bottom: 9499px;
+		}
+
+		.ladder__step_121 {
+			left: 1110px - 110px - 180px + 25px;
+			bottom: 9592px;
+		}
+
+		.ladder__step_122 {
+			left: 1192px - 110px - 180px + 25px;
+			bottom: 9673px;
+		}
+
+		.ladder__step_123 {
+			left: 1241px - 110px - 180px + 25px;
+			bottom: 9757px;
+		}
+
+		.ladder__step_124 {
+			left: 1217px - 110px - 180px + 25px;
+			bottom: 9823px;
+		}
+
+		.ladder__step_125 {
+			left: 1140px - 110px - 180px + 25px;
+			bottom: 9906px;
+		}
+
+		.ladder__step_126 {
+			left: 987px - 110px - 180px + 25px;
+			bottom: 9993px;
+		}
+
+		.ladder__step_127 {
+			left: 750px - 110px - 180px + 25px;
+			bottom: 10052px;
+		}
+
+		.ladder__step_128 {
+			left: 637px - 110px - 180px + 25px;
+			bottom: 10116px;
+		}
+
+		.ladder__step_129 {
+			left: 569px - 110px - 180px + 25px;
+			bottom: 10193px;
+		}
+
+		.ladder__step_130 {
+			left: 425px - 110px - 180px + 25px;
+			bottom: 10281px;
+		}
+
+		.ladder__step_131 {
+			left: 518px - 110px - 180px + 25px;
+			bottom: 10346px;
+		}
+
+		.ladder__step_132 {
+			left: 600px - 110px - 180px + 25px;
+			bottom: 10426px;
+		}
+
+		.ladder__step_133 {
+			left: 475px - 110px - 180px + 25px;
+			bottom: 10512px;
+		}
+
+		.ladder__step_134 {
+			left: 571px - 110px - 180px + 25px;
+			bottom: 10578px;
+		}
+
+		.ladder__step_135 {
+			left: 629px - 110px - 180px + 25px;
+			bottom: 10655px;
+		}
+
+		.ladder__step_136 {
+			left: 734px - 110px - 180px + 25px;
+			bottom: 10737px;
+		}
+
+		.ladder__step_137 {
+			left: 815px - 110px - 180px + 25px;
+			bottom: 10823px;
+		}
+
+		.ladder__step_138 {
+			left: 812px - 110px - 180px + 25px;
+			bottom: 10891px;
+		}
+
+		.ladder__step_139 {
+			left: 898px - 110px - 180px + 25px;
+			bottom: 10966px;
+		}
+
+		.ladder__step_140 {
+			left: 968px - 110px - 180px + 25px;
+			bottom: 11052px;
+		}
+
+		.ladder__step_141 {
+			left: 1043px - 110px - 180px + 25px;
+			bottom: 11118px;
+		}
+
+		.ladder__step_142 {
+			left: 915px - 110px - 180px + 25px;
+			bottom: 11190px;
+		}
+
+		.ladder__step_143 {
+			left: 997px - 110px - 180px + 25px;
+			bottom: 11271px;
+		}
+
+		.ladder__step_144 {
+			left: 847px - 110px - 180px + 25px;
+			bottom: 11419px;
+		}
+
+		.ladder__step_145 {
+			left: 1047px - 110px - 180px + 25px;
+			bottom: 11490px;
+		}
+
+		.ladder__step_146 {
+			left: 1109px - 110px - 180px + 25px;
+			bottom: 11569px;
+		}
+
+		.ladder__step_147 {
+			left: 1102px - 110px - 180px + 25px;
+			bottom: 11653px;
+		}
+
+		.ladder__step_148 {
+			left: 1128px - 110px - 180px + 25px;
+			bottom: 11719px;
+		}
+
+		.ladder__step_149 {
+			left: 1215px - 110px - 180px + 25px;
+			bottom: 11798px;
+		}
+
+		.ladder__step_150 {
+			left: 1284px - 110px - 180px + 25px;
+			bottom: 11881px;
+		}
+
+		.ladder__step_151 {
+			left: 1213px - 110px - 180px + 25px;
+			bottom: 11940px;
+		}
+
+		.ladder__step_152 {
+			left: 1200px - 110px - 180px + 25px;
+			bottom: 12020px;
+		}
+
+		.ladder__step_153 {
+			left: 1075px - 110px - 180px + 25px;
+			bottom: 12095px;
+		}
+
+		.ladder__step_154 {
+			left: 899px - 110px - 180px + 25px;
+			bottom: 12171px;
+		}
+
+		.ladder__step_155 {
+			left: 744px - 110px - 180px + 25px;
+			bottom: 12232px;
+		}
+
+		.ladder__step_156 {
+			left: 584px - 110px - 180px + 25px;
+			bottom: 12302px;
+		}
+
+		.ladder__step_157 {
+			left: 491px - 110px - 180px + 25px;
+			bottom: 12366px;
+		}
+
+		.ladder__step_158 {
+			left: 518px - 110px - 180px + 25px;
+			bottom: 12450px;
+		}
+
+		.ladder__step_159 {
+			left: 559px - 110px - 180px + 25px;
+			bottom: 12516px;
+		}
+
+		.ladder__step_160 {
+			left: 626px - 110px - 180px + 25px;
+			bottom: 12594px;
+		}
+
+		.ladder__step_161 {
+			left: 702px - 110px - 180px + 25px;
+			bottom: 12678px;
+		}
+
+		.ladder__step_162 {
+			left: 772px - 110px - 180px + 25px;
+			bottom: 12748px;
+		}
+
+		.ladder__step_163 {
+			left: 827px - 110px - 180px + 25px;
+			bottom: 12818px;
+		}
+
+		.ladder__step_164 {
+			left: 943px - 110px - 180px + 25px;
+			bottom: 12899px;
+		}
+
+		.ladder__step_165 {
+			left: 1036px - 110px - 180px + 25px;
+			bottom: 12974px;
+		}
+
+		.ladder__step_166 {
+			left: 1127px - 110px - 180px + 25px;
+			bottom: 13039px;
+		}
+
+		.ladder__step_167 {
+			left: 1214px - 110px - 180px + 25px;
+			bottom: 13118px;
+		}
+
+		.ladder__step_168 {
+			left: 1076px - 110px - 180px + 25px;
+			bottom: 13268px;
+		}
+
+		.ladder__step_169 {
+			left: 1239px - 110px - 180px + 25px;
+			bottom: 13325px;
+		}
+
+		.ladder__step_170 {
+			left: 1234px - 110px - 180px + 25px;
+			bottom: 13406px;
+		}
+
+		.ladder__step_171 {
+			left: 1219px - 110px - 180px + 25px;
+			bottom: 13498px;
+		}
+
+		.ladder__step_172 {
+			left: 1183px - 110px - 180px + 25px;
+			bottom: 13565px;
+		}
+
+		.ladder__step_173 {
+			left: 1044px - 110px - 180px + 25px;
+			bottom: 13644px;
+		}
+
+		.ladder__step_174 {
+			left: 802px - 110px - 180px + 25px;
+			bottom: 13723px;
+		}
+
+		.ladder__step_175 {
+			left: 676px - 110px - 180px + 25px;
+			bottom: 13788px;
+		}
+
+		.ladder__step_176 {
+			left: 510px - 110px - 180px + 25px;
+			bottom: 13865px;
+		}
+
+		.ladder__step_177 {
+			left: 386px - 110px - 180px + 25px;
+			bottom: 13927px;
+		}
+
+		.ladder__step_178 {
+			left: 241px - 110px - 180px + 25px + 25px;
+			bottom: 14002px;
+		}
+
+		.ladder__step_179 {
+			left: 314px - 110px - 180px + 25px;
+			bottom: 14075px;
+		}
+
+		.ladder__step_180 {
+			left: 430px - 110px - 180px + 25px;
+			bottom: 14140px;
+		}
+
+		.ladder__step_181 {
+			left: 524px - 110px - 180px + 25px;
+			bottom: 14206px;
+		}
+
+		.ladder__step_182 {
+			left: 632px - 110px - 180px + 25px;
+			bottom: 14285px;
+		}
+
+		.ladder__step_183 {
+			left: 745px - 110px - 180px + 25px;
+			bottom: 14369px;
+		}
+
+		.ladder__step_184 {
+			left: 720px - 110px - 180px + 25px;
+			bottom: 14435px;
+		}
+
+		.ladder__step_185 {
+			left: 784px - 110px - 180px + 25px;
+			bottom: 14513px;
+		}
+
+		.ladder__step_186 {
+			left: 856px - 110px - 180px + 25px;
+			bottom: 14597px;
+		}
+
+		.ladder__step_187 {
+			left: 920px - 110px - 180px + 25px;
+			bottom: 14667px;
+		}
+
+		.ladder__step_188 {
+			left: 968px - 110px - 180px + 25px;
+			bottom: 14737px;
+		}
+
+		.ladder__step_189 {
+			left: 1055px - 110px - 180px + 25px;
+			bottom: 14792px;
+		}
+
+		.ladder__step_190 {
+			left: 1090px - 110px - 180px + 25px;
+			bottom: 14857px;
+		}
+
+		.ladder__step_191 {
+			left: 1170px - 110px - 180px + 25px;
+			bottom: 14915px;
+		}
+
+		.ladder__step_192 {
+			left: 1126px - 110px - 180px + 25px;
+			bottom: 15019px;
+		}
+
+		.ladder__step_193 {
+			left: 1227px - 110px - 180px + 25px;
+			bottom: 15130px;
+		}
+
+		.ladder__step_194 {
+			left: 1187px - 110px - 180px + 25px;
+			bottom: 15213px;
+		}
+
+		.ladder__step_195 {
+			left: 1087px - 110px - 180px + 25px;
+			bottom: 15279px;
+		}
+
+		.ladder__step_196 {
+			left: 924px - 110px - 180px + 25px;
+			bottom: 15356px;
+		}
+
+		.ladder__step_197 {
+			left: 792px - 110px - 180px + 25px;
+			bottom: 15414px;
+		}
+
+		.ladder__step_198 {
+			left: 655px - 110px - 180px + 25px;
+			bottom: 15490px;
+		}
+
+		.ladder__step_199 {
+			left: 528px - 110px - 180px + 25px;
+			bottom: 15567px;
+		}
+
+		.ladder__step_200 {
+			left: 475px - 110px - 180px + 25px;
+			bottom: 15635px;
+		}
+
+		.ladder__step_201 {
+			left: 533px - 110px - 180px + 25px;
+			bottom: 15719px;
+		}
+
+		.ladder__step_202 {
+			left: 596px - 110px - 180px + 25px;
+			bottom: 15785px;
+		}
+
+		.ladder__step_203 {
+			left: 663px - 110px - 180px + 25px;
+			bottom: 15863px;
+		}
+
+		.ladder__step_204 {
+			left: 767px - 110px - 180px + 25px;
+			bottom: 15947px;
+		}
+
+		.ladder__step_205 {
+			left: 945px - 110px - 180px + 25px;
+			bottom: 16016px;
+		}
+
+		.ladder__step_206 {
+			left: 1036px - 110px - 180px + 25px;
+			bottom: 16086px;
+		}
+
+		.ladder__step_207 {
+			left: 949px - 110px - 180px + 25px;
+			bottom: 16163px;
+		}
+
+		.ladder__step_208 {
+			left: 1026px - 110px - 180px + 25px;
+			bottom: 16235px;
+		}
+
+		.ladder__step_209 {
+			left: 1108px - 110px - 180px + 25px;
+			bottom: 16315px;
+		}
+
+		.ladder__step_210 {
+			left: 1157px - 110px - 180px + 25px;
+			bottom: 16399px;
+		}
+
+		.ladder__step_211 {
+			left: 1133px - 110px - 180px + 25px;
+			bottom: 16466px;
+		}
+
+		.ladder__step_212 {
+			left: 1056px - 110px - 180px + 25px;
+			bottom: 16548px;
+		}
+
+		.ladder__step_213 {
+			left: 903px - 110px - 180px + 25px;
+			bottom: 16635px;
+		}
+
+		.ladder__step_214 {
+			left: 666px - 110px - 180px + 25px;
+			bottom: 16695px;
+		}
+
+		.ladder__step_215 {
+			left: 553px - 110px - 180px + 25px;
+			bottom: 16759px;
+		}
+
+		.ladder__step_216 {
+			left: 667px - 110px - 180px + 25px;
+			bottom: 16899px;
+		}
+
+		.ladder__step_217 {
+			left: 715px - 110px - 180px + 25px;
+			bottom: 16959px;
+		}
+
+		.ladder__step_218 {
+			left: 835px - 110px - 180px + 25px;
+			bottom: 17046px;
+		}
+
+		.ladder__step_219 {
+			left: 951px - 110px - 180px + 25px;
+			bottom: 17127px;
+		}
+
+		.ladder__step_220 {
+			left: 1044px - 110px - 180px + 25px;
+			bottom: 17203px;
+		}
+
+		.ladder__step_221 {
+			left: 1135px - 110px - 180px + 25px;
+			bottom: 17268px;
+		}
+
+		.ladder__step_222 {
+			left: 1201px - 110px - 180px + 25px;
+			bottom: 17347px;
+		}
+
+		.ladder__step_223 {
+			left: 1281px - 110px - 180px + 25px;
+			bottom: 17429px;
+		}
+
+		.ladder__step_224 {
+			left: 1014px - 110px - 180px + 25px;
+			bottom: 17494px;
+		}
+
+		.ladder__step_225 {
+			left: 1096px - 110px - 180px + 25px;
+			bottom: 17575px;
+		}
+
+		.ladder__step_226 {
+			left: 1145px - 110px - 180px + 25px;
+			bottom: 17659px;
+		}
+
+		.ladder__step_227 {
+			left: 1121px - 110px - 180px + 25px;
+			bottom: 17725px;
+		}
+
+		.ladder__step_228 {
+			left: 1044px - 110px - 180px + 25px;
+			bottom: 17808px;
+		}
+
+		.ladder__step_229 {
+			left: 891px - 110px - 180px + 25px;
+			bottom: 17895px;
+		}
+
+		.ladder__step_230 {
+			left: 787px - 110px - 180px + 25px;
+			bottom: 17964px;
+		}
+
+		.ladder__step_231 {
+			left: 674px - 110px - 180px + 25px;
+			bottom: 18028px;
+		}
+
+		.ladder__step_232 {
+			left: 606px - 110px - 180px + 25px;
+			bottom: 18105px;
+		}
+
+		.ladder__step_233 {
+			left: 462px - 110px - 180px + 25px;
+			bottom: 18193px;
+		}
+
+		.ladder__step_234 {
+			left: 555px - 110px - 180px + 25px;
+			bottom: 18258px;
+		}
+
+		.ladder__step_235 {
+			left: 637px - 110px - 180px + 25px;
+			bottom: 18338px;
+		}
+
+		.ladder__step_236 {
+			left: 512px - 110px - 180px + 25px;
+			bottom: 18423px;
+		}
+
+		.ladder__step_237 {
+			left: 605px - 110px - 180px + 25px;
+			bottom: 18489px;
+		}
+
+		.ladder__step_238 {
+			left: 766px - 110px - 180px + 25px;
+			bottom: 18571px;
+		}
+
+		.ladder__step_239 {
+			left: 951px - 110px - 180px + 25px;
+			bottom: 18657px;
+		}
+
+		.ladder__step_240 {
+			left: 959px - 110px - 180px + 25px;
+			bottom: 18797px;
+		}
+
+		.ladder__step_241 {
+			left: 1006px - 110px - 180px + 25px;
+			bottom: 18870px;
+		}
+
+		.ladder__step_242 {
+			left: 1092px - 110px - 180px + 25px;
+			bottom: 18954px;
+		}
+
+		.ladder__step_243 {
+			left: 1162px - 110px - 180px + 25px;
+			bottom: 19040px;
+		}
+
+		.ladder__step_244 {
+			left: 1237px - 110px - 180px + 25px;
+			bottom: 19106px;
+		}
+
+		.ladder__step_245 {
+			left: 1109px - 110px - 180px + 25px;
+			bottom: 19178px;
+		}
+
+		.ladder__step_246 {
+			left: 1191px - 110px - 180px + 25px;
+			bottom: 19259px;
+		}
+
+		.ladder__step_247 {
+			left: 1102px - 110px - 180px + 25px;
+			bottom: 19343px;
+		}
+
+		.ladder__step_248 {
+			left: 989px - 110px - 180px + 25px;
+			bottom: 19407px;
+		}
+
+		.ladder__step_249 {
+			left: 921px - 110px - 180px + 25px;
+			bottom: 19484px;
+		}
+
+		.ladder__step_250 {
+			left: 856px - 110px - 180px + 25px;
+			bottom: 19572px;
+		}
+
+		.ladder__step_251 {
+			left: 792px - 110px - 180px + 25px;
+			bottom: 19637px;
+		}
+
+		.ladder__step_252 {
+			left: 897px - 110px - 180px + 25px;
+			bottom: 19717px;
+		}
+
+		.ladder__step_253 {
+			left: 962px - 110px - 180px + 25px;
+			bottom: 19802px;
+		}
+
+		.ladder__step_254 {
+			left: 1039px - 110px - 180px + 25px;
+			bottom: 19868px;
+		}
+
+		.ladder__step_255 {
+			left: 1170px - 110px - 180px + 25px;
+			bottom: 19950px;
+		}
+
+		.ladder__step_256 {
+			left: 1270px - 110px - 180px + 25px;
+			bottom: 20036px;
+		}
+
+		.ladder__step_257 {
+			left: 1237px - 110px - 180px + 25px;
+			bottom: 20105px;
+		}
+
+		.ladder__step_258 {
+			left: 1046px - 110px - 180px + 25px;
+			bottom: 20183px;
+		}
+
+		.ladder__step_259 {
+			left: 1116px - 110px - 180px + 25px;
+			bottom: 20269px;
+		}
+
+		.ladder__step_260 {
+			left: 1032px - 110px - 180px + 25px;
+			bottom: 20335px;
+		}
+
+		.ladder__step_261 {
+			left: 778px - 110px - 180px + 25px;
+			bottom: 20407px;
+		}
+
+		.ladder__step_262 {
+			left: 680px - 110px - 180px + 25px;
+			bottom: 20488px;
+		}
+
+		.ladder__step_263 {
+			left: 631px - 110px - 180px + 25px;
+			bottom: 20575px;
+		}
+
+		.ladder__step_264 {
+			left: 459px - 110px - 180px + 25px;
+			bottom: 20737px;
+		}
+
+		.ladder__step_265 {
+			left: 358px - 110px - 180px + 25px;
+			bottom: 20822px;
+		}
+
+		.ladder__step_266 {
+			left: 240px - 110px - 180px + 25px + 25px;
+			bottom: 20887px;
+		}
+
+		.ladder__step_267 {
+			left: 392px - 110px - 180px + 25px;
+			bottom: 20967px;
+		}
+
+		.ladder__step_268 {
+			left: 470px - 110px - 180px + 25px;
+			bottom: 21052px;
+		}
+
+		.ladder__step_269 {
+			left: 567px - 110px - 180px + 25px;
+			bottom: 21118px;
+		}
+
+		.ladder__step_270 {
+			left: 667px - 110px - 180px + 25px;
+			bottom: 21200px;
+		}
+
+		.ladder__step_271 {
+			left: 768px - 110px - 180px + 25px;
+			bottom: 21286px;
+		}
+
+		.ladder__step_272 {
+			left: 732px - 110px - 180px + 25px;
+			bottom: 21356px;
+		}
+
+		.ladder__step_273 {
+			left: 799px - 110px - 180px + 25px;
+			bottom: 21442px;
+		}
+
+		.ladder__step_274 {
+			left: 916px - 110px - 180px + 25px;
+			bottom: 21507px;
+		}
+
+		.ladder__step_275 {
+			left: 1006px - 110px - 180px + 25px;
+			bottom: 21589px;
+		}
+
+		.ladder__step_276 {
+			left: 1116px - 110px - 180px + 25px;
+			bottom: 21675px;
+		}
+
+		.ladder__step_277 {
+			left: 1185px - 110px - 180px + 25px;
+			bottom: 21746px;
+		}
+
+		.ladder__step_278 {
+			left: 1059px - 110px - 180px + 25px;
+			bottom: 21811px;
+		}
+
+		.ladder__step_279 {
+			left: 1139px - 110px - 180px + 25px;
+			bottom: 21891px;
+		}
+
+		.ladder__step_280 {
+			left: 963px - 110px - 180px + 25px;
+			bottom: 21976px;
+		}
+
+		.ladder__step_281 {
+			left: 821px - 110px - 180px + 25px;
+			bottom: 22042px;
+		}
+
+		.ladder__step_282 {
+			left: 799px - 110px - 180px + 25px;
+			bottom: 22124px;
+		}
+
+		.ladder__step_283 {
+			left: 749px - 110px - 180px + 25px;
+			bottom: 22210px;
+		}
+
+		.ladder__step_284 {
+			left: 699px - 110px - 180px + 25px;
+			bottom: 22280px;
+		}
+
+		.ladder__step_285 {
+			left: 723px - 110px - 180px + 25px;
+			bottom: 22366px;
+		}
+
+		.ladder__step_286 {
+			left: 737px - 110px - 180px + 25px;
+			bottom: 22429px;
+		}
+
+		.ladder__step_287 {
+			left: 770px - 110px - 180px + 25px;
+			bottom: 22513px;
+		}
+
+		.ladder__step_288 {
+			left: 757px - 110px - 180px + 25px;
+			bottom: 22685px;
+		}
+
+		.ladder__step {
+			width: auto;
+		}
+
+		.ladder-label {
+			font-size: 20px;
+			padding-left: 18px;
+			height: 60px;
+		}
+
+		.ladder-label__index {
+			font-size: 35px;
+			margin-right: 15px;
+		}
+
+		.ladder-label__icon {
+			width: 22px;
+			height: 22px;
+			// margin-right: 8px;
+			fill: currentColor;
+		}
+
+		.ladder-label__status {
+			font-size: 16px;
+			margin-left: 8px;
+		}
+
+		.ladder-label__marker {
+			width: 24px;
+			height: 24px;
+			margin-left: 15px;
+		}
+
+		.ladder-label_locked {
+
+			.ladder-label__icon {
+				fill: currentColor;
+			}
+		}
+
+		.ladder-label_checkpoint {
+
+			.ladder-label__icon {
+				margin-left: 15px;
+			}
+
+			.ladder-label__status {
+				margin-left: 8px;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-xl) and (max-width: $bp-xxl - 1px) {
+
+	.ladder_inner {
+
+		.container {
+			max-width: 1366px;
+		}
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.ladder_inner {
+
+		.ladder__step_1 {
+			left: 430px - 120px + 25px;
+			bottom: 122px;
+		}
+
+		.ladder__step_2 {
+			left: 309px - 120px + 25px;
+			bottom: 242px;
+		}
+
+		.ladder__step_3 {
+			left: 264px - 120px + 25px;
+			bottom: 324px;
+		}
+
+		.ladder__step_4 {
+			left: 240px - 120px + 25px;
+			bottom: 410px;
+		}
+
+		.ladder__step_5 {
+			left: 288px - 120px + 25px;
+			bottom: 477px;
+		}
+
+		.ladder__step_6 {
+			left: 346px - 120px + 25px;
+			bottom: 554px;
+		}
+
+		.ladder__step_7 {
+			left: 570px - 120px + 25px;
+			bottom: 637px;
+		}
+
+		.ladder__step_8 {
+			left: 712px - 120px + 25px;
+			bottom: 720px;
+		}
+
+		.ladder__step_9 {
+			left: 825px - 120px + 25px;
+			bottom: 794px;
+		}
+
+		.ladder__step_10 {
+			left: 911px - 120px + 25px;
+			bottom: 869px;
+		}
+
+		.ladder__step_11 {
+			left: 981px - 120px + 25px;
+			bottom: 955px;
+		}
+
+		.ladder__step_12 {
+			left: 1067px - 120px + 25px;
+			bottom: 1020px;
+		}
+
+		.ladder__step_13 {
+			left: 1144px - 120px + 25px;
+			bottom: 1092px;
+		}
+
+		.ladder__step_14 {
+			left: 1226px - 120px + 25px;
+			bottom: 1173px;
+		}
+
+		.ladder__step_15 {
+			left: 1275px - 120px + 25px;
+			bottom: 1257px;
+		}
+
+		.ladder__step_16 {
+			left: 1251px - 120px + 25px;
+			bottom: 1323px;
+		}
+
+		.ladder__step_17 {
+			left: 1174px - 120px + 25px;
+			bottom: 1406px;
+		}
+
+		.ladder__step_18 {
+			left: 1021px - 120px + 25px;
+			bottom: 1493px;
+		}
+
+		.ladder__step_19 {
+			left: 784px - 120px + 25px;
+			bottom: 1552px;
+		}
+
+		.ladder__step_20 {
+			left: 671px - 120px + 25px;
+			bottom: 1616px;
+		}
+
+		.ladder__step_21 {
+			left: 603px - 120px + 25px;
+			bottom: 1693px;
+		}
+
+		.ladder__step_22 {
+			left: 459px - 120px + 25px;
+			bottom: 1781px;
+		}
+
+		.ladder__step_23 {
+			left: 681px - 120px + 25px;
+			bottom: 1850px;
+		}
+
+		.ladder__step_24 {
+			left: 701px - 120px + 25px;
+			bottom: 1990px;
+		}
+
+		.ladder__step_25 {
+			left: 1110px - 120px + 25px;
+			bottom: 2072px;
+		}
+
+		.ladder__step_26 {
+			left: 1192px - 120px + 25px;
+			bottom: 2153px;
+		}
+
+		.ladder__step_27 {
+			left: 1244px - 120px + 25px;
+			bottom: 2245px;
+		}
+
+		.ladder__step_28 {
+			left: 1216px - 120px + 25px;
+			bottom: 2315px;
+		}
+
+		.ladder__step_29 {
+			left: 1140px - 120px + 25px;
+			bottom: 2398px;
+		}
+
+		.ladder__step_30 {
+			left: 956px - 120px + 25px;
+			bottom: 2481px;
+		}
+
+		.ladder__step_31 {
+			left: 854px - 120px + 25px;
+			bottom: 2546px;
+		}
+
+		.ladder__step_32 {
+			left: 691px - 120px + 25px;
+			bottom: 2623px;
+		}
+
+		.ladder__step_33 {
+			left: 559px - 120px + 25px;
+			bottom: 2681px;
+		}
+
+		.ladder__step_34 {
+			left: 422px - 120px + 25px;
+			bottom: 2757px;
+		}
+
+		.ladder__step_35 {
+			left: 295px - 120px + 25px;
+			bottom: 2837px;
+		}
+
+		.ladder__step_36 {
+			left: 242px - 120px + 25px;
+			bottom: 2902px;
+		}
+
+		.ladder__step_37 {
+			left: 300px - 120px + 25px;
+			bottom: 2986px;
+		}
+
+		.ladder__step_38 {
+			left: 363px - 120px + 25px;
+			bottom: 3052px;
+		}
+
+		.ladder__step_39 {
+			left: 430px - 120px + 25px;
+			bottom: 3130px;
+		}
+
+		.ladder__step_40 {
+			left: 534px - 120px + 25px;
+			bottom: 3214px;
+		}
+
+		.ladder__step_41 {
+			left: 712px - 120px + 25px;
+			bottom: 3283px;
+		}
+
+		.ladder__step_42 {
+			left: 803px - 120px + 25px;
+			bottom: 3353px;
+		}
+
+		.ladder__step_43 {
+			left: 877px - 120px + 25px;
+			bottom: 3435px;
+		}
+
+		.ladder__step_44 {
+			left: 947px - 120px + 25px;
+			bottom: 3521px;
+		}
+
+		.ladder__step_45 {
+			left: 1033px - 120px + 25px;
+			bottom: 3586px;
+		}
+
+		.ladder__step_46 {
+			left: 1110px - 120px + 25px;
+			bottom: 3658px;
+		}
+
+		.ladder__step_47 {
+			left: 1192px - 120px + 25px;
+			bottom: 3739px;
+		}
+
+		.ladder__step_48 {
+			left: 1241px - 120px + 25px;
+			bottom: 3887px;
+		}
+
+		.ladder__step_49 {
+			left: 1034px - 120px + 25px;
+			bottom: 3973px;
+		}
+
+		.ladder__step_50 {
+			left: 957px - 120px + 25px;
+			bottom: 4056px;
+		}
+
+		.ladder__step_51 {
+			left: 804px - 120px + 25px;
+			bottom: 4137px;
+		}
+
+		.ladder__step_52 {
+			left: 567px - 120px + 25px;
+			bottom: 4202px;
+		}
+
+		.ladder__step_53 {
+			left: 454px - 120px + 25px;
+			bottom: 4266px;
+		}
+
+		.ladder__step_54 {
+			left: 386px - 120px + 25px;
+			bottom: 4343px;
+		}
+
+		.ladder__step_55 {
+			left: 242px - 120px + 25px;
+			bottom: 4431px;
+		}
+
+		.ladder__step_56 {
+			left: 384px - 120px + 25px;
+			bottom: 4499px;
+		}
+
+		.ladder__step_57 {
+			left: 460px - 120px + 25px;
+			bottom: 4565px;
+		}
+
+		.ladder__step_58 {
+			left: 553px - 120px + 25px;
+			bottom: 4641px;
+		}
+
+		.ladder__step_59 {
+			left: 644px - 120px + 25px;
+			bottom: 4706px;
+		}
+
+		.ladder__step_60 {
+			left: 731px - 120px + 25px;
+			bottom: 4785px;
+		}
+
+		.ladder__step_61 {
+			left: 862px - 120px + 25px;
+			bottom: 4867px;
+		}
+
+		.ladder__step_62 {
+			left: 948px - 120px + 25px;
+			bottom: 4932px;
+		}
+
+		.ladder__step_63 {
+			left: 1025px - 120px + 25px;
+			bottom: 5004px;
+		}
+
+		.ladder__step_64 {
+			left: 1107px - 120px + 25px;
+			bottom: 5085px;
+		}
+
+		.ladder__step_65 {
+			left: 1156px - 120px + 25px;
+			bottom: 5169px;
+		}
+
+		.ladder__step_66 {
+			left: 1132px - 120px + 25px;
+			bottom: 5235px;
+		}
+
+		.ladder__step_67 {
+			left: 1055px - 120px + 25px;
+			bottom: 5318px;
+		}
+
+		.ladder__step_68 {
+			left: 902px - 120px + 25px;
+			bottom: 5405px;
+		}
+
+		.ladder__step_69 {
+			left: 665px - 120px + 25px;
+			bottom: 5464px;
+		}
+
+		.ladder__step_70 {
+			left: 552px - 120px + 25px;
+			bottom: 5528px;
+		}
+
+		.ladder__step_71 {
+			left: 484px - 120px + 25px;
+			bottom: 5605px;
+		}
+
+		.ladder__step_72 {
+			left: 434px - 120px + 25px;
+			bottom: 5757px;
+		}
+
+		.ladder__step_73 {
+			left: 726px - 120px + 25px;
+			bottom: 5852px;
+		}
+
+		.ladder__step_74 {
+			left: 812px - 120px + 25px;
+			bottom: 5927px;
+		}
+
+		.ladder__step_75 {
+			left: 891px - 120px + 25px;
+			bottom: 6013px;
+		}
+
+		.ladder__step_76 {
+			left: 999px - 120px + 25px;
+			bottom: 6078px;
+		}
+
+		.ladder__step_77 {
+			left: 1111px - 120px + 25px;
+			bottom: 6150px;
+		}
+
+		.ladder__step_78 {
+			left: 1207px - 120px + 25px;
+			bottom: 6232px;
+		}
+
+		.ladder__step_79 {
+			left: 1231px - 120px + 25px;
+			bottom: 6316px;
+		}
+
+		.ladder__step_80 {
+			left: 1085px - 120px + 25px;
+			bottom: 6394px;
+		}
+
+		.ladder__step_81 {
+			left: 850px - 120px + 25px;
+			bottom: 6481px;
+		}
+
+		.ladder__step_82 {
+			left: 671px - 120px + 25px;
+			bottom: 6539px;
+		}
+
+		.ladder__step_83 {
+			left: 600px - 120px + 25px;
+			bottom: 6598px;
+		}
+
+		.ladder__step_84 {
+			left: 532px - 120px + 25px;
+			bottom: 6675px;
+		}
+
+		.ladder__step_85 {
+			left: 388px - 120px + 25px;
+			bottom: 6757px;
+		}
+
+		.ladder__step_86 {
+			left: 610px - 120px + 25px;
+			bottom: 6826px;
+		}
+
+		.ladder__step_87 {
+			left: 685px - 120px + 25px;
+			bottom: 6906px;
+		}
+
+		.ladder__step_88 {
+			left: 827px - 120px + 25px;
+			bottom: 6973px;
+		}
+
+		.ladder__step_89 {
+			left: 903px - 120px + 25px;
+			bottom: 7040px;
+		}
+
+		.ladder__step_90 {
+			left: 996px - 120px + 25px;
+			bottom: 7115px;
+		}
+
+		.ladder__step_91 {
+			left: 1087px - 120px + 25px;
+			bottom: 7180px;
+		}
+
+		.ladder__step_92 {
+			left: 1174px - 120px + 25px;
+			bottom: 7259px;
+		}
+
+		.ladder__step_93 {
+			left: 1243px - 120px + 25px;
+			bottom: 7342px;
+		}
+
+		.ladder__step_94 {
+			left: 1172px - 120px + 25px;
+			bottom: 7401px;
+		}
+
+		.ladder__step_95 {
+			left: 1159px - 120px + 25px;
+			bottom: 7481px;
+		}
+
+		.ladder__step_96 {
+			left: 1099px - 120px + 25px;
+			bottom: 7646px;
+		}
+
+		.ladder__step_97 {
+			left: 654px - 120px + 25px;
+			bottom: 7708px;
+		}
+
+		.ladder__step_98 {
+			left: 736px - 120px + 25px;
+			bottom: 7789px;
+		}
+
+		.ladder__step_99 {
+			left: 788px - 120px + 25px;
+			bottom: 7881px;
+		}
+
+		.ladder__step_100 {
+			left: 760px - 120px + 25px;
+			bottom: 7951px;
+		}
+
+		.ladder__step_101 {
+			left: 684px - 120px + 25px;
+			bottom: 8034px;
+		}
+
+		.ladder__step_102 {
+			left: 500px - 120px + 25px;
+			bottom: 8118px;
+		}
+
+		.ladder__step_103 {
+			left: 398px - 120px + 25px;
+			bottom: 8182px;
+		}
+
+		.ladder__step_104 {
+			left: 273px - 120px + 25px;
+			bottom: 8259px;
+		}
+
+		.ladder__step_105 {
+			left: 364px - 120px + 25px;
+			bottom: 8324px;
+		}
+
+		.ladder__step_106 {
+			left: 280px - 120px + 25px;
+			bottom: 8400px;
+		}
+
+		.ladder__step_107 {
+			left: 335px - 120px + 25px;
+			bottom: 8480px;
+		}
+
+		.ladder__step_108 {
+			left: 371px - 120px + 25px;
+			bottom: 8545px;
+		}
+
+		.ladder__step_109 {
+			left: 398px - 120px + 25px;
+			bottom: 8629px;
+		}
+
+		.ladder__step_110 {
+			left: 439px - 120px + 25px;
+			bottom: 8695px;
+		}
+
+		.ladder__step_111 {
+			left: 506px - 120px + 25px;
+			bottom: 8773px;
+		}
+
+		.ladder__step_112 {
+			left: 582px - 120px + 25px;
+			bottom: 8857px;
+		}
+
+		.ladder__step_113 {
+			left: 652px - 120px + 25px;
+			bottom: 8923px;
+		}
+
+		.ladder__step_114 {
+			left: 707px - 120px + 25px;
+			bottom: 8996px;
+		}
+
+		.ladder__step_115 {
+			left: 823px - 120px + 25px;
+			bottom: 9077px;
+		}
+
+		.ladder__step_116 {
+			left: 916px - 120px + 25px;
+			bottom: 9153px;
+		}
+
+		.ladder__step_117 {
+			left: 1007px - 120px + 25px;
+			bottom: 9218px;
+		}
+
+		.ladder__step_118 {
+			left: 1094px - 120px + 25px;
+			bottom: 9297px;
+		}
+
+		.ladder__step_119 {
+			left: 1163px - 120px + 25px;
+			bottom: 9379px;
+		}
+
+		.ladder__step_120 {
+			left: 1072px - 120px + 25px;
+			bottom: 9499px;
+		}
+
+		.ladder__step_121 {
+			left: 1110px - 120px + 25px;
+			bottom: 9592px;
+		}
+
+		.ladder__step_122 {
+			left: 1192px - 120px + 25px;
+			bottom: 9673px;
+		}
+
+		.ladder__step_123 {
+			left: 1241px - 120px + 25px;
+			bottom: 9757px;
+		}
+
+		.ladder__step_124 {
+			left: 1217px - 120px + 25px;
+			bottom: 9823px;
+		}
+
+		.ladder__step_125 {
+			left: 1140px - 120px + 25px;
+			bottom: 9906px;
+		}
+
+		.ladder__step_126 {
+			left: 987px - 120px + 25px;
+			bottom: 9993px;
+		}
+
+		.ladder__step_127 {
+			left: 750px - 120px + 25px;
+			bottom: 10052px;
+		}
+
+		.ladder__step_128 {
+			left: 637px - 120px + 25px;
+			bottom: 10116px;
+		}
+
+		.ladder__step_129 {
+			left: 569px - 120px + 25px;
+			bottom: 10193px;
+		}
+
+		.ladder__step_130 {
+			left: 425px - 120px + 25px;
+			bottom: 10281px;
+		}
+
+		.ladder__step_131 {
+			left: 518px - 120px + 25px;
+			bottom: 10346px;
+		}
+
+		.ladder__step_132 {
+			left: 600px - 120px + 25px;
+			bottom: 10426px;
+		}
+
+		.ladder__step_133 {
+			left: 475px - 120px + 25px;
+			bottom: 10512px;
+		}
+
+		.ladder__step_134 {
+			left: 571px - 120px + 25px;
+			bottom: 10578px;
+		}
+
+		.ladder__step_135 {
+			left: 629px - 120px + 25px;
+			bottom: 10655px;
+		}
+
+		.ladder__step_136 {
+			left: 734px - 120px + 25px;
+			bottom: 10737px;
+		}
+
+		.ladder__step_137 {
+			left: 815px - 120px + 25px;
+			bottom: 10823px;
+		}
+
+		.ladder__step_138 {
+			left: 812px - 120px + 25px;
+			bottom: 10891px;
+		}
+
+		.ladder__step_139 {
+			left: 898px - 120px + 25px;
+			bottom: 10966px;
+		}
+
+		.ladder__step_140 {
+			left: 968px - 120px + 25px;
+			bottom: 11052px;
+		}
+
+		.ladder__step_141 {
+			left: 1043px - 120px + 25px;
+			bottom: 11118px;
+		}
+
+		.ladder__step_142 {
+			left: 915px - 120px + 25px;
+			bottom: 11190px;
+		}
+
+		.ladder__step_143 {
+			left: 997px - 120px + 25px;
+			bottom: 11271px;
+		}
+
+		.ladder__step_144 {
+			left: 847px - 120px + 25px;
+			bottom: 11419px;
+		}
+
+		.ladder__step_145 {
+			left: 1047px - 120px + 25px;
+			bottom: 11490px;
+		}
+
+		.ladder__step_146 {
+			left: 1109px - 120px + 25px;
+			bottom: 11569px;
+		}
+
+		.ladder__step_147 {
+			left: 1102px - 120px + 25px;
+			bottom: 11653px;
+		}
+
+		.ladder__step_148 {
+			left: 1128px - 120px + 25px;
+			bottom: 11719px;
+		}
+
+		.ladder__step_149 {
+			left: 1215px - 120px + 25px;
+			bottom: 11798px;
+		}
+
+		.ladder__step_150 {
+			left: 1284px - 120px + 25px;
+			bottom: 11881px;
+		}
+
+		.ladder__step_151 {
+			left: 1213px - 120px + 25px;
+			bottom: 11940px;
+		}
+
+		.ladder__step_152 {
+			left: 1200px - 120px + 25px;
+			bottom: 12020px;
+		}
+
+		.ladder__step_153 {
+			left: 1075px - 120px + 25px;
+			bottom: 12095px;
+		}
+
+		.ladder__step_154 {
+			left: 899px - 120px + 25px;
+			bottom: 12171px;
+		}
+
+		.ladder__step_155 {
+			left: 744px - 120px + 25px;
+			bottom: 12232px;
+		}
+
+		.ladder__step_156 {
+			left: 584px - 120px + 25px;
+			bottom: 12302px;
+		}
+
+		.ladder__step_157 {
+			left: 491px - 120px + 25px;
+			bottom: 12366px;
+		}
+
+		.ladder__step_158 {
+			left: 518px - 120px + 25px;
+			bottom: 12450px;
+		}
+
+		.ladder__step_159 {
+			left: 559px - 120px + 25px;
+			bottom: 12516px;
+		}
+
+		.ladder__step_160 {
+			left: 626px - 120px + 25px;
+			bottom: 12594px;
+		}
+
+		.ladder__step_161 {
+			left: 702px - 120px + 25px;
+			bottom: 12678px;
+		}
+
+		.ladder__step_162 {
+			left: 772px - 120px + 25px;
+			bottom: 12748px;
+		}
+
+		.ladder__step_163 {
+			left: 827px - 120px + 25px;
+			bottom: 12818px;
+		}
+
+		.ladder__step_164 {
+			left: 943px - 120px + 25px;
+			bottom: 12899px;
+		}
+
+		.ladder__step_165 {
+			left: 1036px - 120px + 25px;
+			bottom: 12974px;
+		}
+
+		.ladder__step_166 {
+			left: 1127px - 120px + 25px;
+			bottom: 13039px;
+		}
+
+		.ladder__step_167 {
+			left: 1214px - 120px + 25px;
+			bottom: 13118px;
+		}
+
+		.ladder__step_168 {
+			left: 1076px - 120px + 25px;
+			bottom: 13268px;
+		}
+
+		.ladder__step_169 {
+			left: 1239px - 120px + 25px;
+			bottom: 13325px;
+		}
+
+		.ladder__step_170 {
+			left: 1234px - 120px + 25px;
+			bottom: 13406px;
+		}
+
+		.ladder__step_171 {
+			left: 1219px - 120px + 25px;
+			bottom: 13498px;
+		}
+
+		.ladder__step_172 {
+			left: 1183px - 120px + 25px;
+			bottom: 13565px;
+		}
+
+		.ladder__step_173 {
+			left: 1044px - 120px + 25px;
+			bottom: 13644px;
+		}
+
+		.ladder__step_174 {
+			left: 802px - 120px + 25px;
+			bottom: 13723px;
+		}
+
+		.ladder__step_175 {
+			left: 676px - 120px + 25px;
+			bottom: 13788px;
+		}
+
+		.ladder__step_176 {
+			left: 510px - 120px + 25px;
+			bottom: 13865px;
+		}
+
+		.ladder__step_177 {
+			left: 386px - 120px + 25px;
+			bottom: 13927px;
+		}
+
+		.ladder__step_178 {
+			left: 241px - 120px + 25px;
+			bottom: 14002px;
+		}
+
+		.ladder__step_179 {
+			left: 314px - 120px + 25px;
+			bottom: 14075px;
+		}
+
+		.ladder__step_180 {
+			left: 430px - 120px + 25px;
+			bottom: 14140px;
+		}
+
+		.ladder__step_181 {
+			left: 524px - 120px + 25px;
+			bottom: 14206px;
+		}
+
+		.ladder__step_182 {
+			left: 632px - 120px + 25px;
+			bottom: 14285px;
+		}
+
+		.ladder__step_183 {
+			left: 745px - 120px + 25px;
+			bottom: 14369px;
+		}
+
+		.ladder__step_184 {
+			left: 720px - 120px + 25px;
+			bottom: 14435px;
+		}
+
+		.ladder__step_185 {
+			left: 784px - 120px + 25px;
+			bottom: 14513px;
+		}
+
+		.ladder__step_186 {
+			left: 856px - 120px + 25px;
+			bottom: 14597px;
+		}
+
+		.ladder__step_187 {
+			left: 920px - 120px + 25px;
+			bottom: 14667px;
+		}
+
+		.ladder__step_188 {
+			left: 968px - 120px + 25px;
+			bottom: 14737px;
+		}
+
+		.ladder__step_189 {
+			left: 1055px - 120px + 25px;
+			bottom: 14792px;
+		}
+
+		.ladder__step_190 {
+			left: 1090px - 120px + 25px;
+			bottom: 14857px;
+		}
+
+		.ladder__step_191 {
+			left: 1170px - 120px + 25px;
+			bottom: 14915px;
+		}
+
+		.ladder__step_192 {
+			left: 1126px - 120px + 25px;
+			bottom: 15019px;
+		}
+
+		.ladder__step_193 {
+			left: 1227px - 120px + 25px;
+			bottom: 15130px;
+		}
+
+		.ladder__step_194 {
+			left: 1187px - 120px + 25px;
+			bottom: 15213px;
+		}
+
+		.ladder__step_195 {
+			left: 1087px - 120px + 25px;
+			bottom: 15279px;
+		}
+
+		.ladder__step_196 {
+			left: 924px - 120px + 25px;
+			bottom: 15356px;
+		}
+
+		.ladder__step_197 {
+			left: 792px - 120px + 25px;
+			bottom: 15414px;
+		}
+
+		.ladder__step_198 {
+			left: 655px - 120px + 25px;
+			bottom: 15490px;
+		}
+
+		.ladder__step_199 {
+			left: 528px - 120px + 25px;
+			bottom: 15567px;
+		}
+
+		.ladder__step_200 {
+			left: 475px - 120px + 25px;
+			bottom: 15635px;
+		}
+
+		.ladder__step_201 {
+			left: 533px - 120px + 25px;
+			bottom: 15719px;
+		}
+
+		.ladder__step_202 {
+			left: 596px - 120px + 25px;
+			bottom: 15785px;
+		}
+
+		.ladder__step_203 {
+			left: 663px - 120px + 25px;
+			bottom: 15863px;
+		}
+
+		.ladder__step_204 {
+			left: 767px - 120px + 25px;
+			bottom: 15947px;
+		}
+
+		.ladder__step_205 {
+			left: 945px - 120px + 25px;
+			bottom: 16016px;
+		}
+
+		.ladder__step_206 {
+			left: 1036px - 120px + 25px;
+			bottom: 16086px;
+		}
+
+		.ladder__step_207 {
+			left: 949px - 120px + 25px;
+			bottom: 16163px;
+		}
+
+		.ladder__step_208 {
+			left: 1026px - 120px + 25px;
+			bottom: 16235px;
+		}
+
+		.ladder__step_209 {
+			left: 1108px - 120px + 25px;
+			bottom: 16315px;
+		}
+
+		.ladder__step_210 {
+			left: 1157px - 120px + 25px;
+			bottom: 16399px;
+		}
+
+		.ladder__step_211 {
+			left: 1133px - 120px + 25px;
+			bottom: 16466px;
+		}
+
+		.ladder__step_212 {
+			left: 1056px - 120px + 25px;
+			bottom: 16548px;
+		}
+
+		.ladder__step_213 {
+			left: 903px - 120px + 25px;
+			bottom: 16635px;
+		}
+
+		.ladder__step_214 {
+			left: 666px - 120px + 25px;
+			bottom: 16695px;
+		}
+
+		.ladder__step_215 {
+			left: 553px - 120px + 25px;
+			bottom: 16759px;
+		}
+
+		.ladder__step_216 {
+			left: 667px - 120px + 25px;
+			bottom: 16899px;
+		}
+
+		.ladder__step_217 {
+			left: 715px - 120px + 25px;
+			bottom: 16959px;
+		}
+
+		.ladder__step_218 {
+			left: 835px - 120px + 25px;
+			bottom: 17046px;
+		}
+
+		.ladder__step_219 {
+			left: 951px - 120px + 25px;
+			bottom: 17127px;
+		}
+
+		.ladder__step_220 {
+			left: 1044px - 120px + 25px;
+			bottom: 17203px;
+		}
+
+		.ladder__step_221 {
+			left: 1135px - 120px + 25px;
+			bottom: 17268px;
+		}
+
+		.ladder__step_222 {
+			left: 1201px - 120px + 25px;
+			bottom: 17347px;
+		}
+
+		.ladder__step_223 {
+			left: 1281px - 120px + 25px;
+			bottom: 17429px;
+		}
+
+		.ladder__step_224 {
+			left: 1014px - 120px + 25px;
+			bottom: 17494px;
+		}
+
+		.ladder__step_225 {
+			left: 1096px - 120px + 25px;
+			bottom: 17575px;
+		}
+
+		.ladder__step_226 {
+			left: 1145px - 120px + 25px;
+			bottom: 17659px;
+		}
+
+		.ladder__step_227 {
+			left: 1121px - 120px + 25px;
+			bottom: 17725px;
+		}
+
+		.ladder__step_228 {
+			left: 1044px - 120px + 25px;
+			bottom: 17808px;
+		}
+
+		.ladder__step_229 {
+			left: 891px - 120px + 25px;
+			bottom: 17895px;
+		}
+
+		.ladder__step_230 {
+			left: 787px - 120px + 25px;
+			bottom: 17964px;
+		}
+
+		.ladder__step_231 {
+			left: 674px - 120px + 25px;
+			bottom: 18028px;
+		}
+
+		.ladder__step_232 {
+			left: 606px - 120px + 25px;
+			bottom: 18105px;
+		}
+
+		.ladder__step_233 {
+			left: 462px - 120px + 25px;
+			bottom: 18193px;
+		}
+
+		.ladder__step_234 {
+			left: 555px - 120px + 25px;
+			bottom: 18258px;
+		}
+
+		.ladder__step_235 {
+			left: 637px - 120px + 25px;
+			bottom: 18338px;
+		}
+
+		.ladder__step_236 {
+			left: 512px - 120px + 25px;
+			bottom: 18423px;
+		}
+
+		.ladder__step_237 {
+			left: 605px - 120px + 25px;
+			bottom: 18489px;
+		}
+
+		.ladder__step_238 {
+			left: 766px - 120px + 25px;
+			bottom: 18571px;
+		}
+
+		.ladder__step_239 {
+			left: 951px - 120px + 25px;
+			bottom: 18657px;
+		}
+
+		.ladder__step_240 {
+			left: 959px - 120px + 25px;
+			bottom: 18797px;
+		}
+
+		.ladder__step_241 {
+			left: 1006px - 120px + 25px;
+			bottom: 18870px;
+		}
+
+		.ladder__step_242 {
+			left: 1092px - 120px + 25px;
+			bottom: 18954px;
+		}
+
+		.ladder__step_243 {
+			left: 1162px - 120px + 25px;
+			bottom: 19040px;
+		}
+
+		.ladder__step_244 {
+			left: 1237px - 120px + 25px;
+			bottom: 19106px;
+		}
+
+		.ladder__step_245 {
+			left: 1109px - 120px + 25px;
+			bottom: 19178px;
+		}
+
+		.ladder__step_246 {
+			left: 1191px - 120px + 25px;
+			bottom: 19259px;
+		}
+
+		.ladder__step_247 {
+			left: 1102px - 120px + 25px;
+			bottom: 19343px;
+		}
+
+		.ladder__step_248 {
+			left: 989px - 120px + 25px;
+			bottom: 19407px;
+		}
+
+		.ladder__step_249 {
+			left: 921px - 120px + 25px;
+			bottom: 19484px;
+		}
+
+		.ladder__step_250 {
+			left: 856px - 120px + 25px;
+			bottom: 19572px;
+		}
+
+		.ladder__step_251 {
+			left: 792px - 120px + 25px;
+			bottom: 19637px;
+		}
+
+		.ladder__step_252 {
+			left: 897px - 120px + 25px;
+			bottom: 19717px;
+		}
+
+		.ladder__step_253 {
+			left: 962px - 120px + 25px;
+			bottom: 19802px;
+		}
+
+		.ladder__step_254 {
+			left: 1039px - 120px + 25px;
+			bottom: 19868px;
+		}
+
+		.ladder__step_255 {
+			left: 1170px - 120px + 25px;
+			bottom: 19950px;
+		}
+
+		.ladder__step_256 {
+			left: 1270px - 120px + 25px;
+			bottom: 20036px;
+		}
+
+		.ladder__step_257 {
+			left: 1237px - 120px + 25px;
+			bottom: 20105px;
+		}
+
+		.ladder__step_258 {
+			left: 1046px - 120px + 25px;
+			bottom: 20183px;
+		}
+
+		.ladder__step_259 {
+			left: 1116px - 120px + 25px;
+			bottom: 20269px;
+		}
+
+		.ladder__step_260 {
+			left: 1032px - 120px + 25px;
+			bottom: 20335px;
+		}
+
+		.ladder__step_261 {
+			left: 778px - 120px + 25px;
+			bottom: 20407px;
+		}
+
+		.ladder__step_262 {
+			left: 680px - 120px + 25px;
+			bottom: 20488px;
+		}
+
+		.ladder__step_263 {
+			left: 631px - 120px + 25px;
+			bottom: 20575px;
+		}
+
+		.ladder__step_264 {
+			left: 459px - 120px + 25px;
+			bottom: 20737px;
+		}
+
+		.ladder__step_265 {
+			left: 358px - 120px + 25px;
+			bottom: 20822px;
+		}
+
+		.ladder__step_266 {
+			left: 240px - 120px + 25px;
+			bottom: 20887px;
+		}
+
+		.ladder__step_267 {
+			left: 392px - 120px + 25px;
+			bottom: 20967px;
+		}
+
+		.ladder__step_268 {
+			left: 470px - 120px + 25px;
+			bottom: 21052px;
+		}
+
+		.ladder__step_269 {
+			left: 567px - 120px + 25px;
+			bottom: 21118px;
+		}
+
+		.ladder__step_270 {
+			left: 667px - 120px + 25px;
+			bottom: 21200px;
+		}
+
+		.ladder__step_271 {
+			left: 768px - 120px + 25px;
+			bottom: 21286px;
+		}
+
+		.ladder__step_272 {
+			left: 732px - 120px + 25px;
+			bottom: 21356px;
+		}
+
+		.ladder__step_273 {
+			left: 799px - 120px + 25px;
+			bottom: 21442px;
+		}
+
+		.ladder__step_274 {
+			left: 916px - 120px + 25px;
+			bottom: 21507px;
+		}
+
+		.ladder__step_275 {
+			left: 1006px - 120px + 25px;
+			bottom: 21589px;
+		}
+
+		.ladder__step_276 {
+			left: 1116px - 120px + 25px;
+			bottom: 21675px;
+		}
+
+		.ladder__step_277 {
+			left: 1185px - 120px + 25px;
+			bottom: 21746px;
+		}
+
+		.ladder__step_278 {
+			left: 1059px - 120px + 25px;
+			bottom: 21811px;
+		}
+
+		.ladder__step_279 {
+			left: 1139px - 120px + 25px;
+			bottom: 21891px;
+		}
+
+		.ladder__step_280 {
+			left: 963px - 120px + 25px;
+			bottom: 21976px;
+		}
+
+		.ladder__step_281 {
+			left: 821px - 120px + 25px;
+			bottom: 22042px;
+		}
+
+		.ladder__step_282 {
+			left: 799px - 120px + 25px;
+			bottom: 22124px;
+		}
+
+		.ladder__step_283 {
+			left: 749px - 120px + 25px;
+			bottom: 22210px;
+		}
+
+		.ladder__step_284 {
+			left: 699px - 120px + 25px;
+			bottom: 22280px;
+		}
+
+		.ladder__step_285 {
+			left: 723px - 120px + 25px;
+			bottom: 22366px;
+		}
+
+		.ladder__step_286 {
+			left: 737px - 120px + 25px;
+			bottom: 22429px;
+		}
+
+		.ladder__step_287 {
+			left: 770px - 120px + 25px;
+			bottom: 22513px;
+		}
+
+		.ladder__step_288 {
+			left: 757px - 120px + 25px;
+			bottom: 22685px;
+		}
+
+		.ladder__step {
+			width: auto;
+		}
+
+		// .ladder-label {
+		// 	font-size: 20px;
+		// 	padding-left: 18px;
+		// 	height: 60px;
+		// }
+
+		// .ladder-label__index {
+		// 	font-size: 35px;
+		// 	margin-right: 15px;
+		// }
+
+		// .ladder-label__icon {
+		// 	width: 22px;
+		// 	height: 22px;
+		// 	// margin-right: 8px;
+		// 	fill: currentColor;
+		// }
+
+		// .ladder-label__status {
+		// 	font-size: 16px;
+		// 	margin-left: 8px;
+		// }
+
+		// .ladder-label__marker {
+		// 	width: 24px;
+		// 	height: 24px;
+		// 	margin-left: 15px;
+		// }
+
+		// .ladder-label_locked {
+
+		// 	.ladder-label__icon {
+		// 		fill: currentColor;
+		// 	}
+		// }
+
+		// .ladder-label_checkpoint {
+
+		// 	.ladder-label__icon {
+		// 		margin-left: 15px;
+		// 	}
+
+		// 	.ladder-label__status {
+		// 		margin-left: 8px;
+		// 	}
+		// }
+	}
+}
+

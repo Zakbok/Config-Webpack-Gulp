@@ -1,0 +1,64 @@
+{% set compPath = 'components/modules/dev-panel' %}
+
+<link rel="stylesheet" href="{{ compPath }}/dev-panel.css">
+<script src="{{ compPath }}/dev-panel.js"></script>
+
+{# accordeon #}
+{% macro dpAcn(title, content, state) %}
+
+<div class="dp-acn" data-initial-state="{{ state }}">
+	<div class="dp-acn__head">
+		<button class="dp-acn__toggle" type="button" aria-expanded="false">
+			<span class="dp-acn__title dp-title">{{ title }}</span>
+		</button>
+	</div>
+	<!-- /.dp-acn__head -->
+	<div class="dp-acn__body">
+		<div class="dp-acn__inner">
+			{{ content | safe }}
+		</div>
+		<!-- /.dp-acn__inner -->
+	</div>
+	<!-- /.dp-acn__body -->
+</div>
+<!-- /.dp-acn -->
+
+{% endmacro %}
+
+<div class="dev-panel">
+	<button class="dev-panel__toggle dev-panel__btn dp-toggle" title="Настройки">
+		<svg class="dp-toggle__ico" viewBox="0 0 46 44" xmlns="http://www.w3.org/2000/svg"><path d="M2 8h6v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8h20a2 2 0 0 0 0-4H24V2a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H2a2 2 0 0 0 0 4zm10-4h8v4h-8V4zM44 20h-6v-2a2 2 0 0 0-2-2H24a2 2 0 0 0-2 2v2H2a2 2 0 0 0 0 4h20v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2h6a2 2 0 0 0 0-4zm-10 4h-8v-4h8v4zM44 36H24v-2a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2H2a2 2 0 0 0 0 4h6v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2h20a2 2 0 0 0 0-4zm-24 4h-8v-4h8v4z"/></svg>
+		{# <span class="u-hidden-visually">Настройки</span> #}
+	</button>
+
+	<div class="dev-panel__panel">
+		<div class="dev-panel__section dp-section">
+			<div class="dp-section__body">
+				{{ dpAcn('Содержание', '<div id="dp-toc"></div>', 'opened') }}
+			</div>
+			<!-- /.dp-section__body -->
+		</div>
+		<!-- /.dev-panel__section -->
+
+		<div class="dev-panel__section dp-section">
+			<div class="dp-section__body">
+				{{ dpAcn('Modernizr', '<div id="dp-features"></div>') }}
+			</div>
+			<!-- /.dp-section__body -->
+		</div>
+		<!-- /.dev-panel__section -->
+
+		{# <div class="dev-panel__section dp-section">
+			<div class="dp-section__body">
+				{{ dpAcn('Действия', '<div id="dp-actions">
+					<button class="dp-btn dp-action dp-action_lock" type="button">dev-mode</button>
+				</div>') }}
+			</div>
+			<!-- /.dp-section__body -->
+		</div>
+		<!-- /.dev-panel__section --> #}
+	</div>
+	<!-- /.dev-panel__panel -->
+</div>
+<!-- /.dev-panel -->
+

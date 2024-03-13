@@ -1,0 +1,153 @@
+.form-intro {
+	font-size: 14px;
+	line-height: 1.8;
+	margin-bottom: 30px;
+}
+
+.form-intro_important {
+
+	strong {
+		color: $color-error;
+	}
+}
+
+.form-field {
+	margin-bottom: 20px;
+
+	.c-input-label {
+		margin-left: 15px;
+	}
+}
+
+.form-field_consent {
+	margin-top: 20px;
+}
+
+.form-links {
+	margin-top: 10px;
+}
+
+.form-controls {
+	margin-top: 20px;
+}
+
+.form-outro {
+	margin-top: 20px;
+
+	a {
+		text-decoration: underline $color-primary dotted;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.form-intro {
+		font-size: 18px;
+	}
+
+	.form-controls {
+		margin-top: 30px;
+	}
+
+	.form-outro {
+		margin-top: 30px;
+	}
+}
+
+
+/**
+* Lg
+*/
+
+.form-fields_profile {
+
+	.form-field {
+		margin-bottom: 15px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.form-fields_profile {
+
+		.form-field {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+
+/**
+* Inline field
+*/
+
+.inline-field {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	.hint-toggle {
+		position: absolute;
+		top: -15%;
+		right: -10px;
+	}
+}
+
+@media (min-width: $bp-sm) {
+
+	.inline-field {
+		flex-direction: row;
+		align-items: center;
+
+		.c-input-label {
+			flex: 0 0 auto;
+			margin: 0 10px 0 0;
+		}
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.inline-field {
+
+		.c-input-label {
+			font-size: 16px;
+		}
+	}
+}
+
+
+/**
+* Custom Placeholder
+*/
+
+$font-size: 14px;
+$x-padding: 25px;
+
+.form-field_custom_ph {
+	position: relative;
+}
+
+.form-field__placeholder {
+	user-select: none;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	color: #b8bcce;
+	font-size: $font-size;
+	line-height: $font-size * 2; // line-height получается меньше чем у textarea
+	padding: math.div($font-size, 3) $x-padding !important;
+	border: 2px solid transparent;
+	z-index: 1;
+}
+
+@media (min-width: $bp-xl) {
+
+	.form-field__placeholder {
+		line-height: $font-size * 2.5;
+		padding: decimal-round(math.div($font-size, 3), 2) $x-padding !important;
+	}
+}

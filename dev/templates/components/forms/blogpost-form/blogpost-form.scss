@@ -1,0 +1,66 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.blogpost-form {
+	margin-bottom: 40px;
+
+	.form-controls {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+
+	.form-controls__col {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.form-controls__main {
+		flex: 1 0 1%;
+		min-width: 0;
+	}
+
+	.form-controls__aside {
+		flex: 0 0 auto;
+	}
+}
+
+.blogpost-form__visibility {
+	width: 30px;
+	height: 30px;
+	background: 0;
+	border: 0;
+	box-shadow: none;
+	color: $color-primary;
+
+	@include g-transition(color);
+
+	&:hover, &:focus {
+		color: $color-tertiary;
+	}
+}
+
+.hint-container_visibility {
+	padding-right: 14px;
+
+	.hint-toggle {
+		top: -15%;
+		right: -4px;
+	}
+}
+
+.blogpost-form_thanks {
+	margin-bottom: 60px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.blogpost-form_journal {
+		margin-bottom: 60px;
+	}
+
+	.blogpost-form_thanks {
+		margin-bottom: 100px;
+	}
+}

@@ -1,0 +1,112 @@
+/****************************************************************************/
+/* TITLES */
+/****************************************************************************/
+
+/**
+* Size sm
+*/
+
+.c-title_size_sm,
+.default-typo h4:not([class]) {
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 1;
+	margin-bottom: 15px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-title_size_sm,
+	.default-typo h4:not([class]) {
+		font-size: 30px;
+		margin-bottom: 35px;
+	}
+}
+
+
+/**
+* Size md
+*/
+
+.c-title_size_md,
+.default-typo h3:not([class]) {
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 1;
+	margin-bottom: 15px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-title_size_md,
+	.default-typo h3:not([class]) {
+		font-size: 36px;
+		margin-bottom: 40px;
+	}
+}
+
+
+/**
+* Size lg
+*/
+
+.c-title_size_lg,
+.default-typo h2:not([class]) {
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 1;
+	margin-bottom: 20px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-title_size_lg,
+	.default-typo h2:not([class]) {
+		font-size: 48px;
+		margin-bottom: 50px;
+	}
+}
+
+
+/**
+* Size xl
+*/
+
+.c-title_size_xl {
+	font-weight: 300;
+	font-size: 36px;
+	line-height: 1;
+	margin-bottom: 20px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-title_size_xl {
+		font-size: 64px;
+		margin-bottom: 80px;
+
+		&.c-title_inner {
+			margin-bottom: 60px;
+		}
+	}
+}
+
+
+/**
+* Form
+*/
+
+.c-title_modal {
+	font-weight: 300;
+	font-size: 33px;
+	line-height: 1;
+	margin-bottom: 30px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-title_modal {
+		font-size: 64px;
+		margin-bottom: 50px;
+	}
+}

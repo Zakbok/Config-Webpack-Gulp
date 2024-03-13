@@ -1,0 +1,367 @@
+/****************************************************************************/
+/* BUTTONS */
+/****************************************************************************/
+
+$btn-border-width: 2px;
+
+$buttonsDefault: (
+	primary: (
+		color: #fff,
+		border-color: transparent,
+		background-color: $color-primary,
+		background-color-hover: #8C9ADA,
+	),
+	tertiary: (
+		color: #fff,
+		border-color: transparent,
+		background-color: $color-tertiary,
+		background-color-hover: #323851,
+		background-color-active: #232941,
+	),
+	light: (
+		color: $color-tertiary,
+		border-color: transparent,
+		background-color: #fff,
+		background-color-hover: lighten($color-quarternary, 50%),
+		background-color-active: lighten($color-quarternary, 40%),
+	)
+);
+
+$buttonsGhost: (
+	primary: (
+		color: $color-primary,
+		color-hover: #8c9ada,
+		color-active: #8191d6,
+	),
+	quarternary: (
+		color: $color-quarternary,
+		color-hover: darken($color-quarternary, 5%),
+	),
+	light: (
+		color: #fff,
+		color-hover: #fff,
+		background-color: transparent,
+		background-color-hover: $color-primary,
+		background-color-active: $color-primary,
+	)
+);
+
+$buttonsLink: (
+	primary: (
+		color: $color-primary,
+		color-hover: $color-text-dark,
+	),
+	tertiary: (
+		color: $color-tertiary,
+		color-hover: $color-text-dark,
+	),
+	quarternary: (
+		color: $color-quarternary,
+		color-hover: $color-primary
+	),
+	text: (
+		color: $color-text,
+		color-hover: $color-primary,
+	),
+);
+
+.c-btn {
+	display: inline-block;
+	vertical-align: middle;
+	cursor: pointer;
+	text-align: center;
+	max-width: 100%;
+	padding: 0;
+	border: 0;
+	outline: 0;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.c-btn__icon {
+	flex: 0 0 auto;
+}
+
+
+/**
+* Disabled state
+*/
+
+.c-btn_disabled {
+	cursor: default;
+	opacity: 0.5;
+}
+
+
+/**
+* Transparent
+*/
+
+.c-btn_transparent {
+	background: 0;
+	border: 0;
+	box-shadow: none;
+}
+
+
+/****************************************************************************/
+/* WIDTHS */
+/****************************************************************************/
+
+.c-btn_width_sm {
+	width: 262px;
+}
+
+.c-btn_width_sm_secondary {
+	width: 300px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-btn_xl_width_sm_secondary {
+		width: 300px;
+	}
+}
+
+.c-btn_width_md {
+	width: 332px;
+}
+
+.c-btn_width_md_secondary {
+	width: 320px;
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-btn_xl_width_lg {
+		width: 370px;
+	}
+}
+
+
+/****************************************************************************/
+/* DEFAULT BUTTONS */
+/****************************************************************************/
+
+@include default-buttons($buttonsDefault, $btn-border-width);
+
+.c-btn_style_default.c-btn_size_lg {
+	min-height: 66px;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 0 20px;
+	border-radius: 100px;
+
+	.c-btn__icon {
+		width: 28px;
+		height: 28px;
+		margin-left: 20px;
+	}
+}
+
+@media (min-width: $bp-sm) {
+
+	.c-btn_style_default.c-btn_size_lg {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-btn_style_default.c-btn_size_lg {
+		font-size: 21px;
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.c-btn_style_default.c-btn_size_lg.c-btn_xxl_size_xl {
+		height: 90px;
+		font-size: 24px;
+	}
+}
+
+.c-btn_style_default.c-btn_color_tertiary {
+
+	.c-btn__icon {
+		fill: $color-secondary;
+		stroke: $color-secondary;
+	}
+}
+
+
+/**
+* Accent
+*/
+
+.c-btn_style_default.c-btn_accent {
+	background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+
+	&:hover, &:focus {
+		background-image: linear-gradient(0deg, rgba(159, 172, 230, 0.3), rgba(159, 172, 230, 0.3)), linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+	}
+
+	&:active {
+		background-image: linear-gradient(0deg, rgba(159, 172, 230, 0.5), rgba(159, 172, 230, 0.5)), linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+	}
+}
+
+
+/****************************************************************************/
+/* GHOST BUTTONS */
+/****************************************************************************/
+
+@include ghost-buttons($buttonsGhost, $btn-border-width);
+
+.c-btn_style_ghost.c-btn_size_md {
+	min-height: 50px;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 0 20px;
+	border-radius: 100px;
+
+	.c-btn__icon {
+		width: 18px;
+		height: 18px;
+		margin-left: 16px;
+	}
+}
+
+@media (min-width: $bp-sm) {
+
+	.c-btn_style_ghost.c-btn_size_md {
+		font-size: 16px;
+	}
+}
+
+.c-btn_style_ghost.c-btn_size_lg {
+	min-height: 66px;
+	font-weight: 600;
+	font-size: 14px;
+	padding: 0 20px;
+	border-radius: 100px;
+
+	.c-btn__icon {
+		width: 28px;
+		height: 28px;
+		margin-left: 20px;
+	}
+}
+
+// border-image не работает совместо с border-radius, используем альтернативный способ
+@supports (-webkit-mask-composite: xor) {
+
+	.c-btn_style_ghost.c-btn_accent {
+		position: relative;
+		border-color: transparent;
+
+		&:before {
+			position: absolute;
+			content: '';
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: inherit;
+			background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+			-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+			padding: $btn-border-width;
+			pointer-events: none;
+		}
+
+		&:hover, &:focus {
+
+			&:before {
+				background-image: linear-gradient(0deg, rgba(159, 172, 230, 0.3), rgba(159, 172, 230, 0.3)), linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+			}
+		}
+
+		&:active {
+
+			&:before {
+				background-image: linear-gradient(0deg, rgba(159, 172, 230, 0.5), rgba(159, 172, 230, 0.5)), linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-sm) {
+
+	.c-btn_style_ghost.c-btn_size_lg {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-btn_style_ghost.c-btn_size_lg {
+		font-size: 21px;
+	}
+}
+
+
+/****************************************************************************/
+/* LINK BUTTONS */
+/****************************************************************************/
+
+@include link-buttons($buttonsLink);
+
+.c-btn_style_link.c-btn_size_sm {
+
+	.c-btn__icon {
+		width: 14px;
+		height: 14px;
+		margin-right: 5px;
+	}
+
+	&.c-btn_icon_after {
+
+		.c-btn__icon {
+			margin-right: 0;
+			margin-left: 5px;
+		}
+	}
+}
+
+.c-btn_style_link.c-btn_size_md {
+
+	.c-btn__icon {
+		width: 20px;
+		height: 20px;
+		margin-right: 10px;
+	}
+
+	&.c-btn_icon_after {
+
+		.c-btn__icon {
+			margin-right: 0;
+			margin-left: 10px;
+		}
+	}
+}
+
+
+/**
+* Bare
+*/
+
+.c-btn_style_link.c-btn_bare {
+	text-decoration: none;
+
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}
+
+
+/**
+* Accent
+*/
+
+.c-btn_style_link.c-btn_accent {
+	font-weight: 600;
+}

@@ -1,0 +1,1025 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/controls/ctrl/ctrl.njk" as ctrl %}
+{% import "components/controls/input/input.njk" as input %}
+{% import "components/controls/tabs/tabs.njk" as tabs %}
+{% import "components/lists/stats-list/stats-list.njk" as statsList %}
+
+{% macro default (array, params) %}
+
+<div class="profile-detail profile-detail_owner">
+	<div class="row {{ 'align-items-lg-end' if array.insurance }}">
+		<div class="col-12 mb-4 col-md-5 mb-md-0 col-lg-6">
+			<h1 class="c-title c-title_size_xl">Мой профиль</h1>
+			<div class="profile-card">
+				<div class="profile-card__aside">
+					<div class="avatar-card-container {{ 'avatar-card-container_decor avatar-card-container_decor_light' if array.enlightened }}">
+						<div class="avatar-card">
+							<span class="avatar-card__img u-img-bg" style="background-image: url('{{ array.img }}');"></span>
+						</div>
+					</div>
+				</div>
+				<div class="profile-card__main">
+					<div class="profile-card__lvl">{{ array.level }} ступень</div>
+					<div class="profile-card__name">{{ array.username }}</div>
+
+					<ul class="profile-card__props">
+						{% for prop in array.props %}
+							<li class="profile-card__prop">
+								{% if prop.url %}
+									<a class="u-text" href="{{ prop.url }}" {{ prop.attrs | implode_attrs | safe }}>{{ prop.name }}: <span class="profile-card__value">{{ prop.value }}</span></a>
+								{% else %}
+									{{ prop.name }}: <span class="profile-card__value">{{ prop.value }}</span>
+								{% endif %}
+							</li>
+						{% endfor %}
+
+						<li class="profile-card__prop">
+							Публичный профиль
+						</li>
+
+						<li class="profile-card__prop">
+							<a class="u-text" href="/ajax/getTestResults.json" data-modal-test-results>Тест «Ступени Жизни»</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="profile-detail__aside col-12 col-md-7 col-lg-6 pl-lg-0">
+			{% if array.insurance %}
+				<div class="alert-card alert-card_size_md">
+					<div class="alert-card__body">
+						<div class="row align-items-xl-center">
+							<div class="alert-card__main col-12 col-xl-auto">
+								<div class="alert-card__title">Страховка приобретена</div>
+
+								<img class="alert-card__img d-xl-none" src="images/umbrella.png" alt="">
+
+								<div class="alert-card__desc">
+									В течении 40 дней после приостановки выполнения действий можешь возобновить подъём с сохранением мудрости.
+								</div>
+							</div>
+							<div class="alert-card__aside col-12 d-none d-xl-block col-xl-auto">
+								<img class="alert-card__img" src="images/umbrella.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			{% elseif array.blocked %}
+				<div class="alert-card alert-card_color_primary alert-card_footer alert-card_size_md">
+					<div class="alert-card__body">
+						<div class="row align-items-xl-center">
+							<div class="alert-card__main col-12 col-xl-auto">
+								<div class="alert-card__title">Внимание! Доступ ограничен! </div>
+
+								<img class="alert-card__img d-xl-none" src="images/error.png" alt="">
+
+								<div class="alert-card__desc">
+									Вы пропустили ежедневные действия больше чем на трое суток.<br>
+									Мотивационная пошлина: <span class="c-price c-price_current">780 руб.</span><br>
+									До полной блокировки профиля осталось: <span class="c-price c-price_current u-color-error">35 дней</span>
+								</div>
+							</div>
+							<div class="alert-card__aside col-12 d-none d-xl-block col-xl-auto">
+								<img class="alert-card__img" src="images/error.png" alt="">
+							</div>
+						</div>
+						<svg class="alert-card__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+					</div>
+					<div class="alert-card__footer">
+						<div class="controls-list">
+							<div class="controls-list__list row">
+								<div class="controls-list__item col-12 col-xl-auto">
+									{{ button.default(
+										{
+											className: 'c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg w-100 w-xl-auto',
+											text: 'Оплатить и продолжить',
+											icon: mixins.icon(
+												{
+													className: 'c-btn__icon svg-ico_no_stroke',
+													id: 'card',
+													file: 'images/svg.svg'
+												}
+											),
+											iconPosition: 'after',
+											attrs: {
+												href: '#'
+											}
+										}
+									) }}
+								</div>
+								<div class="controls-list__item col-12 mt-1 col-xl-auto mt-xl-0">
+									{{ button.default(
+										{
+											className: 'c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg w-100 w-xl-auto',
+											text: 'Начать подъём заново',
+											icon: mixins.icon(
+												{
+													className: 'c-btn__icon svg-ico_no_stroke',
+													id: 'repeat',
+													file: 'images/svg.svg'
+												}
+											),
+											iconPosition: 'after',
+											attrs: {
+												href: '#'
+											}
+										}
+									) }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% else %}
+				<div class="alert-card alert-card_color_primary alert-card_accent alert-card_footer alert-card_size_md">
+					<div class="alert-card__body">
+						<div class="row align-items-xl-center">
+							<div class="alert-card__main col-12 col-xl-auto">
+								<div class="alert-card__title">Внимание!</div>
+
+								<img class="alert-card__img d-xl-none" src="images/umbrella_rain.png" alt="">
+
+								<div class="alert-card__desc">
+									Застрахуй себя на случай непредвиденных обстоятельств.
+									<div class="controls-list">
+										<div class="controls-list__list row align-items-center justify-content-center justify-content-xl-start">
+											<div class="controls-list__item col-auto">
+												<span class="c-price c-price_old">780 руб.</span>
+											</div>
+											<div class="controls-list__item col-auto">
+												<span class="c-price c-price_current"><span>380</span> руб.</span>
+											</div>
+										</div>
+									</div>
+									В течении 40 дней сможешь возобновить подъём без потери мудрости.
+								</div>
+							</div>
+							<div class="alert-card__aside col-12 d-none d-xl-block col-xl-auto">
+								<img class="alert-card__img" src="images/umbrella_rain.png" alt="">
+							</div>
+						</div>
+						<svg class="alert-card__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
+					</div>
+					<div class="alert-card__footer">
+						<div class="controls-list">
+							<div class="controls-list__list row">
+								<div class="controls-list__item col-12">
+									{{ button.default(
+										{
+											className: 'c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg w-100 w-xl-auto',
+											text: 'Купить страховку',
+											icon: mixins.icon(
+												{
+													className: 'c-btn__icon svg-ico_no_stroke',
+													id: 'card',
+													file: 'images/svg.svg'
+												}
+											),
+											iconPosition: 'after',
+											attrs: {
+												href: 'javascript:;',
+												'data-product-id': 1,
+												'data-checkout-btn': true
+											}
+										}
+									) }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{{ tabs.default(
+	{
+		id: 'profile-tabs',
+		values: [
+			{
+				"title": "Учителя",
+				"active": true,
+				"hint": "teachers",
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6',
+					canDelete: true,
+					pag: 'ajax'
+				}
+			},
+			{
+				"title": "Ученики",
+				"hint": "students",
+				"messages": 2,
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6',
+					canDelete: true,
+					pag: 'ajax'
+				}
+			},
+			{
+				"title": "Другие пользователи",
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6',
+					pag: 'ajax'
+				}
+			},
+			{
+				"title": "Чёрный список",
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6',
+					pag: 'ajax'
+				}
+			}
+		]
+	},
+	{
+		className: 'c-tabs_default',
+		tablistClassName: 'c-tablist_default',
+		attrs: {
+			'data-tabs-default': true
+		}
+	}
+) }}
+
+<div class="c-popup c-popup_style_default" data-popup="teachers">
+	<div class="c-popup__close" data-popup-close>
+		{{ mixins.icon(
+			{
+				className: 'c-popup__close-icon svg-ico_no_fill',
+				id: 'times'
+			}
+		) }}
+	</div>
+	Подсказка с текстом для учителей
+</div>
+
+<div class="c-popup c-popup_style_default" data-popup="students">
+	<div class="c-popup__close" data-popup-close>
+		{{ mixins.icon(
+			{
+				className: 'c-popup__close-icon svg-ico_no_fill',
+				id: 'times'
+			}
+		) }}
+	</div>
+	Подсказка с текстом для учеников
+</div>
+
+<div class="c-modal c-modal_style_default c-modal_width_lg" id="test-results">
+	<div class="c-modal__body">
+		<h2 class="c-title c-title_size_md">Тест «Ступени Жизни»</h2>
+
+		<div class="form-intro">
+			Результатом теста является относительная разница показателей по мере подъёма по Ступеням Жизни. Если регулярно выполнять все действия, то каждый новый результат будет выше предыдущего, и это будет говорить само за себя!
+		</div>
+
+		<div class="chart-container">
+			<div class="chart-container__inner">
+				<div id="tests-container"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endmacro %}
+
+{% macro settings (array, params) %}
+
+{% set personalFields = [
+	{
+		type: 'text',
+		className: 'c-input c-input_style_default c-input_size_lg',
+		value: 'ИскательПриключений',
+		label: 'Псевдоним (виден другим пользователям)',
+		attrs: {
+			id: 'personal-form__login',
+			name: 'LOGIN',
+			'data-required': true,
+			readonly: true
+		}
+	},
+	{
+		type: 'text',
+		className: 'c-input c-input_style_default c-input_size_lg',
+		value: '',
+		label: 'Ваше имя (видно только вам)',
+		attrs: {
+			id: 'personal-form__name',
+			name: 'NAME',
+			placeholder: 'Ваше имя'
+		}
+	},
+	{
+		type: 'radio',
+		className: '',
+		fieldClassName: 'col-12 col-xl-6',
+		label: 'Пол',
+		multiple: true,
+		value: [
+			{
+				value: 'M',
+				label: 'М',
+				checked: true
+			},
+			{
+				value: 'F',
+				label: 'Ж'
+			}
+		],
+		attrs: {
+			name: 'GENDER'
+		}
+	},
+	{
+		type: 'text',
+		className: 'c-input c-input_style_default c-input_size_lg datepicker-input',
+		fieldClassName: 'col-12 col-xl-6',
+		label: 'Дата рождения',
+		attrs: {
+			id: 'personal-form__birthday',
+			name: 'BIRTHDAY',
+			placeholder: '17.07.1987'
+		}
+	},
+	{
+		type: 'tel',
+		className: 'c-input c-input_style_default c-input_size_lg',
+		label: 'Телефон',
+		attrs: {
+			id: 'personal-form__phone',
+			name: 'PHONE',
+			placeholder: '+7 999 999-99-99'
+		}
+	},
+	{
+		type: 'email',
+		className: 'c-input c-input_style_default c-input_size_lg',
+		label: 'Email',
+		attrs: {
+			id: 'personal-form__email',
+			name: 'EMAIL',
+			placeholder: 'primer@gmail.com'
+		}
+	}
+] %}
+
+{% set passwordArray = {
+	formTitle: 'Изменить пароль',
+	fields: [
+		{
+			type: 'password',
+			className: 'c-input c-input_style_default c-input_size_lg',
+			value: '',
+			attrs: {
+				id: 'password-form__password',
+				name: 'PASSWORD',
+				label: 'Новый пароль',
+				placeholder: 'Введите новый пароль',
+				'data-required': true
+			}
+		},
+		{
+			type: 'password',
+			className: 'c-input c-input_style_default c-input_size_lg',
+			value: '',
+			attrs: {
+				id: 'password-form__password_confirm',
+				name: 'PASSWORD_CONFIRM',
+				label: 'Повторите новый пароль',
+				placeholder: 'Повторите новый пароль',
+				'data-required': true
+			}
+		}
+	],
+	buttons: [
+		{
+			className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg w-100',
+			text: 'Сохранить пароль',
+			attrs: {
+				type: 'submit'
+			}
+		}
+	]
+} %}
+
+<div class="profile-detail profile-detail_settings">
+	<h1 class="c-title c-title_size_xl">Настройки</h1>
+
+	<div class="profile-detail__main row">
+		<div class="profile-detail__section col-12 col-xxl-8 mb-xxl-0">
+			<form class="personal-form" action="" method="POST">
+				<div class="row">
+					<div class="col-12 mb-4 col-lg-3 col-xl-4 col-xxl-5">
+						<div class="c-avatar">
+							<input class="c-avatar__input sr-only" name="PERSONAL_PHOTO" size="20" type="file" id="personal-photo">
+
+							<label class="avatar-card" for="personal-photo">
+								<span class="avatar-card__img u-img-bg" style="background-image: url('{{ array.img }}');"></span>
+							</label>
+
+							<div class="c-avatar__status mt-1 d-none"></div>
+
+							<div class="c-avatar__controls">
+								<div class="c-avatar__ctrl">
+									{{ button.default(
+										{
+											className: 'c-btn c-btn_style_link c-btn_color_primary c-btn_bare c-btn_icon_after c-btn_size_md text-uppercase c-btn_accent',
+											text: 'Изменить фото',
+											icon: mixins.icon(
+												{
+													className: 'c-btn__icon svg-ico_no_stroke',
+													id: 'camera',
+													file: 'images/svg.svg'
+												}
+											),
+											iconPosition: 'after',
+											attrs: {
+												for: 'personal-photo'
+											}
+										}
+									) }}
+								</div>
+
+								<div class="c-avatar__ctrl mt-1">
+									<div class="c-ctrl c-ctrl_checkbox c-ctrl_style_default c-ctrl_size_md">
+										<input class="c-ctrl__input" type="checkbox" name="PERSONAL_PHOTO_del" value="Y" id="PERSONAL_PHOTO_del">
+										<label class="c-ctrl__title" for="PERSONAL_PHOTO_del">
+											<span class="c-ctrl__value">Удалить фото</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-8 offset-lg-1 col-xl-7 col-xxl-5">
+						<div data-form-result></div>
+
+						<div class="form-fields row">
+							{% for field in personalFields %}
+								{% set fieldClassName = {
+									'col-12': not field.fieldClassName,
+									'mb-0': loop.index === personalFields | length
+								} %}
+
+								{% if field.fieldClassName %}
+									{% set fieldClassName = fieldClassName | set_attribute(field.fieldClassName, true) %}
+								{% endif %}
+
+								<div class="form-field {{ fieldClassName | implode_classname }}">
+									<label class="c-input-label u-color-primary" for="{{ field.attrs.id }}">
+										{{ field.label }}
+										{% if field.attrs.required %}
+											<span class="c-input-label__required">*</span>
+										{% endif %}
+									</label>
+									{% if field.multiple %}
+										<div class="form-field__body">
+											<div class="controls-list row">
+												{% for val in field.value %}
+													<div class="controls-list__item col-auto">
+														{{ ctrl.default({
+															className: 'c-ctrl_style_default c-ctrl_size_md',
+															type: field.type,
+															text: val.label,
+															attrs: {
+																name: field.attrs.name,
+																id: field.attrs.id + "_" + loop.index,
+																checked: field.attrs.checked,
+																value: val.value
+															}
+														}) }}
+													</div>
+												{% endfor %}
+											</div>
+										</div>
+									{% else %}
+										{{ input.default({
+											className: field.className,
+											type: field.type,
+											value: field.value,
+											attrs: field.attrs
+										}) }}
+									{% endif %}
+								</div>
+							{% endfor %}
+						</div>
+
+						<div class="form-controls">
+							{{ button.default(
+								{
+									className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg w-100',
+									text: 'Сохранить',
+									attrs: {
+										type: 'submit'
+									}
+								}
+							) }}
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="profile-detail__section col-12 col-lg-8 ml-lg-auto col-xl-7 col-xxl-4 mb-xxl-0 ml-xxl-0">
+			<form class="personal-form invite-form password-form" action="/ajax/setPassword.json" data-ajax-form>
+				<h2 class="c-title c-title_size_lg sr-only">{{ passwordArray.formTitle }}</h2>
+
+				<div data-form-result></div>
+
+				<div class="form-fields row">
+					{% for field in passwordArray.fields %}
+						{% set fieldClassName = {
+							'col-12': not field.fieldClassName,
+							'mb-0': loop.index === passwordArray.fields | length
+						} %}
+
+						{% if field.fieldClassName %}
+							{% set fieldClassName = fieldClassName | set_attribute(field.fieldClassName, true) %}
+						{% endif %}
+
+						<div class="form-field {{ fieldClassName | implode_classname }}">
+							<label class="c-input-label u-color-primary" for="{{ field.attrs.id }}">
+								{{ field.attrs.label }}
+								{% if field.attrs.required or field.attrs['data-required'] %}
+									<span class="c-input-label__required">*</span>
+								{% endif %}
+							</label>
+							{{ input.default({
+								className: field.className,
+								type: field.type,
+								value: field.value,
+								attrs: field.attrs
+							}) }}
+						</div>
+					{% endfor %}
+				</div>
+
+				<div class="form-controls">
+					{% for control in passwordArray.buttons %}
+						<div class="form-controls__item">
+							{{ button.default(
+								control
+							) }}
+						</div>
+					{% endfor %}
+				</div>
+			</form>
+
+			<form class="invite-form" action="/ajax/invite.json" data-ajax-form>
+				<h2 class="c-title c-title_size_lg">Пригласить друга</h2>
+
+				<div data-form-result></div>
+
+				<div class="form-fields">
+					<div class="form-field">
+						{{ input.default(
+							{
+								className: 'c-input c-input_style_default c-input_size_lg',
+								attrs: {
+									type: 'email',
+									name: 'EMAIL',
+									placeholder: 'E-mail',
+									'data-required': true
+								}
+							}
+						) }}
+					</div>
+				</div>
+
+				<div class="form-controls">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg w-100',
+							text: 'Пригласить',
+							attrs: {
+								type: 'submit'
+							}
+						}
+					) }}
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="profile-detail__section col-12 col-lg-5 mb-lg-0 col-xxl-3">
+			<form action="/ajax/handlePrivacySettings.json" data-ajax-form data-reset-form="false" data-instant-form>
+				<h2 class="c-title c-title_size_lg">Публичность</h2>
+
+				<div class="form-fields form-fields_profile">
+					<div class="form-field">
+						{{ ctrl.default({
+							className: 'c-ctrl_style_default c-ctrl_size_lg',
+							type: 'checkbox',
+							text: 'Показывать мой профиль другим пользователям',
+							attrs: {
+								name: "profile_visibility",
+								id: "privacy-check-" + 4 | rand_string,
+								checked: true,
+								value: 'Y'
+							}
+						}) }}
+					</div>
+
+					<div class="form-field">
+						{{ ctrl.default({
+							className: 'c-ctrl_style_default c-ctrl_size_lg',
+							type: 'checkbox',
+							text: 'Показывать записи в моём дневнике другим пользователям',
+							attrs: {
+								name: "journal_visibility",
+								id: "privacy-check-" + 4 | rand_string,
+								checked: true,
+								value: 'Y'
+							}
+						}) }}
+					</div>
+
+					<div class="form-field">
+						{{ ctrl.default({
+							className: 'c-ctrl_style_default c-ctrl_size_lg',
+							type: 'checkbox',
+							text: 'Показывать мои благодарности другим пользователям ',
+							attrs: {
+								name: "thanks_visibility",
+								id: "privacy-check-" + 4 | rand_string,
+								checked: true,
+								value: 'Y'
+							}
+						}) }}
+					</div>
+
+					<div class="form-field mb-0">
+						{{ ctrl.default({
+							className: 'c-ctrl_style_default c-ctrl_size_lg',
+							type: 'checkbox',
+							text: 'Показывать мой день рождения другим пользователям ',
+							attrs: {
+								name: "birthday_visibility",
+								id: "privacy-check-" + 4 | rand_string,
+								checked: true,
+								value: 'Y'
+							}
+						}) }}
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="profile-detail__section col-12 col-lg-5 mb-lg-0 offset-lg-2 col-xxl-3 offset-xxl-1">
+			<form action="/ajax/handlePrivacySettings.json" data-ajax-form data-reset-form="false" data-instant-form>
+				<h2 class="c-title c-title_size_lg">Уведомления</h2>
+
+				<table class="ctrl-table">
+					<thead>
+						<tr>
+							<th>
+								E-mail
+							</th>
+							<th>
+								SMS
+							</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "comments[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'EMAIL'
+									}
+								}) }}
+							</td>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "comments[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'SMS'
+									}
+								}) }}
+							</td>
+							<td>
+								<span class="ctrl-table__value">О новых сообщениях и комментариях</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "deadline[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'EMAIL'
+									}
+								}) }}
+							</td>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "deadline[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'SMS'
+									}
+								}) }}
+							</td>
+							<td>
+								<span class="ctrl-table__value">О приближении крайнего срока выполнения действий</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "profile[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'EMAIL'
+									}
+								}) }}
+							</td>
+							<td>
+								{{ ctrl.default({
+									className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_no_text',
+									type: 'checkbox',
+									attrs: {
+										name: "profile[]",
+										id: "privacy-check-" + 4 | rand_string,
+										checked: true,
+										value: 'SMS'
+									}
+								}) }}
+							</td>
+							<td>
+								<span class="ctrl-table__value">О изменении статуса профиля: заморозка, блокировка, страховой случай, архивация.</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<div class="profile-detail__section col-12 col-lg-5 mb-lg-0 mt-lg-4 offset-lg-7 col-xxl-3 offset-xxl-1 align-self-xxl-end">
+			<div class="controls-list controls-list_profile">
+				<div class="controls-list__item">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_link c-btn_color_primary c-btn_size_md c-btn_bare c-btn_icon_after',
+							text: 'Начать подъём заново',
+							icon: mixins.icon(
+								{
+									className: 'c-btn__icon svg-ico_no_stroke',
+									id: 'repeat',
+									file: 'images/svg.svg'
+								}
+							),
+							iconPosition: 'after',
+							attrs: {
+								href: '#reset-progress-popup',
+								'data-modal': true
+							}
+						}
+					) }}
+				</div>
+				<div class="controls-list__item">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_link c-btn_color_primary c-btn_size_md c-btn_bare c-btn_icon_after',
+							text: 'Удалить аккаунт',
+							icon: mixins.icon(
+								{
+									className: 'c-btn__icon svg-ico_no_stroke',
+									id: 'trash',
+									file: 'images/svg.svg'
+								}
+							),
+							iconPosition: 'after',
+							attrs: {
+								href: '#delete-account-popup',
+								'data-modal': true
+							}
+						}
+					) }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="c-modal c-modal_width_md" id="reset-progress-popup" data-role="reset_progress">
+	<form class="c-modal__body" action="/ajax/resetProgress.json" method="POST" data-ajax-form data-next="username">
+		<h2 class="c-title c-title_modal">Вы уверены, <br>что хотите начать подъём заново?</h2>
+
+		<div class="form-intro">
+			Все данные будут заархивированы, а восстановление и изменения невозможны: псевдоним, дневник, комментарии, достижения и т. д.
+		</div>
+
+		<div data-form-result></div>
+
+		<div class="form-controls">
+			{{ button.default(
+				{
+					className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg c-btn_accent',
+					text: 'Да, скатиться вниз и начать подъём заново',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon',
+							id: 'arrow-steps-down',
+							file: 'images/svg.svg'
+						}
+					),
+					iconPosition: 'after',
+					attrs: {
+						type: 'submit'
+					}
+				}
+			) }}
+		</div>
+	</form>
+</div>
+
+<div class="c-modal c-modal_width_md" id="delete-account-popup">
+	<form class="c-modal__body" action="/ajax/deleteAccount.json" method="POST" data-ajax-form>
+		<h2 class="c-title c-title_modal">Вы уверены, <br>что хотите удалить аккаунт?</h2>
+
+		<div class="form-intro">
+			Все данные будут удалены, а восстановление и изменения невозможны.
+		</div>
+
+		<div data-form-result></div>
+
+		<div class="form-controls">
+			{{ button.default(
+				{
+					className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg c-btn_accent',
+					text: 'Да, скатиться вниз и удалить аккаунт',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon',
+							id: 'arrow-steps-down',
+							file: 'images/svg.svg'
+						}
+					),
+					iconPosition: 'after',
+					attrs: {
+						type: 'submit'
+					}
+				}
+			) }}
+		</div>
+	</form>
+</div>
+
+{% endmacro %}
+
+{% macro guest (array, params) %}
+
+<div class="profile-detail profile-detail_guest">
+	<div class="row {{ 'align-items-lg-end' if array.insurance }}">
+		<div class="col-12 mb-4 col-md-7 mb-md-0 col-xl-7">
+			<div class="profile-card">
+				<div class="profile-card__aside">
+					<div class="avatar-card">
+						<span class="avatar-card__img u-img-bg" style="background-image: url('{{ array.img }}');"></span>
+					</div>
+				</div>
+				<div class="profile-card__main">
+					{% if array.status %}
+						<div class="profile-card__status">{{ array.status }}</div>
+					{% endif %}
+
+					<div class="profile-card__name">{{ array.username }}</div>
+					<div class="profile-card__lvl">{{ array.level }} ступень</div>
+
+					{{ statsList.default(
+						array.stats,
+						{
+							className: 'stats-list_size_sm'
+						}
+					) }}
+
+					<ul class="profile-card__props">
+						{% for prop in array.props %}
+							<li class="profile-card__prop">
+								{% if prop.url %}
+									<a class="u-text" href="{{ prop.url }}" {{ prop.attrs | implode_attrs | safe }}>{{ prop.name }}: <span class="profile-card__value">{{ prop.value }}</span></a>
+								{% else %}
+									{{ prop.name }}: <span class="profile-card__value">{{ prop.value }}</span>
+								{% endif %}
+							</li>
+						{% endfor %}
+
+						<li class="profile-card__prop">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_md',
+								type: 'checkbox',
+								text: 'В чёрный список',
+								attrs: {
+									name: "privacy",
+									id: "privacy-check-" + 4 | rand_string,
+									checked: true,
+									value: '1',
+									'data-blacklist-toggle': true
+								}
+							}) }}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="profile-detail__aside col-12 col-md-5 pl-md-0 col-xl-5">
+			<div class="controls-list controls-list_profile ml-lg-auto">
+				<div class="controls-list__list row">
+					<div class="controls-list__item col-12">
+						<label class="c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg w-100" data-text="Стать учеником" data-active-text="Убрать из учителей">
+							<input class="sr-only" type="checkbox" value="1" data-subscribe-toggle>
+							<span class="c-btn__text">Стать учеником</span>
+						</label>
+					</div>
+					<div class="controls-list__item col-12">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_ghost c-btn_color_primary c-btn_size_lg w-100',
+								text: 'Написать сообщение',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'chat',
+										file: 'images/svg.svg'
+									}
+								),
+								iconPosition: 'after'
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{ tabs.default(
+	{
+		id: 'profile-tabs',
+		values: [
+			{
+				"title": "Дневник",
+				"code": "journal",
+				"path": "components/lists/blogposts-list/blogposts-list.njk",
+				"data": array.blogposts,
+				"active": true,
+				"params": {
+					pag: "ajax"
+				}
+			},
+			{
+				"title": "Учителя",
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6'
+				}
+			},
+			{
+				"title": "Ученики",
+				"path": "components/lists/friends-list/friends-list.njk",
+				"data": array.users,
+				"params": {
+					itemClassName: 'col-12 col-md-6'
+				}
+			}
+		]
+	},
+	{
+		className: 'c-tabs_default',
+		tablistClassName: 'c-tablist_default',
+		attrs: {
+			'data-tabs-default': true
+		}
+	}
+) }}
+
+{% endmacro %}

@@ -1,0 +1,111 @@
+{# Параметры страницы #}
+
+{% set pageType = "innerPage" %}
+{% set pageWidth = "normalWidth" %}
+{% set hasSidebar = true %}
+{% set pageTitle = "Детальная" %}
+{% set hideH1 = true %}
+{% set isAuthorized = true %}
+
+{# Параметры страницы #}
+
+{% extends "layouts/_layout.njk" %}
+{% block content %}
+
+{% import "components/forms/blogpost-form/blogpost-form.njk" as blogpostForm %}
+{% import "components/controls/tabs/tabs.njk" as tabs %}
+
+<div class="hint-container hint-container_title d-inline-block">
+	<h1 class="c-title c-title_size_lg">
+		Я благодарю:
+	</h1>
+
+	<div class="hint-toggle" data-popup-toggle-default data-popup-toggle="thanks">
+		{{ mixins.icon(
+			{
+				className: 'hint-toggle__icon svg-ico_no_stroke',
+				id: 'question',
+				file: 'images/svg.svg'
+			}
+		) }}
+	</div>
+</div>
+
+<div class="c-popup c-popup_style_default" data-popup="thanks">
+	<div class="c-popup__close" data-popup-close>
+		{{ mixins.icon(
+			{
+				className: 'c-popup__close-icon svg-ico_no_fill',
+				id: 'times'
+			}
+		) }}
+	</div>
+	Коротко напиши три благодарности своему прошлому настоящему и будущему.
+</div>
+
+{{ blogpostForm.thanks(
+	{
+		fields: [
+			{
+				type: 'textarea',
+				className: 'c-input c-input_style_default c-input_size_lg c-input_multiline c-input_lined',
+				fieldClassName: 'form-field_custom_ph',
+				value: '',
+				attrs: {
+					id: 'thanks-form__message',
+					name: 'MESSAGE',
+					'data-required': true,
+					'data-field': 'MESSAGE',
+					'data-placeholder-custom': true
+				}
+			}
+		],
+		buttons: [
+			{
+				className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_sm',
+				text: 'Сохранить',
+				textClassName: 'c-btn__text',
+				attrs: {
+					type: 'submit'
+				}
+			}
+		]
+	}
+) }}
+
+{{ tabs.default(
+	{
+		id: 'profile-tabs',
+		values: [
+			{
+				"title": "Мой дневник",
+				"code": "journal",
+				"path": "components/lists/blogposts-list/blogposts-list.njk",
+				"data": blogpostsArr,
+				"active": true,
+				"params": {
+					pag: "ajax",
+					edit: true
+				}
+			},
+			{
+				"title": "Все дневники",
+				"code": "journal",
+				"path": "components/lists/blogposts-list/blogposts-list.njk",
+				"data": blogpostsGuestArr,
+				"params": {
+					pag: "ajax"
+				}
+			}
+		]
+	},
+	{
+		className: 'c-tabs_default',
+		tablistClassName: 'c-tablist_default',
+		attrs: {
+			'data-tabs-default': true
+		}
+	}
+) }}
+
+{% endblock %}

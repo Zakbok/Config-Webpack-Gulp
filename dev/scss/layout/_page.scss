@@ -1,0 +1,128 @@
+/****************************************************************************/
+/* PAGE LAYOUT */
+/****************************************************************************/
+
+/**
+* 1. IE10-11 игнорируют свойство min-height у flex-контейнеров, поэтому указываем height меньше нужного, он перезапишется min-height
+* 2. Prevent text zoom on non-responsive websites in mobile browsers.
+* 3. Используем important, чтобы перебить стили fancybox, из-за которых страница прыгает наверх
+*/
+
+// с этим не работает sticky шапка
+// html,
+// body {
+// 	overflow-x: hidden;
+// 	height: 100%;
+// }
+
+body {
+	font-size: 14px;
+	line-height: 1.4;
+	color: $color-text;
+	font-family: $font-primary;
+}
+
+.c-page {
+	min-width: $bp-xs;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	// overflow-x: hidden;
+	position: relative;
+	background: linear-gradient(179.62deg, #f7f8ff -6.97%, #eaecf7 99.67%);
+	background-repeat: no-repeat;
+}
+
+.content {
+	flex: 1 0 auto;
+	// overflow: hidden; // ???
+}
+
+.content_detail {
+	padding-top: 48px;
+	padding-bottom: 80px;
+}
+
+.c-page_restricted {
+	background-color: rgba($color-primary, 0.4);
+	background-image: none;
+}
+
+.c-page_404 {
+	background-image: linear-gradient(96.53deg, $color-secondary -3.19%, $color-primary 105.27%);
+
+	.content {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+}
+
+.c-page_footer_no_radius {
+
+	.c-footer {
+		border-radius: 0;
+	}
+}
+
+
+/**
+* Header Fixed
+*/
+
+.c-page_header_fixed {
+
+	.c-header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 9;
+	}
+
+	.content {
+		padding-top: 0;
+	}
+}
+
+
+@media (min-width: $bp-md) {
+
+	body {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.content_detail {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+
+	// .c-page_header_fixed {
+
+	// 	.content {
+	// 		padding-top: 108px;
+	// 	}
+	// }
+}
+
+@media (min-width: $bp-xxl) {
+
+	body {
+		font-size: 18px;
+	}
+}
+
+
+/**
+* Editmode
+*/
+
+.bx-editmode {
+	height: auto;
+
+	body {
+		height: auto;
+	}
+}

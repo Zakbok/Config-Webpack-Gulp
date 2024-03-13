@@ -1,0 +1,124 @@
+{
+  "site": {
+    "title": "",
+    "address": "",
+    "email": "",
+    "phones": [],
+    "responsive": true,
+    "share": "vkontakte,facebook,odnoklassniki,twitter"
+  },
+
+  "mainMenuArr": [
+    {
+      "title": "О проекте"
+    },
+    {
+      "title": "Правила"
+    },
+    {
+      "title": "О ценах"
+    },
+    {
+      "title": "Войти",
+      "url": "#auth-form-popup",
+      "params": {
+        "icon": "enter",
+        "modal": true
+      }
+    }
+  ],
+
+  "mainMenuAuthorizedArr": [
+    {
+      "title": "Статистика",
+      "params": {
+        "stats": true
+      }
+    },
+    {
+      "title": "Дневник"
+    },
+    {
+      "title": "Личный кабинет",
+      "params": {
+        "personal": true
+      }
+    }
+  ],
+
+  "notificationsArr": [
+    {
+      "id": "1",
+      "body": "Новое сообщение в чате",
+      "date": "16.11.2021"
+    },
+    {
+      "id": "2",
+      "body": "Новый комментарий к твоей ступени №1",
+      "date": "16.11.2021",
+      "read": true
+    },
+    {
+      "id": "3",
+      "body": "Новый ответ на твой комментарий",
+      "date": "16.11.2021"
+    },
+    {
+      "id": "4",
+      "body": "У тебя новый ученик, Lorem",
+      "date": "16.11.2021"
+    },
+    {
+      "id": "5",
+      "body": "Lorem перестал быть твоим учеником",
+      "date": "16.11.2021"
+    }
+  ],
+
+  "profileMenuArr": [
+    {
+      "title": "Настройки"
+    },
+    {
+      "title": "Правила",
+      "active": true
+    },
+    {
+      "title": "О проекте"
+    },
+    {
+      "title": "О ценах"
+    },
+    {
+      "title": "Выйти"
+    }
+  ],
+
+  "menuAuthorizedArr": [
+    {
+      "title": "Дневник",
+      "params": {
+        "icon": "journal"
+      }
+    },
+    {
+      "title": "Чат",
+      "params": {
+        "icon": "chat"
+      }
+    },
+    {
+      "title": "Личный кабинет",
+      "params": {
+        "personal": false,
+        "icon": "user"
+      }
+    }
+  ],
+
+  "linksMenuArr": [
+    {
+      "title": "Договор оферты"
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "partials/_content-includes.njk" as includes %}
+{% import "components/controls/select/select.njk" as select %}
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default(array, params) %}
+
+{% set tabsID = array.id or 'tabs-' + 4 | rand_string %}
+
+<div class="c-tabs {{ params.className }}" id="{{ tabsID }}" {{ params.attrs | implode_attrs | safe }}>
+	<nav class="c-tablist {{ params.tablistClassName }}">
+		<ul class="c-tablist__list row" role="tablist">
+			{% for tab in array.values %}
+				{% set tabAttrs = {
+					role: 'tab',
+					href: '#' + tabsID + '__section-' + loop.index,
+					id: tabsID + '__tab-' + loop.index,
+					tabIndex: '0' if tab.active else '1',
+					'aria-selected': 'true' if tab.active else 'false'
+				} %}
+
+				<li class="c-tablist__item col-auto" role="presentation">
+					<a class="c-tab c-tab_style_default c-tab_events {{ 'c-tab_active' if tab.active }}" data-chat-container {{ tabAttrs | implode_attrs | safe }}>
+						{{ tab.title }}
+
+						{% if tab.messages > 0 %}
+							<span class="tab-marker" data-chat-marker="1">
+								+<span data-chat-marker-value>{{ tab.messages }}</span>
+								{{ mixins.icon(
+									{
+										className: 'tab-marker__icon svg-ico_no_stroke',
+										id: 'chat',
+										file: 'images/svg.svg'
+									}
+								) }}
+							</span>
+						{% endif %}
+
+						{% if tab.hint %}
+							<div class="hint-toggle" data-popup-toggle-default data-popup-toggle="{{ tab.hint }}">
+								{{ mixins.icon(
+									{
+										className: 'hint-toggle__icon svg-ico_no_stroke',
+										id: 'question',
+										file: 'images/svg.svg'
+									}
+								) }}
+							</div>
+						{% endif %}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+
+	<div class="c-tabs__contents">
+		{% for tab in array.values %}
+			<section class="c-tabs__section {{ '' if tab.active else 'd-none' }}" role="tabpanel" id="{{ tabsID }}__section-{{ loop.index }}" aria-labelledby="{{ tabsID }}__tab-{{ loop.index }}">
+				{% if tab.code === 'journal' %}
+					{% if loop.index === 1 %}
+						{% import "components/forms/blogpost-form/blogpost-form.njk" as blogpostForm %}
+
+						<div class="journal-header">
+							<div class="hint-container hint-container_title d-inline-block">
+								<h2 class="c-title c-title_size_lg mb-0">
+									Дневник
+								</h2>
+
+								<div class="hint-toggle" data-popup-toggle-default data-popup-toggle="journal">
+									{{ mixins.icon(
+										{
+											className: 'hint-toggle__icon svg-ico_no_stroke',
+											id: 'question',
+											file: 'images/svg.svg'
+										}
+									) }}
+								</div>
+							</div>
+							<div class="journal-header__footer">
+								<div class="journal-header__info row align-items-center">
+									<span class="journal-header__lvl col-auto">26 ступень</span>
+									<span class="journal-header__step col-auto">Завтрак</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="c-popup c-popup_style_default" data-popup="journal">
+							<div class="c-popup__close" data-popup-close>
+								{{ mixins.icon(
+									{
+										className: 'c-popup__close-icon svg-ico_no_fill',
+										id: 'times'
+									}
+								) }}
+							</div>
+							Подсказка для дневника
+						</div>
+
+						{{ blogpostForm.default(
+							{
+								fields: [
+									{
+										type: 'textarea',
+										className: 'c-input c-input_style_default c-input_size_lg c-input_multiline',
+										value: '',
+										attrs: {
+											id: 'journal-form__message',
+											name: 'MESSAGE',
+											placeholder: 'Ценные и важные мысли за сегодня',
+											'data-required': true,
+											'data-field': 'MESSAGE'
+										}
+									}
+								],
+								buttons: [
+									{
+										className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_sm',
+										text: 'Сохранить',
+										textClassName: 'c-btn__text',
+										attrs: {
+											type: 'submit'
+										}
+									}
+								]
+							}
+						) }}
+					{% endif %}
+
+					{% set completedSteps = [
+						{
+							id: 'item-' + 4 | rand_string,
+							value: '1',
+							title: '1. День рождения',
+							active: true
+						},
+						{
+							id: 'item-' + 4 | rand_string,
+							value: '2',
+							title: '2. День рождения'
+						},
+						{
+							id: 'item-' + 4 | rand_string,
+							value: '3',
+							title: '3. День рождения'
+						},
+						{
+							id: 'item-' + 4 | rand_string,
+							value: '4',
+							title: '4. День рождения'
+						},
+						{
+							id: 'item-' + 4 | rand_string,
+							value: '25',
+							title: '25. Завтрак'
+						}
+					] %}
+
+					<form class="catalog-panel" action="" method="POST">
+						<div class="filter-popup">
+							<div class="filter-popup__head d-lg-none">
+								{{ button.default(
+									{
+										className: 'filter-toggle c-btn c-btn_style_ghost c-btn_color_primary c-btn_size_md w-100 text-uppercase',
+										text: 'Фильтры, сортировка',
+										icon: mixins.icon(
+											{
+												className: 'c-btn__icon svg-ico_no_stroke',
+												id: 'settings',
+												file: 'images/svg.svg'
+											}
+										),
+										iconPosition: 'after',
+										attrs: {
+											href: 'javascript:;',
+											'data-popup-toggle-default': true,
+											'data-popup-toggle': 'filter',
+											'data-use-popper': 'false'
+										}
+									}
+								) }}
+							</div>
+							<div class="filter-popup__body" data-popup="filter">
+								<div class="filter-popup__close" data-popup-close>
+									{{ mixins.icon(
+										{
+											className: 'c-popup__close-icon svg-ico_no_fill',
+											id: 'times'
+										}
+									) }}
+								</div>
+								<div class="filter-popup__container container">
+									<div class="row">
+										<div class="col-12 col-xl-8">
+											<div class="row align-items-center">
+												<div class="col-12 col-sm-6 col-lg-4 col-xl-auto">
+													<div class="inline-field">
+														<div class="inline-field__label c-input-label">Показать с</div>
+														{{ select.default(
+															{
+																values: completedSteps
+															},
+															{
+																className: 'c-select-custom_default ',
+																buttonClassName: 'c-input c-input_style_default c-input_size_md',
+																attrs: {
+																	'data-select': true
+																}
+															}
+														) }}
+													</div>
+												</div>
+												<div class="col-12 mt-1 col-sm-6 mt-sm-0 col-lg-4 col-xl-auto">
+													<div class="inline-field">
+														<div class="inline-field__label c-input-label">по</div>
+														{{ select.default(
+															{
+																values: completedSteps
+															},
+															{
+																className: 'c-select-custom_default ',
+																buttonClassName: 'c-input c-input_style_default c-input_size_md',
+																attrs: {
+																	'data-select': true
+																}
+															}
+														) }}
+													</div>
+												</div>
+												<div class="col-12 mt-1 col-lg-4 mt-lg-0 col-xl-auto mt-xl-1 mt-xxl-0">
+													<div class="catalog-panel__count">
+														Показано 7 записей
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-12 mt-5 col-xl-4 mt-xl-0 text-xl-right">
+											<div class="inline-field justify-content-xl-end">
+												<div class="inline-field__label c-input-label">Сортировать</div>
+												{{ select.default(
+													{
+														values: [
+															{
+																id: 'item-' + 4 | rand_string,
+																value: '1',
+																title: 'Параметр сортировки',
+																isLink: true,
+																active: true
+															},
+															{
+																id: 'item-' + 4 | rand_string,
+																value: '2',
+																title: 'Параметр сортировки',
+																isLink: true
+															}
+														]
+													},
+													{
+														className: 'c-select-custom_default ',
+														buttonClassName: 'c-input c-input_style_default c-input_size_md',
+														attrs: {
+															'data-select': true
+														}
+													}
+												) }}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				{% endif %}
+
+				{{ tab.desc | safe }}
+
+				{% if tab.path %}
+					{% import tab.path as innerComponent %}
+					{{ innerComponent.default(tab.data, tab.params) }}
+				{% endif %}
+			</section>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}

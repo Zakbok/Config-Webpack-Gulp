@@ -1,0 +1,95 @@
+{# Параметры страницы #}
+
+{% set pageType = "innerPage" %}
+{% set pageWidth = "fullWidth" %}
+{% set hasSidebar = false %}
+{% set pageTitle = "Ступени жизни" %}
+{% set headerFixed = true %}
+{% set hideFooter = true %}
+{% set hideH1 = true %}
+{% set noPaddingBottom = true %}
+{% set isAuthorized = true %}
+
+{# Параметры страницы #}
+
+{% extends "layouts/_layout.njk" %}
+{% block content %}
+
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/controls/ladder/ladder.njk" as ladder %}
+
+{{ ladder.inner(ladderArr) }}
+
+
+{# <a href="/ajax_step_detail.html" data-step-id="1" data-step-detail-modal>1 ступень</a> #}
+
+{# модалка ступени #}
+<div class="c-modal c-modal_style_default c-modal_step" id="step-details">
+	<div class="c-modal__body">
+
+	</div>
+</div>
+
+{# модалка теста #}
+<div class="c-modal c-modal_style_default c-modal_test" id="step-test">
+	<div class="c-modal__body">
+
+	</div>
+</div>
+
+{# модалка результатов #}
+<div class="c-modal c-modal_style_default c-modal_width_lg" id="test-results">
+	<div class="c-modal__body">
+		<h2 class="c-title c-title_size_md">Тест «Ступени Жизни»</h2>
+
+		<div class="form-intro">
+			Результатом теста является относительная разница показателей по мере подъёма по Ступеням Жизни. Если регулярно выполнять все действия, то каждый новый результат будет выше предыдущего, и это будет говорить само за себя!
+		</div>
+
+		<div class="chart-container">
+			<div class="chart-container__inner">
+				<div id="tests-container"></div>
+			</div>
+		</div>
+
+		<div class="form-controls">
+			{{ button.default(
+				{
+					"className": "c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_md",
+					"text": "Завершить тест",
+					"attrs": {
+						"type": "button",
+						"data-fancybox-close": true
+					}
+				}
+			) }}
+		</div>
+	</div>
+</div>
+
+{# модалка с цитатой #}
+<div class="c-modal c-modal_style_default c-modal_width_sm" id="quote-popup">
+	<div class="c-modal__body">
+		<h2 class="c-title c-title_size_md">Посеяно!</h2>
+
+		<figure class="c-quote">
+			<blockquote data-field="quote_text"></blockquote>
+			<figcaption class="c-quote__author" data-field="quote_author"></figcaption>
+		</figure>
+
+		<div class="form-controls">
+			{{ button.default(
+				{
+					"className": "c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_sm",
+					"text": "Так держать!",
+					"attrs": {
+						"type": "button",
+						"data-fancybox-close": true
+					}
+				}
+			) }}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.comment-form_default {
+	position: relative;
+
+	// не показыаем сообщение об успешном добавлении комментария
+	.form-result .c-badge_success {
+		display: none;
+	}
+
+	.form-field {
+		margin-bottom: 0;
+	}
+
+	.c-input.c-input_size_lg {
+		resize: none;
+		padding-top: 22px;
+		overflow: hidden;
+	}
+
+	.form-controls {
+		margin-top: 30px;
+	}
+
+	.c-btn_style_default {
+		width: 262px;
+	}
+}
+
+@media (max-width: $bp-sm - 1px) {
+
+	.comment-form_default {
+
+		.avatar-card {
+			display: none;
+		}
+
+		.form-controls {
+			text-align: center;
+		}
+
+		.form-controls__item {
+			margin-bottom: 10px;
+		}
+
+		.c-btn_style_default {
+			width: 100%;
+		}
+	}
+}
+
+@media (min-width: $bp-sm) {
+
+	.comment-form_default {
+		padding-left: 90px;
+
+		.avatar-card {
+			position: absolute;
+			width: 68px;
+			height: 68px;
+			top: 0;
+			left: 0;
+		}
+
+		.avatar-card__img {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+
+
+/**
+* Minimized
+*/
+
+.comment-form_minimized {
+	padding-bottom: 30px;
+
+	.form-controls {
+		display: none;
+	}
+}
+
+
+/**
+* Active
+*/
+
+.comment-form_default.comment-form_active {
+	padding-bottom: 40px;
+
+	.c-input_size_lg {
+		height: 148px;
+	}
+}

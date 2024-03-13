@@ -1,0 +1,32 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default(array, params) %}
+
+<div class="c-acn {{ params.className }} c-acn_{{ params.animation if params.animation else 'toggle' }}" {{ params.attrs | implode_attrs | safe }}>
+	<div class="c-acn__head">
+		<a class="c-acn__toggle" aria-expanded="false" href="javascript:;">
+			<span class="c-acn__title">{{ array.title }}</span>
+			{{ button.default({
+				className: 'c-acn__button',
+				icon: mixins.icon({
+					id: 'chevron-down',
+					className: 'c-acn__icon c-btn__icon svg-ico_no_fill'
+				})
+			}) }}
+		</a>
+	</div>
+	<div class="c-acn__content">
+		<div class="c-acn__inner">
+			{{ array.desc | safe }}
+
+			{% if array.path %}
+				{% import array.path as comp %}
+
+				{{ comp[array.macro](array.data) }}
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% endmacro %}

@@ -1,0 +1,354 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/forms/popup-default/popup-default.njk" as popupForm %}
+{% import "components/lists/teasers-list/teasers-list.njk" as teasersList %}
+
+{% macro index (array, params) %}
+
+<div class="ladder ladder_index" data-ladder>
+	<div class="ladder__bg"></div>
+	<div class="ladder__images d-md-none">
+		<div class="ladder__img" style="background-image: url('images/main_sm_01.png'); height: 2000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/main_sm_02.png'); height: 2000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/main_sm_03.png'); height: 464px;"></div>
+	</div>
+
+	<div class="ladder__images d-none d-md-block">
+		{# пишем высоту инлайном #}
+		<div class="ladder__img" style="background-image: url('images/main_lg_01.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/main_lg_02.png'); height: 2971px;"></div>
+	</div>
+
+	<div class="ladder__inner container">
+		<div class="ladder-anchor" data-section-separator="0"></div>
+
+		{% for item in array.steps %}
+			<div class="ladder__step ladder__step_{{ loop.index }}">
+				<div class="ladder-label {{ 'ladder-label_test' if item.test }}">{{ item.title }}</div>
+			</div>
+		{% endfor %}
+
+		{% for item in array.hints %}
+			{% set attrs = {
+				'data-section-separator': item.sectionSeparator or false
+			} %}
+
+			<div class="ladder__hint ladder__hint_{{ loop.index }}" {{ attrs | implode_attrs | safe }}>
+				<div class="ladder-hint {{ 'ladder-hint_about' if item.about }}">
+					<div class="ladder-hint__title">{{ item.title }}</div>
+					{% if item.controls %}
+						<div class="ladder-hint__controls">
+							{{ button.default(
+								{
+									className: 'c-btn c-btn_style_ghost c-btn_color_primary c-btn_size_lg',
+									text: item.controls[0].text,
+									attrs: {
+										href: '#'
+									}
+								}
+							) }}
+						</div>
+					{% endif %}
+
+					{% if item.decor %}
+						<img class="ladder-hint__decor {{ item.decorClassName }}" src="{{ item.decor }}" alt="">
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+
+		<div class="ladder-modal ladder-modal_top">
+			<div class="ladder-modal__body">
+				<div class="ladder-modal__inner">
+					Уникальность методики «Ступени Жизни» в том, что даже самый закоренелый лентяй, приложив хотя бы чуточку усилий, сможет добраться до самого верха. Она затрагивает абсолютно все сферы развития человека, и только от тебя зависит, станешь ли ты той самой лучшей версией себя.<br>
+					<br>
+					Самый счастливый день в жизни — это день, когда ты решаешь вернуть себе свою жизнь. В день, когда ты принимаешь это решение, начинается удивительное путешествие — начинается твоя новая жизнь.<br>
+					<br>
+					<strong>
+						И, если ты готов к этому путешествию, значит, твой день - сегодня!
+					</strong>
+				</div>
+				<div class="ladder-modal__controls row">
+					<div class="ladder-modal__ctrl col-12 col-xl-auto">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_sm_secondary c-btn_xxl_size_xl c-btn_xl_width_lg',
+								text: 'Начать подъём',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'arrow-steps',
+										file: 'images/svg.svg'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: 'javascript:;',
+									'data-ladder-scroll': true,
+									'data-section': 5
+								}
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ladder-modal ladder-modal_2">
+			<div class="ladder-modal__body">
+				<div class="ladder-modal__title">Начало новой жизни</div>
+				<div class="ladder-modal__inner">
+					Поднимаясь по Ступеням Жизни и регулярно выполняя несложные задания, ты:<br>
+					<ul class="c-ul c-ul_color_secondary">
+						<li>станешь сильнее и увереннее в себе;</li>
+						<li>приобретешь новые здоровые привычки;</li>
+						<li>значительно улучшишь состояние здоровья;</li>
+						<li>сумеешь осмыслить, куда и зачем ты идешь;</li>
+						<li>обогатишься мудростью 288 древнейших истин;</li>
+						<li>научишься ценить каждое мгновение своей жизни;</li>
+						<li>наполнишься новым пониманием счастья;</li>
+						<li>полюбишь себя таким, какой ты есть на самом деле.</li>
+					</ul>
+					<strong>
+						И, если это то, что тебе действительно нужно, самое время начать подъем!
+					</strong>
+				</div>
+				<div class="ladder-modal__controls row">
+					<div class="ladder-modal__ctrl col-12 col-xl-auto">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_md_secondary',
+								text: 'Начать подъём',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'arrow-steps',
+										file: 'images/svg.svg'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: 'javascript:;',
+									'data-ladder-scroll': true,
+									'data-section': 5
+								}
+							}
+						) }}
+					</div>
+					<div class="ladder-modal__ctrl col-12 col-xl-auto">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_link c-btn_color_primary c-btn_accent c-btn_bare c-btn_size_md c-btn_icon_after text-uppercase',
+								text: 'Задать вопрос',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'chat'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: 'javascript:;'
+								}
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ladder-modal ladder-modal_3">
+			<div class="ladder-modal__body">
+				<div class="ladder-modal__title">Начать жизнь с чистого листа</div>
+				<div class="ladder-modal__inner">
+					Ступени Жизни состоят из маленьких, но очень важных шагов, которые формируют новые полезные привычки и наполняют новыми знаниями. Методика гарантирует неизбежные качественные изменения
+				</div>
+			</div>
+		</div>
+
+		<div class="ladder-modal ladder-modal_4">
+			<div class="ladder-modal__body">
+				<div class="ladder-modal__inner">
+					{{ teasersList.ladder(array.teasers) }}
+				</div>
+			</div>
+		</div>
+
+		<div class="ladder-modal ladder-modal_bottom">
+			<div class="ladder-modal__body">
+				<div class="ladder-modal__title">Приветствуем тебя на сайте «Ступени Жизни»!</div>
+				<div class="ladder-modal__inner">
+					«Ступени Жизни» - уникальная методика, которая гарантировано приводит к значительным переменам в жизни человека благодаря новым полезным привычкам.<br>
+					<br>
+					С покорением каждой новой ступени Ты будешь меняться, и твоя жизнь вместе с тобой!<br>
+					<br>
+					Доступ к методике стоит всего 370 руб.<br>
+					<br>
+					<strong>
+						И, если ты готов к переменам, самое время начать подъем!
+					</strong>
+				</div>
+				<div class="ladder-modal__controls row">
+					<div class="ladder-modal__ctrl col-12 col-xl-auto">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_md_secondary',
+								text: 'Начать подъём',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_stroke',
+										id: 'arrow-steps',
+										file: 'images/svg.svg'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: 'javascript:;',
+									'data-ladder-scroll': true,
+									'data-section': 5
+								}
+							}
+						) }}
+					</div>
+					<div class="ladder-modal__ctrl col-12 col-xl-auto">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_link c-btn_color_primary c-btn_accent c-btn_bare c-btn_size_md c-btn_icon_after text-uppercase',
+								text: 'подробнее',
+								icon: mixins.icon(
+									{
+										className: 'c-btn__icon svg-ico_no_fill',
+										id: 'arrow-up'
+									}
+								),
+								iconPosition: 'after',
+								attrs: {
+									href: 'javascript:;',
+									'data-ladder-scroll': true,
+									'data-section': 1
+								}
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endmacro %}
+
+{% macro inner (array, params) %}
+
+{% set totalItems = array.steps | length %}
+{% set step = 12 %}
+{% set sectionId = 1 %}
+
+<div class="ladder ladder_inner" data-ladder>
+	<div class="ladder__bg"></div>
+	<div class="ladder__images d-lg-none">
+		<div class="ladder__img" style="background-image: url('images/steps_sm_01.png'); height: 2000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_sm_02.png'); height: 2000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_sm_03.png'); height: 1379px;"></div>
+	</div>
+
+	<div class="ladder__images d-none d-lg-block">
+		{# пишем высоту инлайном #}
+		<div class="ladder__img" style="background-image: url('images/steps_lg_01.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_lg_02.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_lg_03.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_lg_04.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_lg_05.png'); height: 4000px;"></div>
+		<div class="ladder__img" style="background-image: url('images/steps_lg_06.png'); height: 3200px;"></div>
+	</div>
+	<div class="ladder__inner container">
+		{# <div class="ladder-anchor" data-section-separator="0"></div> #}
+
+		{% for item in array.steps %}
+			{# вообще это надо из шаблона в json выводить, но там черт ногу сломит. Контрольная точка каждые 24 ступени
+			 #}
+			{% set isCheckpoint = loop.index % 24 === 0 %}
+
+			{% if isCheckpoint %}
+				{% set checkpointIndex = loop.index | array_search([24, 48, 72, 96, 120, 144, 168, 192, 216, 240, 264, 288]) %}
+			{% endif %}
+			{% set isCheckpointHidden = loop.index % 12 === 0 and not isCheckpoint %}
+
+			{# {% if loop.index === 1 %}
+				{% set value = totalItems %}
+			{% elseif loop.index === totalItems %}
+				{% set value = 1 %}
+			{% else %}
+				{% set value = (loop.index - totalItems) | abs %}
+			{% endif %} #}
+
+			{% if loop.index === 1 or loop.index === totalItems %}
+				{% set id = sectionId %}
+			{% elseif isCheckpoint %}
+				{% set id = sectionId %}
+			{% elseif isCheckpointHidden %}
+				{% set id = sectionId %}
+			{% else %}
+				{% set id = false %}
+			{% endif %}
+
+			{% set attrs = {
+				'data-section-separator': id or false
+			} %}
+
+			<div class="ladder__step ladder__step_{{ loop.index }}" {{ attrs | implode_attrs | safe }}>
+				{% if item.status === 'available' %}
+					<a class="ladder-label {{ 'ladder-label_checkpoint' if isCheckpoint }} ladder-label_{{ item.status }}" href="/ajax_step_detail.html" data-step-id="1" data-step-detail-modal>
+						<div class="ladder-label__index">{{ loop.index }}</div>
+						<span class="d-none d-lg-block">{{ (checkpointIndex + 1 + ' контрольная точка') if isCheckpoint else item.title }}</span>
+						{{ mixins.icon(
+							{
+								className: 'ladder-label__icon svg-ico_no_stroke d-lg-none',
+								id: 'eye-filled',
+								file: 'images/svg.svg'
+							}
+						) }}
+						<span class="ladder-label__status d-none d-lg-block">{{ item.statusText }}</span>
+					</a>
+				{% else %}
+					<div class="ladder-label {{ 'ladder-label_checkpoint' if isCheckpoint }} ladder-label_{{ item.status }}">
+						<div class="ladder-label__index">{{ loop.index }}</div>
+						<span class="d-none d-lg-block">{{ (checkpointIndex + 1 + ' контрольная точка') if isCheckpoint else item.title }}</span>
+						{{ mixins.icon(
+							{
+								className: 'ladder-label__icon svg-ico_no_stroke' + (' d-lg-none' if item.status === 'completed'),
+								id: 'eye-filled' if item.status === 'completed' else 'eye-crossed-filled',
+								file: 'images/svg.svg'
+							}
+						) }}
+						<span class="ladder-label__status d-none {{ 'd-xl-block' if isCheckpoint else 'd-lg-block' }}">{{ item.statusText }}</span>
+						{% if item.status === 'completed' %}
+							<img class="ladder-label__marker" src="images/check.svg" />
+						{% endif %}
+					</div>
+				{% endif %}
+				{# <div class="c-popup c-popup_style_default" data-popup="step_{{ loop.index }}">
+					<div class="ladder-label ladder-label_hint">
+						<div class="ladder-label__index">{{ loop.index }}</div>
+						{{ mixins.icon(
+							{
+								className: 'ladder-label__icon svg-ico_no_stroke' + (' d-xl-none' if item.status === 'completed'),
+								id: 'eye-filled' if item.status === 'completed' else 'eye-crossed-filled',
+								file: 'images/svg.svg'
+							}
+						) }}
+						<span>{{ (checkpointIndex + 1 + ' контрольная точка') if isCheckpoint else item.title }}</span>
+					</div>
+				</div> #}
+			</div>
+
+			{% if id > 0 %}
+				{% set sectionId = sectionId + 1 %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>
+
+<div class="ladder-spacer d-lg-none"></div>
+
+{% endmacro %}

@@ -1,0 +1,120 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/acn/acn.njk" as acn %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/forms/popup-default/popup-default.njk" as popupForm %}
+
+{% macro default (array, params) %}
+
+<div class="acns-list {{ params.className }}">
+	<div class="acns-list__list row">
+		{% for item in array %}
+			<div class="acns-list__item {{ params.itemClassName or 'col-12' }}">
+				{{ acn.default(
+					item,
+					{
+						className: params.acnClassName or 'c-acn_style_default',
+						attrs: {
+							'data-acn-default': true
+						}
+					}
+				) }}
+			</div>
+		{% endfor %}
+	</div>
+
+	{% if params.showForm %}
+		<div class="mt-4">
+			{{ button.default(
+				{
+					className: 'c-btn c-btn_style_ghost c-btn_size_lg c-btn_color_light c-btn_width_sm_secondary',
+					text: 'Задать вопрос',
+					iconPosition: 'after',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'chat',
+							file: 'images/svg.svg'
+						}
+					),
+					attrs: {
+						href: '#faq-form-popup',
+						'data-modal': true
+					}
+				}
+			) }}
+		</div>
+	{% endif %}
+</div>
+
+{% if params.showForm %}
+	{{ popupForm.default(
+		{
+			formID: 'faq-form',
+			formTitle: 'Задать вопрос',
+			action: '/ajax/feedbackFormSuccess.json',
+			fields: [
+				{
+					type: 'text',
+					className: 'c-input c-input_style_default c-input_size_lg',
+					value: '',
+					label: 'Имя',
+					attrs: {
+						id: 'feedback-form__name',
+						name: 'NAME',
+						placeholder: 'Введите ваше имя'
+					}
+				},
+				{
+					type: 'email',
+					className: 'c-input c-input_style_default c-input_size_lg',
+					value: '',
+					label: 'Email',
+					attrs: {
+						id: 'feedback-form__email',
+						name: 'EMAIL',
+						'data-required': true,
+						placeholder: 'На этот e-mail вам придёт ответ'
+					}
+				},
+				{
+					type: 'textarea',
+					className: 'c-input c-input_style_default c-input_size_lg c-input_multiline',
+					value: '',
+					label: 'Сообщение',
+					attrs: {
+						id: 'feedback-form__message',
+						name: 'MESSAGE',
+						'data-required': true,
+						placeholder: 'Опишите ваш вопрос или предложение'
+					}
+				}
+			],
+			buttons: [
+				{
+					className: 'c-form__submit c-btn c-btn_style_default c-btn_color_tertiary c-btn_size_lg c-btn_width_sm',
+					textClassName: 'c-btn__text',
+					text: 'Отправить',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'arrow-right-secondary'
+						}
+					),
+					iconPosition: 'after',
+					attrs: {
+						type: 'submit'
+					}
+				}
+			]
+		},
+		{
+			privacyCheck: true,
+			className: 'c-modal_width_md',
+			attrs: {
+				'data-ajax-form': true
+			}
+		}
+	) }}
+{% endif %}
+
+{% endmacro %}

@@ -1,0 +1,24 @@
+{% import "components/controls/input/input.njk" as input %}
+
+{% macro default(array, params) %}
+
+<div class="c-rangebar {{ params.className }}">
+	<div class="c-range {{ params.rangeClassName }}">
+		{{ input.default(
+			{
+				type: 'range',
+				className: 'c-range__input',
+				value: array.value,
+				attrs: array.attrs
+			}
+		) }}
+	</div>
+
+	{% if params.bpLabels %}
+		{% for item in params.bpLabels %}
+			<div class="c-rangebar__label c-rangebar__label_{{ loop.index }}">{{ item }}</div>
+		{% endfor %}
+	{% endif %}
+</div>
+
+{% endmacro %}

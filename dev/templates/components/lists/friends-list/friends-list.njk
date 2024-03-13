@@ -1,0 +1,113 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/lists/stats-list/stats-list.njk" as statsList %}
+{% import "components/nav/ajax-pag/ajax-pag.njk" as ajaxPag %}
+
+{% macro default (array, params) %}
+
+<div class="friends-list {{ params.cssClassName }}" data-ajax-block>
+	<div class="friends-list__list row" data-ajax-container>
+		{% for item in array %}
+			<div class="friends-list__item {{ params.itemClassName or 'col-12' }}">
+				<div class="friend-item">
+					<div class="avatar-card-container {{ 'avatar-card-container_decor' if item.enlightened }}">
+						<a class="avatar-card">
+							<span class="avatar-card__img u-img-bg" style="background-image: url('{{ item.img }}');"></span>
+						</a>
+					</div>
+					<div class="friend-item__main">
+						<div class="friend-item__title">
+							<a class="u-text" href="#">{{ item.title }}</a>
+						</div>
+						<div class="friend-item__lvl">{{ item.level }} ступень</div>
+
+						<div class="skeleton-loading-after" data-stat="{{ loop.index + 1 }}" data-state="stats">
+							<div class="enlightment-badge d-none" data-stat-code="status" data-display-state="status">Просветлённый</div>
+							{{ statsList.default(
+								[
+									{
+										"code": "wisdom",
+										"value": 0
+									},
+									{
+										"code": "persistence",
+										"value": 0
+									},
+									{
+										"code": "inactivity",
+										"value": 0
+									}
+								],
+								{
+									className: 'stats-list_size_sm',
+									hints: true,
+									attrs: {
+										'data-display-state': 'stats'
+									}
+								}
+							) }}
+						</div>
+					</div>
+					<div class="friend-item__controls">
+						{{ button.default(
+							{
+								className: 'friend-item__chat c-btn c-btn_style_default c-btn_color_primary c-btn_size_lg',
+								text: 'Открыть чат' + ('<span class="attention-marker" data-chat-marker="1" ><span data-chat-marker-value>' + item.messages + '</span></span>' if item.messages > 0),
+								attrs: {
+									href: '#chat-popup',
+									'data-modal-chat': true
+								}
+							}
+						) }}
+
+						{% if params.canDelete %}
+							<div class="mt-1 mt-xl-0">
+								{{ button.default(
+									{
+										className: 'friend-item__delete c-btn c-btn_style_link c-btn_color_quarternary c-btn_size_md c-btn_bare c-btn_icon_after text-uppercase',
+										text: 'Удалить',
+										icon: mixins.icon(
+											{
+												className: 'c-btn__icon svg-ico_no_stroke',
+												id: 'user-delete',
+												file: 'images/svg.svg'
+											}
+										),
+										iconPosition: 'after',
+										attrs: {
+											href: '#'
+										}
+									}
+								) }}
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	{% if params.pag === 'ajax' %}
+		{{ ajaxPag.default(
+			{
+				control: {
+					className: 'c-btn c-btn_style_default w-100',
+					text: 'Загрузить ещё',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'arrow-down'
+						}
+					),
+					iconPosition: 'after',
+					attrs: {
+						type: 'button',
+						'data-ajax-toggle': true
+					}
+				}
+			}
+		) }}
+	{% endif %}
+</div>
+
+{% endmacro %}

@@ -1,0 +1,47 @@
+/****************************************************************************/
+/* IMAGES */
+/****************************************************************************/
+
+.c-img {
+	display: block;
+	margin-bottom: 20px;
+	border-radius: 40px;
+	overflow: hidden;
+	max-width: 100%;
+
+	img {
+		width: 100%; // для инициализации через picture
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@media (min-width: $bp-md) {
+
+	.c-img {
+		margin-bottom: 30px;
+	}
+
+	.c-img_left {
+		float: left;
+		margin-right: 30px;
+	}
+
+	.c-img_right {
+		float: right;
+		margin-left: 30px;
+	}
+}
+
+@media (min-width: $bp-xxl) {
+
+	.c-img_left {
+		margin-right: 60px;
+	}
+
+	.c-img_right {
+		margin-left: 60px;
+	}
+}

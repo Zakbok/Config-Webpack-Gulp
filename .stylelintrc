@@ -1,0 +1,55 @@
+{
+  "rules": {
+    "at-rule-name-case": "lower",
+    "at-rule-name-newline-after": "always-multi-line",
+    "at-rule-name-space-after": "always-single-line",
+    "at-rule-semicolon-newline-after": "always",
+
+    "block-closing-brace-newline-after": "always-multi-line",
+    "block-closing-brace-newline-before": "always-multi-line",
+    "block-closing-brace-space-after": "always-single-line",
+    "block-closing-brace-space-before": "always-single-line",
+
+    "block-no-empty": true,
+
+    "block-opening-brace-newline-after": "always-multi-line",
+    "block-opening-brace-space-after": "always-single-line",
+    "block-opening-brace-space-before": "always",
+
+    "color-hex-case": "lower",
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+
+    "font-family-name-quotes": "always-where-required",
+    "function-calc-no-unspaced-operator": true,
+
+    "no-duplicate-selectors": false,
+    "no-empty-source": true,
+    "no-eol-whitespace": true,
+    "no-extra-semicolons": true,
+    "no-missing-end-of-source-newline": true,
+    "no-unknown-animations": true,
+
+    "property-case": "lower",
+    "property-no-unknown": true,
+
+    "unit-case": "lower",
+    "unit-no-unknown": true,
+
+    "selector-pseudo-class-case": "lower",
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-class-parentheses-space-inside": "never",
+
+    "selector-pseudo-element-case": "lower",
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-pseudo-element-no-unknown": true,
+
+    "selector-type-case": "lower",
+    "selector-type-no-unknown": true,
+
+    "selector-max-compound-selectors": 3,
+
+    "shorthand-property-no-redundant-values": true,
+    "max-nesting-depth": 2
+  }
+}

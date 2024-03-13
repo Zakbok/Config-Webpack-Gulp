@@ -1,0 +1,292 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/controls/button/button.njk" as button %}
+{% import "components/controls/ctrl/ctrl.njk" as ctrl %}
+
+<div class="step-details">
+	<form class="step-details__form" action="/ajax/handleStep.json" data-ajax-form-step data-state="default">
+		<div class="step-section step-section_acn c-acn c-acn_active">
+			<div class="step-section__head">
+				<div class="row align-items-center">
+					<div class="col-12 col-xl-auto">
+						<h2 class="step-detail__title">Ступень №1</h2>
+					</div>
+					<div class="step-section__head-title col-12 col-xl-auto">
+						<h3 class="c-title c-title_size_md mb-0">День рождения</h3>
+					</div>
+					<div class="col-12 mt-2 col-xl-2 mt-xl-0 text-xl-right">
+						<a class="c-btn c-btn_style_link c-btn_color_quarternary c-btn_bare c-acn__toggle" aria-expanded="true" href="javascript:;">
+							<span class="c-btn__text c-acn__title">Свернуть</span>
+							{{ mixins.icon(
+								{
+									className: 'c-btn__icon',
+									id: 'chevron-down'
+								}
+							) }}
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="step-section__body c-acn__content">
+				<div class="c-acn__inner">
+					<div data-form-result></div>
+
+					<div class="default-typo">
+						<figure class="c-quote">
+							<blockquote>
+								Самый счастливый день в жизни — это день, <b>когда ты решаешь вернуть себе свою жизнь</b>. Не спрашивая у кого-то разрешения и не прося прощения за это решение.<br>
+								Ты понимаешь, что не должен ни на кого опираться, или рассчитывать, или винить кого-то в том, как ты живёшь. Жизнь — это дар, и этот дар принадлежит только тебе.<br>
+								В день, когда ты принимаешь это решение, начинается удивительное путешествие — <b>начинается твоя новая жизнь.</b>
+							</blockquote>
+							<figcaption class="c-quote__author">
+								Боб Моавад
+							</figcaption>
+						</figure>
+
+						Если и дальше будешь продолжать делать то, что делаешь сейчас, то будешь иметь то, что имеешь сейчас. В одну реку нельзя войти дважды. Начни жить качественно, с чистого листа. Так, как давно мечтал. Готов к переменам? Готов к приключениям? Готов к успеху?<br>
+						Если все ответы положительные, то <b>вперёд — к своему счастью!</b>
+
+						<figure class="c-quote">
+							<blockquote>
+								Лучшее время, чтобы посадить дерево, было двадцать лет назад. Следующее лучшее время — сегодня.
+							</blockquote>
+							<figcaption class="c-quote__author">
+								Китайская мудрость
+							</figcaption>
+						</figure>
+
+						Начни прямо сейчас! Ты существуешь только в этот момент. Сегодня начнётся твой год — Год перемен.
+					</div>
+
+					<div class="step-section__votes">
+						<div class="row justify-content-center justify-content-xl-end">
+							<div class="col-auto">
+								{{ button.default(
+									{
+										className: 'vote-btn c-btn c-btn_style_link c-btn_color_primary c-btn_accent',
+										text: 'Мудро',
+										icon: mixins.icon(
+											{
+												className: 'vote-btn__icon c-btn__icon svg-ico_no_stroke',
+												id: 'like',
+												file: 'images/svg.svg'
+											}
+										),
+										iconPosition: 'after',
+										attrs: {
+											type: 'button',
+											'data-entity-id': 1,
+											'data-element': 1,
+											'data-action': 'like'
+										}
+									}
+								) }}
+							</div>
+							<div class="col-auto">
+								<div class="hint-container hint-container_btn">
+									{{ button.default(
+										{
+											className: 'vote-btn c-btn c-btn_style_link c-btn_color_primary c-btn_accent',
+											text: 'Глупо',
+											icon: mixins.icon(
+												{
+													className: 'vote-btn__icon c-btn__icon svg-ico_no_stroke',
+													id: 'dislike',
+													file: 'images/svg.svg'
+												}
+											),
+											iconPosition: 'after',
+											attrs: {
+												type: 'button',
+												'data-entity-id': 1,
+												'data-element': 1,
+												'data-action': 'dislike'
+											}
+										}
+									) }}
+
+									<div class="hint-toggle" data-popup-toggle-default data-popup-toggle="vote">
+										{{ mixins.icon(
+											{
+												className: 'hint-toggle__icon svg-ico_no_stroke',
+												id: 'question',
+												file: 'images/svg.svg'
+											}
+										) }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="step-section step-section_acn c-acn">
+			<div class="step-section__head">
+				<div class="row align-items-center">
+					<div class="step-section__head-title col-12 col-xl-auto">
+						<h3 class="c-title c-title_size_md mb-0">Действия</h3>
+					</div>
+					<div class="col-12 mt-2 col-xl-2 mt-xl-0 text-xl-right">
+						<a class="c-btn c-btn_style_link c-btn_color_quarternary c-btn_bare c-acn__toggle" aria-expanded="false" href="javascript:;">
+							<span class="c-btn__text c-acn__title">Развернуть</span>
+							{{ mixins.icon(
+								{
+									className: 'c-btn__icon',
+									id: 'chevron-down'
+								}
+							) }}
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="step-section__body c-acn__content">
+				<div class="c-acn__inner">
+					<div class="form-fields">
+						<div class="form-field">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_checked',
+								type: 'checkbox',
+								text: 'Вычеркивая это действие, я даю добровольное согласие на изменение качества своей жизни. Я отдаю себе отчёт в том, что обратного пути не будет.',
+								attrs: {
+									name: 'FIELD_1',
+									id: 'step_field_1',
+									value: 'Y'
+								}
+							}) }}
+						</div>
+
+						<div class="form-field">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_checked',
+								type: 'checkbox',
+								text: 'Пройти <a href="#">тест «Ступени Жизни».</a>',
+								attrs: {
+									name: 'FIELD_2',
+									id: 'step_field_2',
+									value: 'Y'
+								}
+							}) }}
+						</div>
+
+						<div class="form-field">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_checked',
+								type: 'checkbox',
+								text: 'Завести ежедневник с качественным переплётом и обложкой, сделать первую запись. Это отправная точка. <ul class="c-ul c-ul_color_secondary"><li>Зафиксировать своё физическое и психологическое состояние, свои переживания</li><li>Описать свои моральные принципы, мировоззрение</li></ul>',
+								attrs: {
+									name: 'FIELD_3',
+									id: 'step_field_3',
+									value: 'Y'
+								}
+							}) }}
+						</div>
+
+						<div class="form-field">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_checked',
+								type: 'checkbox',
+								text: 'Сделать фото, чтобы запечатлеть своё эмоциональное состояние',
+								attrs: {
+									name: 'FIELD_4',
+									id: 'step_field_4',
+									value: 'Y'
+								}
+							}) }}
+						</div>
+					</div>
+
+					<section class="mt-3 mt-xl-5">
+						<h3 class="c-title c-title_size_md">По привычке</h3>
+						<div class="form-fields">
+							<div class="form-field">
+							{{ ctrl.default({
+								className: 'c-ctrl_style_default c-ctrl_size_lg c-ctrl_checked',
+								type: 'checkbox',
+								text: 'Выполнить все действия',
+								attrs: {
+									name: 'FIELD_5',
+									id: 'step_field_5',
+									value: 'Y'
+								}
+							}) }}
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="step-section step-section_regular u-bg-color-secondary">
+			<div class="step-section__head">
+				<div class="row">
+					<div class="col-12 col-xl-auto">
+						<h3 class="c-title c-title_size_md mb-0">Тест «Ступени Жизни»</h3>
+					</div>
+				</div>
+			</div>
+			<div class="step-section__body">
+				<div class="step-section__controls">
+					{{ button.default(
+						{
+							className: 'c-btn c-btn_style_default c-btn_color_light c-btn_size_lg c-btn_width_md',
+							text: 'Приступить к тесту',
+							icon: mixins.icon(
+								{
+									className: 'c-btn__icon svg-ico_no_stroke',
+									id: 'arrow-steps',
+									file: 'images/svg.svg'
+								}
+							),
+							iconPosition: 'after',
+							attrs: {
+								href: '/ajax_step_test.html',
+								'data-step-id': 1,
+								'data-step-test-modal': true
+							}
+						}
+					) }}
+				</div>
+			</div>
+		</div>
+
+		<div class="step-section step-section_regular d-none" data-display-state="ready">
+			<div class="step-section__head">
+				<div class="row">
+					<div class="col-12 col-xl-auto">
+						<h3 class="c-title c-title_size_md mb-0">Все действия выполнены!</h3>
+					</div>
+				</div>
+			</div>
+			<div class="step-section__body">
+				<div class="step-section__controls row">
+					<div class="col-12">
+						{{ button.default(
+							{
+								className: 'c-btn c-btn_style_default c-btn_color_primary c-btn_accent c-btn_size_lg c-btn_width_md',
+								text: 'Подтвердить',
+								attrs: {
+									type: 'submit'
+								}
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="c-popup c-popup_style_default" data-popup="vote">
+	<div class="c-popup__close" data-popup-close>
+		{{ mixins.icon(
+			{
+				className: 'c-popup__close-icon svg-ico_no_fill',
+				id: 'times'
+			}
+		) }}
+	</div>
+	Тест тест тест
+</div>

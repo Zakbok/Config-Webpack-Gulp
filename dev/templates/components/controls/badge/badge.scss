@@ -1,0 +1,46 @@
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+@import "dev/scss/helpers/functions";
+
+@mixin badge-color-class ($palette) {
+
+	@each $modifier, $color in $palette {
+
+		.c-badge_color_#{$modifier} {
+			border-color: map-get($color, text-color);
+			color: map-get($color, text-color);
+			background-color: map-get($color, color);
+		}
+	}
+}
+
+$palette: (
+	info: (
+		color: $color-info-light,
+		text-color: $color-info,
+	),
+	error: (
+		color: $color-error-light,
+		text-color: $color-error,
+	),
+	success: (
+		color: $color-success-light,
+		text-color: $color-success,
+	),
+);
+
+.c-badge {
+	border: 1px solid;
+	text-align: center;
+	max-width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	font-size: 12px;
+
+	a {
+		color: inherit;
+	}
+}
+
+@include badge-color-class($palette);

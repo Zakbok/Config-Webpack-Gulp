@@ -1,0 +1,223 @@
+/****************************************************************************/
+/* MODAL WINDOW */
+/****************************************************************************/
+
+.c-modal {
+	display: none;
+	padding: 45px 25px 55px;
+	width: 90%;
+	background: #e1e4f2;
+	background-image: linear-gradient(143.82deg, #f2f3f9 4.04%, #e1e4f2 96.39%);
+	position: relative;
+	border-radius: 40px;
+	border-top-right-radius: 0;
+}
+
+.c-modal_active {
+	display: inline-block;
+}
+
+.c-modal__body {
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.modal-close {
+	width: 36px;
+	height: 36px;
+	position: absolute;
+	top: 10px !important;
+	right: 10px !important;
+	border-radius: 0;
+	opacity: 1 !important;
+	background: 0;
+	color: #b8bcce !important;
+	padding: 10px !important;
+	outline: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include g-transition(color);
+
+	&:after {
+		content: none;
+	}
+
+	&:hover, &:focus {
+		color: $color-tertiary !important;
+	}
+}
+
+.c-modal {
+
+	.scrollbar-container {
+		height: 75vh;
+		margin-right: -20px;
+		padding-right: 20px;
+		width: auto;
+		overflow: auto;
+		// padding-right: 25px;
+
+		&.mb-container {
+			overflow: hidden;
+		}
+	}
+}
+
+
+/**
+* Default
+*/
+
+.c-modal_style_default {
+	background: #fff;
+}
+
+
+
+/**
+* Widths
+*/
+
+.c-modal_width_sm {
+	max-width: 682px;
+
+	.c-modal__body {
+		width: 540px;
+	}
+}
+
+.c-modal_width_md {
+	max-width: 826px;
+
+	.c-modal__body {
+		width: 540px;
+	}
+}
+
+.c-modal_width_lg {
+	max-width: 1250px;
+
+	.c-modal__body {
+		width: 1110px;
+	}
+}
+
+.c-modal_width_xl {
+	max-width: 1396px;
+
+	.c-modal__body {
+		width: 1254px;
+	}
+}
+
+@media (min-width: $bp-md) {
+
+	.c-modal_width_sm {
+		padding-top: 85px;
+		padding-bottom: 112px;
+	}
+
+	.c-modal_width_md {
+		padding: 85px 50px 120px;
+	}
+}
+
+
+/**
+* Step
+*/
+
+.c-modal_step {
+	padding: 10px 0 0 0;
+	max-width: 1250px;
+}
+
+
+/**
+* Test
+*/
+
+.c-modal_test {
+	padding: 35px 25px 25px;
+	max-width: 1250px;
+
+	.c-modal__body {
+		width: 1110px;
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.c-modal_test {
+		padding-top: 90px;
+		padding-bottom: 82px;
+	}
+}
+
+
+/**
+* Chat
+*/
+
+.fancybox-container_chat {
+
+	.fancybox-slide {
+		padding: 0 !important;
+	}
+}
+
+.fancybox_chat {
+
+	.c-header,
+	.fixed-menu {
+		z-index: 99993;
+	}
+}
+
+.chat-modal {
+	display: none;
+	// padding: 70px 25px 80px;
+	padding: 0;
+	background: #f9faff;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+}
+
+@media (max-width: $bp-lg - 1px) {
+
+	.fancybox_chat {
+		overflow: hidden;
+	}
+
+	.chat-modal {
+		height: calc(var(--vh, 1vh) * 100);
+	}
+}
+
+@media (min-width: $bp-xl) {
+
+	.chat-modal {
+		width: 1254px;
+	}
+
+	.fancybox-stage_chat {
+
+		.fancybox-slide {
+			text-align: right;
+		}
+	}
+}
+
+
+/**
+* Chat modal
+*/
+
+.c-modal_chat {
+	padding: 30px 20px;
+	border-radius: 0;
+	max-width: 500px;
+}

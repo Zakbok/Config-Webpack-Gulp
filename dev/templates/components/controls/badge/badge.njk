@@ -1,0 +1,29 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default (array, params) %}
+
+<div class="c-badge {{ array.className }}">
+	{% if array.icon and array.iconPosition === 'before' or not array.iconPosition %}
+		{% if array.iconClassName %}
+			<img class="{{ array.iconClassName }}" src="{{ array.icon }}" alt="">
+		{% else %}
+			{{ array.icon | safe }}
+		{% endif %}
+	{% endif %}
+
+	{% if array.textClassName %}
+		<span class="{{ array.textClassName }}">{{ array.text | safe }}</span>
+	{% else %}
+		{{ array.text | safe }}
+	{% endif %}
+
+	{% if array.icon and array.iconPosition === 'after' %}
+		{% if array.iconClassName %}
+			<img class="{{ array.iconClassName }}" src="{{ array.icon }}" alt="">
+		{% else %}
+			{{ array.icon | safe }}
+		{% endif %}
+	{% endif %}
+</div>
+
+{% endmacro %}

@@ -1,0 +1,9 @@
+/****************************************************************************/
+/* TEXT SHADOW OUTLINE */
+/****************************************************************************/
+
+@mixin text-shadow ($width: 2px, $color: #000) {
+	$width-sm: math.div($width, 2);
+
+	text-shadow: $width 0 0 $color, -#{$width} 0 0 $color, 0 $width 0 $color, 0 -#{$width} 0 $color, $width-sm $width-sm $color, -#{$width-sm} -#{$width-sm} 0 $color, $width-sm -#{$width-sm} 0 $color, -#{$width-sm} $width-sm 0 $color;
+}

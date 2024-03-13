@@ -1,0 +1,11 @@
+{% macro default (array, params) %}
+
+<ul class="links-menu">
+	{% for item in array %}
+		<li class="links-menu__item">
+			<a class="links-menu__link links-menu__link_events" href="#">{{ item.title }}</a>
+		</li>
+	{% endfor %}
+</ul>
+
+{% endmacro %}

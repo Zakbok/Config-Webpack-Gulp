@@ -1,0 +1,174 @@
+{% import "partials/_mixins.njk" as mixins %}
+{% import "components/lists/stats-list/stats-list.njk" as statsList %}
+{% import "components/controls/unfold/unfold.njk" as unfold %}
+{% import "components/lists/comments-list/comments-list.njk" as commentsList %}
+{% import "components/nav/ajax-pag/ajax-pag.njk" as ajaxPag %}
+{% import "components/controls/button/button.njk" as button %}
+
+{% macro default (array, params) %}
+
+<div class="blogposts-list" data-ajax-block>
+	<div class="blogposts-list__list mb-0" data-ajax-container>
+		{% for item in array %}
+			<div class="blogposts-list__item">
+				<div class="blogpost-item blogpost-item_default {{ 'blogpost-item_owner' if not item.guest }}">
+					<div class="blogpost-item__header">
+						<div class="row">
+							<div class="col-12 col-lg-6">
+								<div class="blogpost-author">
+									<div class="avatar-card">
+										<span class="avatar-card__img u-img-bg" style="background-image: url('{{ item.img }}');"></span>
+									</div>
+									<div class="blogpost-author__main row align-items-center">
+										<div class="blogpost-author__name col-12 col-xl-auto">{{ item.name }}</div>
+										<div class="blogpost-author__date col-12 col-xl-auto">{{ item.date }}</div>
+										<div class="blogpost-author__date col-12">
+											<div class="blogpost-item__info row align-items-center">
+												<span class="blogpost-item__lvl col-auto">{{ item.lvl }} ступень</span>
+												<span class="blogpost-item__step col-auto">{{ item.step }}</span>
+											</div>
+
+											{{ statsList.default(
+												item.authorStats,
+												{
+													className: 'stats-list_size_sm'
+												}
+											) }}
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 d-none col-lg-6 d-lg-block text-lg-right">
+								{{ statsList.comments(
+									item.stats,
+									{
+										className: 'stats-list_comments'
+									}
+								) }}
+							</div>
+						</div>
+					</div>
+					<div class="blogpost-item__body">
+						{% call unfold.default(
+							[],
+							{
+								className: 'blogpost-item__desc blogpost-unfold',
+								btnText: 'Показать полностью...'
+							}
+						) %}
+							{{ item.text }}
+						{% endcall %}
+
+						{% if params.edit %}
+							<div class="blogpost-item__controls row justify-content-end">
+								<div class="col-auto">
+									<label class="btn-input-container">
+										<input class="btn-input sr-only" type="checkbox" data-toggle-journal-visibility name="VISIBILITY" value="1">
+
+										{{ button.default(
+											{
+												className: 'blogpost-item__btn c-btn c-btn_style_link c-btn_color_primary c-btn_bare c-btn_size_md c-btn_icon_after c-btn_accent text-uppercase',
+												text: 'Скрыть запись',
+												icon: mixins.icon({
+													className: 'c-btn__icon svg-ico_no_stroke',
+													id: 'eye-crossed',
+													file: 'images/svg.svg'
+												}),
+												iconPosition: 'after'
+											}
+										) }}
+									</label>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+					<div class="blogpost-item__footer text-right d-lg-none">
+						{{ statsList.comments(
+							item.stats,
+							{
+								className: 'stats-list_comments'
+							}
+						) }}
+					</div>
+					<div class="blogpost-item__comments">
+						{{ commentsList.default(
+							item.comments,
+							{
+								listAttrs: {
+									'data-comments-container': true
+								}
+							}
+						) }}
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	{% if params.pag === 'ajax' %}
+		{{ ajaxPag.default(
+			{
+				control: {
+					className: 'c-btn c-btn_style_default w-100',
+					text: 'Загрузить ещё',
+					icon: mixins.icon(
+						{
+							className: 'c-btn__icon svg-ico_no_stroke',
+							id: 'arrow-down'
+						}
+					),
+					iconPosition: 'after',
+					attrs: {
+						type: 'button',
+						'data-ajax-toggle': true
+					}
+				}
+			}
+		) }}
+	{% endif %}
+</div>
+
+{% endmacro %}
+
+{% macro small (array, params) %}
+
+<div class="blogposts-list blogposts-list_journal">
+	<div class="blogposts-list__list">
+		{% for item in array %}
+			<div class="blogposts-list__item">
+				<div class="blogpost-item blogpost-item_secondary">
+					<div class="blogpost-item__date">{{ item.date }}</div>
+					<div class="blogpost-item__lvl">{{ item.lvl }} ступень</div>
+					<div class="blogpost-item__desc">
+						{{ item.text }}
+					</div>
+
+					{% if params.edit %}
+						<div class="blogpost-item__controls row justify-content-end">
+							<div class="col-auto">
+								<label class="btn-input-container">
+									<input class="btn-input sr-only" type="checkbox" data-toggle-journal-visibility name="VISIBILITY" value="1">
+
+									{{ button.default(
+										{
+											className: 'blogpost-item__btn c-btn c-btn_style_link c-btn_color_primary c-btn_bare c-btn_size_md c-btn_icon_after c-btn_accent text-uppercase',
+											text: 'Запись видима',
+											icon: mixins.icon({
+												className: 'c-btn__icon svg-ico_no_stroke',
+												id: 'eye',
+												file: 'images/svg.svg'
+											}),
+											iconPosition: 'after'
+										}
+									) }}
+								</label>
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}

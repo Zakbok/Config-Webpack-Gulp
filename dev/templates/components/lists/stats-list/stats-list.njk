@@ -1,0 +1,70 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default (array, params) %}
+
+<div class="stats-list {{ params.className }}" {{ params.attrs | implode_attrs | safe }}>
+	<div class="stats-list__list row">
+		{% for item in array %}
+			{% if item.code == 'wisdom' %}
+				{% set icon = 'harmony' %}
+			{% elseif item.code == 'persistence' %}
+				{% set icon = 'arrow-steps-up' %}
+			{% elseif item.code == 'inactivity' %}
+				{% set icon = 'clock' %}
+			{% endif %}
+
+			{% set popupId = 'stat_' + item.code %}
+
+			<div class="stats-list__item col-auto">
+				<div class="stat-item {{ params.elClassName }}" data-stat-code="{{ item.code }}" {{ ('data-popup-toggle-stat data-popup-toggle="' + popupId + '"') | safe if params.hints }}>
+					{# {{ mixins.icon(
+						{
+							className: 'stat-item__icon svg-ico_no_stroke',
+							id: icon
+						}
+					) }} #}
+					<img class="stat-item__icon" src="images/{{ icon }}.svg" alt="">
+					<div class="stat-item__value" data-stat-value>{{ item.value }}</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}
+
+{% macro comments (array, params) %}
+
+<div class="stats-list {{ params.className }}">
+	<div class="stats-list__list row">
+		{% for item in array %}
+			<div class="stats-list__item col-auto">
+				{% if item.events %}
+					<button class="stat-item stat-item_style_toggle {{ 'active' if item.active }}" type="button" data-action="like">
+						{{ mixins.icon(
+							{
+								className: 'stat-item__icon svg-ico_no_stroke',
+								id: item.icon,
+								file: 'images/svg.svg'
+							}
+						) }}
+						<div class="stat-item__value" data-action-value>{{ item.value }}</div>
+					</button>
+				{% else %}
+					<div class="stat-item stat-item_style_default">
+						{{ mixins.icon(
+							{
+								className: 'stat-item__icon svg-ico_no_stroke',
+								id: item.icon,
+								file: 'images/svg.svg'
+							}
+						) }}
+						<div class="stat-item__value">{{ item.value }}</div>
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endmacro %}

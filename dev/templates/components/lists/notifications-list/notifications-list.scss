@@ -1,0 +1,63 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+
+.notifications-list {
+
+}
+
+.notifications-list__item {
+
+	& + & {
+		margin-top: 20px;
+	}
+}
+
+.notification-item {
+	position: relative;
+	padding-left: 30px;
+	font-size: 14px;
+	line-height: 1.2;
+	padding: 10px;
+	display: block;
+	white-space: wrap;
+
+	@include g-transition(color);
+
+	.c-ctrl {
+		position: absolute;
+		top: 4px;
+		left: 0;
+	}
+
+	.c-ctrl__title {
+		padding: 0 !important;
+	}
+}
+
+.notification-item_events {
+	color: inherit;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		color: $color-primary;
+	}
+}
+
+.notification-item__date {
+	font-size: 11px;
+	line-height: 1.2;
+	// color: $color-quarternary-darker;
+	margin-top: 5px;
+}
+
+/**
+* Read
+*/
+
+.notification-item_read {
+	opacity: 0.8;
+	color: $color-quarternary;
+}

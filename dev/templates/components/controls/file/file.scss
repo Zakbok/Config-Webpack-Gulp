@@ -1,0 +1,40 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+/****************************************************************************/
+/* FILE DROPZONE */
+/****************************************************************************/
+
+.c-file_style_default {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	color: $color-primary;
+
+	@include g-transition(color);
+
+	.c-file__icon {
+		width: 36px;
+		height: 36px;
+		background: $color-primary;
+		fill: #fff;
+		border-radius: 6px;
+		padding: 5px;
+	}
+
+	.c-file__body {
+		padding-left: 15px;
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	&:hover, &:focus {
+		color: $color-primary;
+	}
+
+	&.c-file_error {
+		color: $color-error;
+	}
+}

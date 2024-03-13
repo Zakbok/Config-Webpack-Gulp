@@ -1,0 +1,13 @@
+
+{% macro default(params) %}
+
+<div class="loader {{ params.className }}" data-loader>
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="loader__icon" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" fill="none">
+		<circle class="loader__outer" cx="50" cy="50" r="30" stroke="#dfdfdf" stroke-width="4">
+		</circle>
+		<circle class="loader__inner" cx="50" cy="50" r="30" stroke="#0f35f8" stroke-width="4" stroke-dasharray="20 180">
+		</circle>
+	</svg>
+</div>
+
+{% endmacro %}

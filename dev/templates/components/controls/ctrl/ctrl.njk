@@ -1,0 +1,14 @@
+{% import "partials/_mixins.njk" as mixins %}
+
+{% macro default(array, params) %}
+
+<div class="c-ctrl c-ctrl_{{ array.type }} {{ array.className }}">
+    <input class="c-ctrl__input" type="{{ 'radio' if array.type == 'radio' else 'checkbox' }}" {{ array.attrs | implode_attrs | safe }}>
+    <label class="c-ctrl__title" for="{{ array.attrs.id }}">
+		{% if array.text.length > 0 %}
+			<span class="c-ctrl__value">{{ array.text | safe }}</span>
+		{% endif %}
+	</label>
+</div>
+
+{% endmacro %}

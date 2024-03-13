@@ -1,0 +1,257 @@
+@use "sass:math";
+
+@import "dev/scss/helpers/variables";
+@import "dev/scss/helpers/mixins";
+
+.c-input {
+	display: block;
+	width: 100%;
+	outline: 0;
+	font-family: inherit;
+}
+
+
+/**
+* Default
+*/
+
+.c-input_style_default {
+	background: #fff;
+	border: 1px solid transparent;
+	-webkit-appearance: none;
+	color: $color-text;
+	box-shadow: none;
+
+	@include g-transition(border-color);
+	@include input-placeholder {
+		color: #b8bcce;
+	}
+
+	&:focus {
+		color: $color-tertiary;
+	}
+
+	&[disabled],
+	&[readonly] {
+		background-color: transparent;
+		border-color: #dde0ee;
+	}
+
+	&.c-input_border {
+		border-color: #dde0ee;
+	}
+
+	&.c-input_error {
+		border-color: $color-error;
+		color: $color-error;
+	}
+
+	&.c-input_success {
+		border-color: $color-success;
+	}
+
+	&.c-input_size_md {
+		height: 50px;
+		min-height: 50px;
+		border-radius: 33px;
+		padding: 0 20px;
+		border-width: 2px;
+	}
+
+	&.c-input_size_lg {
+		height: 66px;
+		min-height: 66px;
+		border-radius: 33px;
+		padding: 0 30px;
+		border-width: 2px;
+
+		&.c-input_multiline {
+			height: 160px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+	}
+}
+
+
+/**
+* Lined
+*/
+
+$font-size: 14px;
+$line-width: 1px;
+$line-color: #dbdfee;
+$background-color: #fff;
+$background-color-locked: #f4f6fd; // нет возможности задать честную прозрачность и сохранить отступы у полей
+$x-padding: 25px;
+
+.c-input_lined {
+	font-size: $font-size;
+	background-attachment: local;
+	background-image:
+		linear-gradient(to right, $background-color, $background-color $x-padding, transparent $x-padding),
+		linear-gradient(to left, $background-color, $background-color $x-padding, transparent $x-padding),
+		repeating-linear-gradient(
+			$background-color,
+			$background-color $font-size * 2 - $line-width,
+			$line-color $font-size * 2 - $line-width,
+			$line-color $font-size * 2
+		);
+	line-height: $font-size * 2;
+	padding: math.div($font-size, 3) $x-padding !important;
+	resize: none;
+}
+
+.c-input_lined_secondary {
+	background-color: transparent;
+	background-image:
+		linear-gradient(to right, $background-color-locked, $background-color-locked x-padding, transparent $x-padding),
+		linear-gradient(to left, $background-color-locked, $background-color-locked $x-padding, transparent $x-padding),
+		repeating-linear-gradient(
+			$background-color-locked,
+			$background-color-locked $font-size * 2 - $line-width,
+			$line-color $font-size * 2 - $line-width,
+			$line-color $font-size * 2
+		);
+}
+
+@media (min-width: $bp-xl) {
+
+	$font-size: 14px;
+
+	.c-input_lined {
+		font-size: $font-size;
+		background-image:
+			linear-gradient(to right, $background-color, $background-color $x-padding, transparent $x-padding),
+			linear-gradient(to left, $background-color, $background-color $x-padding, transparent $x-padding),
+			repeating-linear-gradient(
+				$background-color,
+				$background-color $font-size * 2.5 - $line-width,
+				$line-color $font-size * 2.5 - $line-width,
+				$line-color $font-size * 2.5
+			);
+		line-height: $font-size * 2.5;
+		padding: decimal-round(math.div($font-size, 3), 2) $x-padding !important;
+	}
+
+	.c-input_lined_secondary {
+		background-image:
+			linear-gradient(to right, $background-color-locked, $background-color-locked $x-padding, transparent $x-padding),
+			linear-gradient(to left, $background-color-locked, $background-color-locked $x-padding, transparent $x-padding),
+			repeating-linear-gradient(
+				$background-color-locked,
+				$background-color-locked $font-size * 2.5 - $line-width,
+				$line-color $font-size * 2.5 - $line-width,
+				$line-color $font-size * 2.5
+			);
+	}
+}
+
+
+/**
+* Антиспам-поле
+*/
+
+.c-input_phone,
+.input-tel-field {
+
+	@include hide;
+}
+
+
+/**
+* Input label
+*/
+
+.c-input-label {
+	display: inline-block;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: get-line-height(19px, 14px);
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: $color-tertiary;
+	margin-bottom: 10px;
+}
+
+.c-input-label__required {
+	color: $color-error;
+}
+
+@media (max-width: 375px) {
+
+	.c-input-label {
+		white-space: normal;
+	}
+}
+
+
+/**
+* Input group
+*/
+
+.c-input-group {
+	display: flex;
+}
+
+.c-input-group__main {
+	flex: 1 1 1%;
+}
+
+.c-input-group__aside {
+	flex: 0 0 auto;
+}
+
+.c-input-group_prepend {
+
+	.c-input {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
+
+
+/**
+* Autosize
+*/
+
+.c-input_autosize {
+	resize: none;
+}
+
+
+/****************************************************************************/
+/* FIELD */
+/****************************************************************************/
+
+.c-field {
+	position: relative;
+	overflow: hidden;
+
+	.c-input {
+		padding-right: 70px;
+	}
+}
+
+.c-field__aside {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	color: $color-primary;
+
+	&.c-btn {
+		padding-left: 15px;
+		padding-right: 15px;
+
+		&:hover, &:focus {
+			color: $color-secondary;
+		}
+	}
+
+	.c-btn__icon {
+		width: 20px;
+		height: 20px;
+	}
+}
