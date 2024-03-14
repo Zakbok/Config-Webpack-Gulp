@@ -2,9 +2,8 @@
 
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const stylelint = require('stylelint');
+// const stylelint = require('stylelint');
 const sourcemaps = require('gulp-sourcemaps');
-// const debug = require('gulp-debug');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
@@ -35,7 +34,6 @@ gulp.task('comp:styles', function () {
 
   return gulp
     .src([config.src.components + '/**/*.{sass,scss}', `!${config.src.components}/modules/**/*.{sass,scss}`])
-    // .pipe(debug())
     .pipe(gulpIf(!config.production, sourcemaps.init()))
     .pipe(sass({
       outputStyle: config.production ? 'compressed' : 'expanded', // nested, expanded, compressed
@@ -78,7 +76,6 @@ gulp.task('comp:js', function () {
 
   return gulp
     .src([config.src.components + '/**/*.{js,ts}', `!${config.src.components}/modules/**/*.js`])
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -101,7 +98,6 @@ gulp.task('comp:js-isolated', function () {
 gulp.task('comp:images', function () {
   return gulp
     .src(config.src.components + '/**/*.{' + config.ext.images + '}')
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -112,7 +108,6 @@ gulp.task('comp:images', function () {
 gulp.task('comp:fonts', function () {
   return gulp
     .src(config.src.components + '/**/*.{' + config.ext.fonts + '}')
-    // .pipe(debug())
     .pipe(gulp.dest(config.dest.components));
 });
 

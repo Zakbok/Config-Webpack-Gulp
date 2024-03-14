@@ -56,38 +56,12 @@ function createConfig (env, entry, output) {
     }
   };
 
-  // временный костыль
-  // if (entry) {
-  //   webpackConfig.entry = {};
-  //   webpackConfig.entry = entry;
-  // }
-
-  // if (output) {
-  //   webpackConfig.output = {};
-  //   webpackConfig.output = output;
-  // }
   webpackConfig.entry = {
     main: path.resolve(__dirname, 'dev/js/main.ts'),
-    comments: {
-      import: path.resolve(__dirname, 'dev/js/comments.ts'),
-      dependOn: 'main'
-    },
-    ladder: {
-      import: path.resolve(__dirname, 'dev/js/ladder.ts'),
-      dependOn: 'main'
-    },
-    personal: {
-      import: path.resolve(__dirname, 'dev/js/personal.ts'),
-      dependOn: 'main'
-    },
-    step: {
-      import: path.resolve(__dirname, 'dev/js/step'),
-      dependOn: 'main'
-    },
-    chat: {
-      import: path.resolve(__dirname, 'dev/js/chat'),
-      dependOn: 'main'
-    }
+    // comments: {
+    //   import: path.resolve(__dirname, 'dev/js/comments.ts'),
+    //   dependOn: 'main'
+    // }
   };
   webpackConfig.output = {
     filename: 'bundle.[name].js'

@@ -5,10 +5,6 @@ interface Options {
 }
 
 export default function createModal (params: Options) {
-  if (!params.className) {
-    params.className = 'c-modal_width_md';
-  }
-
   let $el = $(`<div class="c-modal ${params.className}"></div>`);
   let $inner = $('<div class="c-modal__body c-form"></div>');
 

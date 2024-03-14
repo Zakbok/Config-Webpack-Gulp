@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
-// const debug = require('gulp-debug');
 
 const webpack = require('webpack-stream');
 const webpackConfig = require('../../webpack.config').createConfig;
@@ -20,7 +19,6 @@ gulp.task('js:core', function () {
 
   return gulp
     .src(`${config.src}/index.js`)
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -31,7 +29,6 @@ gulp.task('js:core', function () {
 gulp.task('js:vendor', function () {
   return gulp
     .src([`${config.src.js}/vendor/**/*.*`])
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -41,7 +38,6 @@ gulp.task('js:vendor', function () {
 gulp.task('js:poly', function () {
   return gulp
     .src([config.src.js + '/polyfills/**/*.js'])
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))

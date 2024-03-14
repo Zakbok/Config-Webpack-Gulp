@@ -6,7 +6,6 @@ const plumber = require('gulp-plumber');
 const gulpif = require('gulp-if');
 const changed = require('gulp-changed');
 const prettify = require('gulp-prettify');
-// const debug = require('gulp-debug');
 const data = require('gulp-data');
 const path = require('path');
 
@@ -144,7 +143,6 @@ function renderHtml (onlyChanged) {
 
   return gulp
     .src(config.src.templates + '/[^_]*.njk')
-    // .pipe(debug())
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))

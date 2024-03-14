@@ -10,20 +10,6 @@ $buttonsDefault: (
 		border-color: transparent,
 		background-color: $color-primary,
 		background-color-hover: #8C9ADA,
-	),
-	tertiary: (
-		color: #fff,
-		border-color: transparent,
-		background-color: $color-tertiary,
-		background-color-hover: #323851,
-		background-color-active: #232941,
-	),
-	light: (
-		color: $color-tertiary,
-		border-color: transparent,
-		background-color: #fff,
-		background-color-hover: lighten($color-quarternary, 50%),
-		background-color-active: lighten($color-quarternary, 40%),
 	)
 );
 
@@ -32,17 +18,6 @@ $buttonsGhost: (
 		color: $color-primary,
 		color-hover: #8c9ada,
 		color-active: #8191d6,
-	),
-	quarternary: (
-		color: $color-quarternary,
-		color-hover: darken($color-quarternary, 5%),
-	),
-	light: (
-		color: #fff,
-		color-hover: #fff,
-		background-color: transparent,
-		background-color-hover: $color-primary,
-		background-color-active: $color-primary,
 	)
 );
 
@@ -50,19 +25,7 @@ $buttonsLink: (
 	primary: (
 		color: $color-primary,
 		color-hover: $color-text-dark,
-	),
-	tertiary: (
-		color: $color-tertiary,
-		color-hover: $color-text-dark,
-	),
-	quarternary: (
-		color: $color-quarternary,
-		color-hover: $color-primary
-	),
-	text: (
-		color: $color-text,
-		color-hover: $color-primary,
-	),
+	)
 );
 
 .c-btn {

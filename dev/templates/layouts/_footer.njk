@@ -1,28 +1,2 @@
-{% import "partials/_mixins.njk" as mixins %}
-{% import "components/nav/links-menu/links-menu.njk" as linksMenu %}
-
 <footer class="c-footer">
-	<svg class="c-footer__decor" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 80h79.834V0c0 44.128-35.728 79.91-79.834 80Z"/></svg>
-
-	<div class="container">
-		<div class="row align-items-md-center">
-			<div class="c-footer__logo col-12 col-md-4 mb-md-0 text-md-left">
-				<div class="c-logo">
-					<img src="images/logo.svg" alt="">
-				</div>
-			</div>
-			<div class="c-footer__aside col-12 col-md-8 text-md-right">
-				<div class="row align-items-xl-center">
-					<div class="c-footer__nav col-12 col-xl-auto">
-						{{ linksMenu.default(
-							linksMenuArr
-						) }}
-					</div>
-					<div class="c-footer__copyright col-12 col-xl-auto mt-xl-0">
-						<div class="c-copyright">© Ступени жизни  |  Все права защищены  |  2022</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </footer>

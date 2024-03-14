@@ -87,7 +87,7 @@ export default function submitAJAX (form: HTMLFormElement, e: SubmitEvent, param
 
   if (e.submitter && e.submitter.hasAttribute('formaction')) {
     url = e.submitter.getAttribute('formaction');
-  }
+  }  
 
   $.ajax({
     type: 'POST',

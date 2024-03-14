@@ -7,7 +7,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');
 const csso = require('postcss-csso');
-const stylelint = require('stylelint');
+// const stylelint = require('stylelint');
 const gulpIf = require('gulp-if');
 const sortMediaQueries = require('../util/sortMediaQueries');
 

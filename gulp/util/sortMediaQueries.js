@@ -9,8 +9,8 @@ function isMin (mq) {
 }
 
 module.exports = function (a, b) {
-  var A = a.replace(/\D/g, '');
-  var B = b.replace(/\D/g, '');
+  const A = a.replace(/\D/g, '');
+  const B = b.replace(/\D/g, '');
 
   if (isMax(a) && isMax(b)) {
     return B - A;

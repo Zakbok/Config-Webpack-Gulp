@@ -60,13 +60,13 @@
     "stylelint": "13.13.1",
     "typescript": "4.3.5",
     "vinyl-named": "1.1.0",
-    "webpack": "5.50.0",
+    "webpack": "^5.90.3",
     "webpack-bundle-analyzer": "4.4.2",
     "webpack-stream": "7.0.0"
   },
   "scripts": {
     "build": "gulp build --production",
-    "start": "gulp build --production && gulp",
+    "start": "gulp build:dev --development && gulp",
     "page": "node page.js",
     "cmpt": "node comp.js"
   },
